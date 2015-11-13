@@ -1,0 +1,17 @@
+{
+  "name": "generator-koa-theme",
+  "version": "0.0.0",
+  "description": "Scaffold out a King of App theme",
+  "license": "MIT",
+  "main": "app/index.js",
+  "author": "Abdón Rodríguez Davila <thepeer@kingofapp.es>",
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.21.1"
+  }
+}
