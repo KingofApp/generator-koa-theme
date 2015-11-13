@@ -1,13 +1,26 @@
 'use strict';
 
 var yeoman = require('yeoman-generator');
-var tags = require('./tags.json');
+var fs = require('fs');
 
 module.exports = yeoman.generators.NamedBase.extend({
   init: function() {
     this.themeName = this.name;
     this.themeKoaName = 'koa-' + this.themeName + '-theme';
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
+    this.tags = [];
+  },
+
+  getTags: function() {
+    var elementsPath = '../generators/app/templates/elements';
+    var elements = fs.readdirSync(elementsPath).filter(function(file) {
+      return fs.statSync(elementsPath + '/' + file).isDirectory();
+    });
+
+    elements.forEach(function(element) {
+      var tag = element.replace('koa-', '');
+      this.tags.push(tag);
+    }.bind(this));
   },
 
   writing: function() {
@@ -46,7 +59,7 @@ module.exports = yeoman.generators.NamedBase.extend({
   },
 
   writingElements: function() {
-    tags.forEach(function(tag) {
+    this.tags.forEach(function(tag) {
       var isSubElement = tag.search('/') !== -1;
 
       if (!isSubElement) {
