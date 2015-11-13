@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
+<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
+
+<!--
+### Styling
+
+Custom property | Description | Default
+----------------|-------------|--------
+`--tab` | Mixin applied to the tab | `{}`
+`--tab-content` | Mixin applied to the tab content | `{}`
+`--tab-content-unselected` | Mixin applied to the tab content when the tab is not selected | `{}`
+-->
+
+<dom-module id="<%= tagName %>">
+  <template>
+    <style>
+      /* Write your styles here */
+    </style>
+
+    <!-- Write your template here -->
+  </template>
+
+  <script>
+    Polymer({
+      is: '<%= tagName %>',
+
+      hostAttributes: {
+        role: 'tab'
+      },
+
+      behaviors: [
+        Polymer.IronButtonState,
+        Polymer.IronControlState
+      ]
+    });
+  </script>
+</dom-module>

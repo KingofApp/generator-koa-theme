@@ -1,0 +1,61 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-a11y-keys-behavior/iron-a11y-keys-behavior.html">
+<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
+
+<!--
+### Styling
+
+Custom property | Description | Default
+----------------|-------------|--------
+`--menu-button-dropdown-background` | Background color of the menu-button dropdown | `#fff`
+`--menu-button` | Mixin applied to the menu-button | `{}`
+`--menu-button-disabled` | Mixin applied to the menu-button when disabled | `{}`
+`--menu-button-dropdown` | Mixin applied to the menu-button dropdown | `{}`
+-->
+
+<dom-module id="<%= tagName %>">
+  <template>
+    <style>
+      /* Write your styles here */
+    </style>
+
+    <!-- Write your template here -->
+  </template>
+
+  <script>
+    Polymer({
+      is: '<%= tagName %>',
+
+      behaviors: [
+        Polymer.IronControlState,
+        Polymer.IronA11yKeysBehavior
+      ],
+
+      properties: {
+        /**
+         * True if the content is currently displayed.
+         */
+        opened: {
+          type: Boolean,
+          value: false,
+          notify: true
+        }
+      },
+
+      /**
+       * Hide the dropdown content.
+       */
+      close: function() {
+
+      },
+
+      /**
+       * Make the dropdown content appear as an overlay positioned relative to
+       * the dropdown trigger.
+       */
+      open: function() {
+
+      }
+    });
+  </script>
+</dom-module>
