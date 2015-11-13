@@ -1,0 +1,45 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!--
+### Styling
+
+Custom property | Description | Default
+----------------|-------------|--------
+`--header-panel-standard-container` | Mixin for the container when the mode is standard | `{}`
+`--header-panel-scroll-container` | Mixin for the container when the mode is scroll | `{}`
+-->
+
+<dom-module id="<%= tagName %>">
+  <template>
+    <style>
+      /* Write your styles here */
+    </style>
+
+    <!-- Write your template here -->
+  </template>
+
+  <script>
+    Polymer({
+      is: '<%= tagName %>',
+
+      properties: {
+        /**
+         * Controls header and scrolling behavior. Options are `standard` and
+         * `scroll`.
+         *
+         * `standard`: The header is a step above the panel. The header will
+         * consume the panel at the point of entry, preventing it from passing
+         * through to the opposite side.
+         *
+         * `scroll`: The header keeps its seam with the panel, and is pushed off
+         * screen.
+         */
+        mode: {
+          type: String,
+          value: 'standard',
+          reflectToAttribute: true
+        }
+      }
+    });
+  </script>
+</dom-module>

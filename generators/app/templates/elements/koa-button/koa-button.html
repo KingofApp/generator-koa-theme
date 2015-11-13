@@ -1,0 +1,39 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
+<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
+
+<!--
+### Styling
+
+Custom property | Description | Default
+----------------|-------------|--------
+`--button` | Mixin applied to the button | `{}`
+`--button-disabled` | Mixin applied to the disabled button. Note that you can also use the `koa-button[disabled]` selector | `{}`
+`--button-keyboard-focus` | Mixin applied to a button after it's been focused using the keyboard | `{}`
+-->
+
+<dom-module id="<%= tagName %>">
+  <template>
+    <style>
+      /* Write your styles here */
+    </style>
+
+    <!-- Write your template here -->
+  </template>
+
+  <script>
+    Polymer({
+      is: '<%= tagName %>',
+
+      hostAttributes: {
+        role: 'button',
+        tabindex: 0
+      },
+
+      behaviors: [
+        Polymer.IronButtonState,
+        Polymer.IronControlState
+      ]
+    });
+  </script>
+</dom-module>
