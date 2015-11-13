@@ -1,6 +1,6 @@
 {
   "name": "<%= themeKoaName %>",
-  "authors": "",
+  "authors": "<%= authorName %>, <<%= authorEmail %>>",
   "description": "<%= themeName %> theme for King of App",
   "main": "<%= themeKoaName %>.html",
   "moduleType": [

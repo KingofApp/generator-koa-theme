@@ -14,7 +14,12 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.fs.copyTpl(
       this.templatePath('bower.json'),
       this.destinationPath('bower.json'),
-      {themeName: this.themeName, themeKoaName: this.themeKoaName}
+      {
+        themeName: this.themeName,
+        themeKoaName: this.themeKoaName,
+        authorName: this.user.git.name(),
+        authorEmail: this.user.git.email()
+      }
     );
 
     this.fs.copyTpl(
