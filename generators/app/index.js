@@ -78,5 +78,9 @@ module.exports = yeoman.generators.NamedBase.extend({
         );
       }
     }.bind(this));
+  },
+
+  install: function() {
+    this.installDependencies({npm: false, bower: true});
   }
 });
