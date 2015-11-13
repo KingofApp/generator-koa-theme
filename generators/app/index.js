@@ -22,6 +22,16 @@ module.exports = yeoman.generators.NamedBase.extend({
       }
     );
 
+    this.fs.copy(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore')
+    );
+
+    this.directory(
+      this.templatePath('styles'),
+      this.destinationPath('styles')
+    );
+
     this.fs.copyTpl(
       this.templatePath('koa-theme.html'),
       this.destinationPath(this.themeKoaName + '.html'),
@@ -32,11 +42,6 @@ module.exports = yeoman.generators.NamedBase.extend({
       this.templatePath('dist/koa-theme.html'),
       this.destinationPath('dist/' + this.themeKoaName + '.html'),
       {themeName: this.themeName}
-    );
-
-    this.directory(
-      this.templatePath('styles'),
-      this.destinationPath('styles')
     );
   },
 
