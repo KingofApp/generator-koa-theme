@@ -12,13 +12,32 @@ module.exports = yeoman.generators.NamedBase.extend({
   },
 
   getTags: function() {
+    var elements = [];
     var elementsPath = '../generators/app/templates/elements';
-    var elements = fs.readdirSync(elementsPath).filter(function(file) {
+    var elementsFolders = fs.readdirSync(elementsPath).filter(function(file) {
       return fs.statSync(elementsPath + '/' + file).isDirectory();
     });
 
+    elementsFolders.forEach(function(elementFolder) {
+      var elementsFiles = fs.readdirSync(elementsPath + '/' + elementFolder);
+
+      elementsFiles.forEach(function(elementFile) {
+        var elementName = elementFile.replace('.html', '');
+
+        if (elementsFiles.length === 1) {
+          elements.push(elementName);
+        } else {
+          if (elementFolder === elementName) {
+            elements.push(elementName);
+          } else {
+            elements.push(elementFolder + '/' + elementName);
+          }
+        }
+      });
+    });
+
     elements.forEach(function(element) {
-      var tag = element.replace('koa-', '');
+      var tag = element.replace(new RegExp('koa-', 'g'), '');
       this.tags.push(tag);
     }.bind(this));
   },
