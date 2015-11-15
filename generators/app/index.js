@@ -1,13 +1,45 @@
 'use strict';
 
 var yeoman = require('yeoman-generator');
-var tags = require('./tags.json');
+var fs = require('fs');
 
 module.exports = yeoman.generators.NamedBase.extend({
   init: function() {
     this.themeName = this.name;
     this.themeKoaName = 'koa-' + this.themeName + '-theme';
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
+    this.tags = [];
+  },
+
+  getTags: function() {
+    var elements = [];
+    var elementsPath = '../generators/app/templates/elements';
+    var elementsFolders = fs.readdirSync(elementsPath).filter(function(file) {
+      return fs.statSync(elementsPath + '/' + file).isDirectory();
+    });
+
+    elementsFolders.forEach(function(elementFolder) {
+      var elementsFiles = fs.readdirSync(elementsPath + '/' + elementFolder);
+
+      elementsFiles.forEach(function(elementFile) {
+        var elementName = elementFile.replace('.html', '');
+
+        if (elementsFiles.length === 1) {
+          elements.push(elementName);
+        } else {
+          if (elementFolder === elementName) {
+            elements.push(elementName);
+          } else {
+            elements.push(elementFolder + '/' + elementName);
+          }
+        }
+      });
+    });
+
+    elements.forEach(function(element) {
+      var tag = element.replace(new RegExp('koa-', 'g'), '');
+      this.tags.push(tag);
+    }.bind(this));
   },
 
   writing: function() {
@@ -22,6 +54,16 @@ module.exports = yeoman.generators.NamedBase.extend({
       }
     );
 
+    this.fs.copy(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore')
+    );
+
+    this.directory(
+      this.templatePath('styles'),
+      this.destinationPath('styles')
+    );
+
     this.fs.copyTpl(
       this.templatePath('koa-theme.html'),
       this.destinationPath(this.themeKoaName + '.html'),
@@ -33,15 +75,10 @@ module.exports = yeoman.generators.NamedBase.extend({
       this.destinationPath('dist/' + this.themeKoaName + '.html'),
       {themeName: this.themeName}
     );
-
-    this.directory(
-      this.templatePath('styles'),
-      this.destinationPath('styles')
-    );
   },
 
   writingElements: function() {
-    tags.forEach(function(tag) {
+    this.tags.forEach(function(tag) {
       var isSubElement = tag.search('/') !== -1;
 
       if (!isSubElement) {
@@ -73,5 +110,9 @@ module.exports = yeoman.generators.NamedBase.extend({
         );
       }
     }.bind(this));
+  },
+
+  install: function() {
+    this.installDependencies({npm: false, bower: true});
   }
 });
