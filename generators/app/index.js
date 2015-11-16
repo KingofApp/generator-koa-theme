@@ -13,7 +13,7 @@ module.exports = yeoman.generators.NamedBase.extend({
 
   getTags: function() {
     var elements = [];
-    var elementsPath = '../generators/app/templates/elements';
+    var elementsPath = __dirname + '/templates/elements/';
     var elementsFolders = fs.readdirSync(elementsPath).filter(function(file) {
       return fs.statSync(elementsPath + '/' + file).isDirectory();
     });
@@ -55,7 +55,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     );
 
     this.fs.copy(
-      this.templatePath('.gitignore'),
+      this.templatePath('_gitignore'),
       this.destinationPath('.gitignore')
     );
 
