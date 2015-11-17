@@ -10,6 +10,8 @@ Custom property | Description | Default
 `--button` | Mixin applied to the button | `{}`
 `--button-disabled` | Mixin applied to the disabled button. Note that you can also use the `koa-button[disabled]` selector | `{}`
 `--button-keyboard-focus` | Mixin applied to a button after it's been focused using the keyboard | `{}`
+`--button-link-keyboard-focus` | Mixin applied to a link button after it's been focused using the keyboard | `{}`
+`--button-big-keyboard-focus` | Mixin applied to a big button after it's been focused using the keyboard | `{}`
 -->
 
 <dom-module id="<%= tagName %>">
@@ -33,7 +35,27 @@ Custom property | Description | Default
       behaviors: [
         Polymer.IronButtonState,
         Polymer.IronControlState
-      ]
+      ],
+
+      properties: {
+        /**
+         * If true, the button should be bigger.
+         */
+        big: {
+          type: Boolean,
+          reflectToAttribute: true,
+          value: false
+        },
+
+        /**
+         * If true, the button should  have a link appearance.
+         */
+        link: {
+          type: Boolean,
+          reflectToAttribute: true,
+          value: false
+        }
+      }
     });
   </script>
 </dom-module>
