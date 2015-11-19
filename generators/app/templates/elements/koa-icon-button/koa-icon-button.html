@@ -1,6 +1,7 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
 <link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
 
 <!--
 ### Styling
@@ -10,15 +11,40 @@ Custom property | Description | Default
 `--icon-button-disabled-text` | The color of the disabled button | `--disabled-text-color`
 `--icon-button` | Mixin for a button | `{}`
 `--icon-button-disabled` | Mixin for a disabled button | `{}`
+`--icon-button-pressed-background-color` | Background color when the button is pressed | `--disabled-text-color`
 -->
 
 <dom-module id="<%= tagName %>">
   <template>
     <style>
       /* Write your styles here */
+      :host {
+        cursor: pointer;
+        display: inline-block;
+
+        @apply(--icon-button);
+      }
+
+      :host([disabled]) {
+        color: var(--icon-button-disabled-text, --disabled-text-color);
+        cursor: auto;
+        pointer-events: none;
+
+        @apply(--icon-button-disabled);
+      }
+
+      :host([pressed]) {
+        background-color: var(--icon-button-pressed-background-color, --disabled-text-color);
+      }
+
+      iron-icon {
+        --iron-icon-width: 100%;
+        --iron-icon-height: 100%;
+      }
     </style>
 
     <!-- Write your template here -->
+    <iron-icon id="icon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>
   </template>
 
   <script>
