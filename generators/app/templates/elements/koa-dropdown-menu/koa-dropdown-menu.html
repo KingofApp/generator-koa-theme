@@ -1,27 +1,17 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
-<link rel="import" href="../../bower_components/iron-form-element-behavior/iron-form-element-behavior.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--dropdown-menu` | A mixin that is applied to the element host | `{}`
-`--dropdown-menu-disabled` | A mixin that is applied to the element host when disabled | `{}`
-`--dropdown-menu-button` | A mixin that is applied to the internal menu button | `{}`
-`--dropdown-menu-input` | A mixin that is applied to the internal paper input | `{}`
-`--dropdown-menu-icon` | A mixin that is applied to the internal icon | `{}`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-dropdown-menu-behavior.html">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
@@ -29,28 +19,8 @@ Custom property | Description | Default
       is: '<%= tagName %>',
 
       behaviors: [
-        Polymer.IronButtonState,
-        Polymer.IronControlState,
-        Polymer.IronFormElementBehavior
+        Polymer.KoaDropdownMenuBehavior
       ],
-
-      properties: {
-        /**
-         * The label for the dropdown.
-         */
-        label: {
-          type: String
-        },
-
-        /**
-         * True if the dropdown is open. Otherwise, false.
-         */
-        opened: {
-          type: Boolean,
-          notify: true,
-          value: false
-        }
-      },
 
       /**
        * Show the dropdown content.

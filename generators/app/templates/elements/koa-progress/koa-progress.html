@@ -1,78 +1,27 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-range-behavior/iron-range-behavior.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--progress-container-color` | Mixin applied to container | `--google-grey-300`
-`--progress-transition-duration` | Duration of the transition | `0.008s`
-`--progress-transition-timing-function` | The timing function for the transition | `ease`
-`--progress-transition-delay` | Delay for the transition | `0s`
-`--progress-active-color` | The color of the active bar | `--google-green-500`
-`--progress-secondary-color` | The color of the secondary bar | `--google-green-100`
-`--progress-disabled-active-color` | The color of the active bar if disabled | `--google-grey-500`
-`--progress-disabled-secondary-color` | The color of the secondary bar if disabled | `--google-grey-300`
-`--progress-height` | The height of the progress bar | `4px`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-progress-behavior.html">
+<link rel="import" href="TODO:PATH_THEME_STYLES">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        role: 'progressbar'
-      },
-
       behaviors: [
-        Polymer.IronRangeBehavior
-      ],
-
-      properties: {
-        /**
-         * True if the progress is disabled.
-         */
-        disabled: {
-          type: Boolean,
-          value: false,
-          reflectToAttribute: true
-        },
-
-        /**
-         * Use an indeterminate progress indicator.
-         */
-        indeterminate: {
-          type: Boolean,
-          value: false
-        },
-
-        /**
-         * The number that represents the current secondary progress.
-         */
-        secondaryProgress: {
-          type: Number,
-          value: 0
-        },
-
-        /**
-         * The secondary ratio
-         */
-        secondaryRatio: {
-          type: Number,
-          value: 0,
-          readOnly: true
-        }
-      }
+        Polymer.KoaProgressBehavior
+      ]
     });
   </script>
 </dom-module>

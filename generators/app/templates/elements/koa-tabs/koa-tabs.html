@@ -1,35 +1,27 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-menu-behavior/iron-menu-behavior.html">
+<link rel="import" href="../../bower_components/koa-behaviors/koa-tabs-behavior.html">
+<link rel="import" href="TODO:PATH_THEME_STYLES">
 <link rel="import" href="<%= themeName %>-tab.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--tabs-selection-bar-color` | Color for the selection bar | `--accent-color`
-`--tabs` | Mixin applied to the tabs | `{}`
--->
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        role: 'tablist'
-      },
-
       behaviors: [
-        Polymer.IronMenuBehavior
+        Polymer.KoaTabsBehavior
       ]
     });
   </script>

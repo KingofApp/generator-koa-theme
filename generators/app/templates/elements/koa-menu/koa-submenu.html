@@ -1,23 +1,18 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--menu-selected-item` | Mixin applied to the selected item | `{}`
-`--menu-focused-item` | Mixin applied to the focused item | `{}`
-`--menu-focused-item-after` | Mixin applied to the ::after pseudo-element for the focused item | `{}`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-submenu-behavior.html">
+<link rel="import" href="TODO:PATH_THEME_STYLES">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
@@ -25,19 +20,8 @@ Custom property | Description | Default
       is: '<%= tagName %>',
 
       behaviors: [
-        Polymer.IronControlState
+        Polymer.KoaSubmenuBehavior
       ],
-
-      properties: {
-        /**
-         * Set opened to true to show the collapse element and to false to hide it.
-         */
-        opened: {
-          type: Boolean,
-          value: false,
-          notify: true
-        }
-      },
 
       /**
        * Expand the submenu content.

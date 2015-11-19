@@ -1,61 +1,26 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--button` | Mixin applied to the button | `{}`
-`--button-disabled` | Mixin applied to the disabled button. Note that you can also use the `koa-button[disabled]` selector | `{}`
-`--button-keyboard-focus` | Mixin applied to a button after it's been focused using the keyboard | `{}`
-`--button-link-keyboard-focus` | Mixin applied to a link button after it's been focused using the keyboard | `{}`
-`--button-big-keyboard-focus` | Mixin applied to a big button after it's been focused using the keyboard | `{}`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-button-behavior.html">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        role: 'button',
-        tabindex: 0
-      },
-
       behaviors: [
-        Polymer.IronButtonState,
-        Polymer.IronControlState
-      ],
-
-      properties: {
-        /**
-         * If true, the button should be bigger.
-         */
-        big: {
-          type: Boolean,
-          reflectToAttribute: true,
-          value: false
-        },
-
-        /**
-         * If true, the button should  have a link appearance.
-         */
-        link: {
-          type: Boolean,
-          reflectToAttribute: true,
-          value: false
-        }
-      }
+        Polymer.KoaButtonBehavior
+      ]
     });
   </script>
 </dom-module>

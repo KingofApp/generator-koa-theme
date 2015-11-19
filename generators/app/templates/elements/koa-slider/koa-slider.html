@@ -1,36 +1,18 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
-<link rel="import" href="../../bower_components/iron-form-element-behavior/iron-form-element-behavior.html">
-<link rel="import" href="../../bower_components/iron-range-behavior/iron-range-behavior.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--slider-bar-color` | The background color of the slider | `transparent`
-`--slider-active-color` | The progress bar color | `--google-blue-700`
-`--slider-secondary-color` | The secondary progress bar color | `--google-blue-300`
-`--slider-knob-color` | The knob color | `--google-blue-700`
-`--slider-disabled-knob-color` | The disabled knob color | `--google-grey-500`
-`--slider-pin-color` | The pin color | `--google-blue-700`
-`--slider-font-color` | The pin's text color | `#fff`
-`--slider-disabled-active-color` | The disabled progress bar color | `--google-grey-500`
-`--slider-disabled-secondary-color` | The disabled secondary progress bar color | `--google-grey-300`
-`--slider-knob-start-color` | The fill color of the knob at the far left | `transparent`
-`--slider-knob-start-border-color` | The border color of the knob at the far left | `#c8c8c8`
-`--slider-pin-start-color` | The color of the pin at the far left | `#c8c8c8`
-`--slider-height` | Height of the progress bar | `2px`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-slider-behavior.html">
+<link rel="import" href="TODO:PATH_THEME_STYLES">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
@@ -38,96 +20,8 @@ Custom property | Description | Default
       is: '<%= tagName %>',
 
       behaviors: [
-        Polymer.IronButtonState,
-        Polymer.IronControlState,
-        Polymer.IronFormElementBehavior,
-        Polymer.IronRangeBehavior
+        Polymer.KoaSliderBehavior
       ],
-
-      properties: {
-        /**
-         * True when the user is dragging the slider.
-         */
-        dragging: {
-          type: Boolean,
-          value: false,
-          readOnly: true
-        },
-
-        /**
-         * If true, an input is shown and user can use it to set the slider
-         * value.
-         */
-        editable: {
-          type: Boolean,
-          value: false
-        },
-
-        /**
-         * If true, the knob is expanded
-         */
-        expand: {
-          type: Boolean,
-          value: false,
-          readOnly: true
-        },
-
-        /**
-         * The immediate value of the slider.  This value is updated while the
-         * user is dragging the slider.
-         */
-        immediateValue: {
-          type: Number,
-          value: 0,
-          readOnly: true,
-          notify: true
-        },
-
-        /**
-         * The maximum number of markers
-         */
-        maxMarkers: {
-          type: Number,
-          value: 0,
-          notify: true
-        },
-
-        markers: {
-          type: Array,
-          readOnly: true,
-          value: []
-        },
-
-        /**
-         * If true, a pin with numeric value label is shown when the slider
-         * thumb is pressed. Use for settings for which users need to know the
-         * exact value of the setting.
-         */
-        pin: {
-          type: Boolean,
-          value: false,
-          notify: true
-        },
-
-        /**
-         * The number that represents the current secondary progress.
-         */
-        secondaryProgress: {
-          type: Number,
-          value: 0,
-          notify: true
-        },
-
-        /**
-         * If true, the slider thumb snaps to tick marks evenly spaced based on
-         * the `step` property value.
-         */
-        snaps: {
-          type: Boolean,
-          value: false,
-          notify: true
-        }
-      },
 
       /**
        * Increases value by `step` but not above `max`.

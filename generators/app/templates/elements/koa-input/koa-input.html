@@ -1,34 +1,18 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/paper-input/paper-input-behavior.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--input-container-color` | Label and underline color when the input is not focused | `--secondary-text-color`
-`--input-container-focus-color` | Label and underline color when the input is focused | `--default-primary-color`
-`--input-container-invalid-color` | Label and underline color when the input is is invalid | `--google-red-500`
-`--input-container-input-color` | Input foreground color | `--primary-text-color`
-`--input-container` | Mixin applied to the container | `{}`
-`--input-container-disabled` | Mixin applied to the container when it's disabled | `{}`
-`--input-container-label` | Mixin applied to the label | `{}`
-`--input-container-label-focus` | Mixin applied to the label when the input is focused | `{}`
-`--input-container-input` | Mixin applied to the input | `{}`
-`--input-container-underline` | Mixin applied to the underline | `{}`
-`--input-container-underline-focus` | Mixin applied to the underline when the input is focued | `{}`
-`--input-container-underline-disabled` | Mixin applied to the underline when the input is disabled | `{}`
-`--input-prefix` | Mixin applied to the input prefix | `{}`
-`--input-suffix` | Mixin applied to the input suffix | `{}`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-input-behavior.html">
+<link rel="import" href="TODO:PATH_THEME_STYLES">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
@@ -36,24 +20,8 @@ Custom property | Description | Default
       is: '<%= tagName %>',
 
       behaviors: [
-        Polymer.PaperInputBehavior
-      ],
-
-      properties: {
-        /**
-         * The label for this input. Bind this to `<paper-input-container>`'s `label` property.
-         */
-        label: {
-          type: String
-        }
-      },
-
-      /**
-       * Returns a reference to the input element.
-       */
-      get inputElement() {
-        return this.$.input;
-      }
+        Polymer.KoaInputBehavior
+      ]
     });
   </script>
 </dom-module>

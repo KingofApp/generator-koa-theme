@@ -1,43 +1,26 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--item-min-height` | Minimum height of the item | `48px`
-`--item` | Mixin applied to the item | `{}`
-`--item-selected-weight` | The font weight of a selected item | `bold`
-`--item-selected` | Mixin applied to selected items | `{}`
-`--item-disabled-color` | The color for disabled items | `--disabled-text-color`
-`--item-disabled` | Mixin applied to disabled items | `{}`
-`--item-focused` | Mixin applied to focused items | `{}`
-`--item-focused-before` | Mixin applied to :before focused items | `{}`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-item-behavior.html">
+<link rel="import" href="TODO:PATH_THEME_STYLES">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        role: 'option',
-        tabindex: 0
-      },
-
       behaviors: [
-        Polymer.IronButtonState,
-        Polymer.IronControlState
+        Polymer.KoaItemBehavior
       ]
     });
   </script>

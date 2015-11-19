@@ -1,46 +1,26 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
-<link rel="import" href="../../bower_components/iron-checked-element-behavior/iron-checked-element-behavior.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--toggle-button-unchecked-bar-color` | Slider color when the input is not checked | `#000000`
-`--toggle-button-unchecked-button-color` | Button color when the input is not checked | `--paper-grey-50`
-`--toggle-button-checked-bar-color` | Slider button color when the input is checked | `--default-primary-color`
-`--toggle-button-checked-button-color` | Button color when the input is checked | `--default-primary-color`
-`--toggle-button-unchecked-bar` | Mixin applied to the slider when the input is not checked | `{}`
-`--toggle-button-unchecked-button` | Mixin applied to the slider button when the input is not checked | `{}`
-`--toggle-button-checked-bar` | Mixin applied to the slider when the input is checked | `{}`
-`--toggle-button-checked-button` | Mixin applied to the slider button when the input is checked | `{}`
-`--toggle-button-label-color` | Label color | `--primary-text-color`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-toggle-button-behavior.html">
+<link rel="import" href="TODO:PATH_THEME_STYLES">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        role: 'button',
-        tabindex: 0
-      },
-
       behaviors: [
-        Polymer.IronButtonState,
-        Polymer.IronControlState,
-        Polymer.IronCheckedElementBehavior
+        Polymer.KoaToggleButtonBehavior
       ]
     });
   </script>
