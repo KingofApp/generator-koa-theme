@@ -8,11 +8,10 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.themeName = this.name;
     this.themeKoaName = 'koa-' + this.themeName + '-theme';
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
-    this.tags = [];
+    this.elements = [];
   },
 
-  getTags: function() {
-    var elements = [];
+  getElementsTree: function() {
     var elementsPath = __dirname + '/templates/elements/';
     var elementsFolders = fs.readdirSync(elementsPath).filter(function(file) {
       return fs.statSync(elementsPath + '/' + file).isDirectory();
@@ -21,24 +20,10 @@ module.exports = yeoman.generators.NamedBase.extend({
     elementsFolders.forEach(function(elementFolder) {
       var elementsFiles = fs.readdirSync(elementsPath + '/' + elementFolder);
 
-      elementsFiles.forEach(function(elementFile) {
-        var elementName = elementFile.replace('.html', '');
-
-        if (elementsFiles.length === 1) {
-          elements.push(elementName);
-        } else {
-          if (elementFolder === elementName) {
-            elements.push(elementName);
-          } else {
-            elements.push(elementFolder + '/' + elementName);
-          }
-        }
+      this.elements.push({
+        name: elementFolder,
+        files: elementsFiles
       });
-    });
-
-    elements.forEach(function(element) {
-      var tag = element.replace(new RegExp('koa-', 'g'), '');
-      this.tags.push(tag);
     }.bind(this));
   },
 
@@ -78,37 +63,32 @@ module.exports = yeoman.generators.NamedBase.extend({
   },
 
   writingElements: function() {
-    this.tags.forEach(function(tag) {
-      var isSubElement = tag.search('/') !== -1;
+    var themeName = this.themeName;
+    function replaceKoa(text) {
+      return text.replace(new RegExp('koa-', 'g'), themeName + '-');
+    }
 
-      if (!isSubElement) {
-        var tagName = this.themeName + '-' + tag;
+    this.elements.forEach(function(element) {
+      var tagName = replaceKoa(element.name);
+
+      this.fs.copyTpl(
+        this.templatePath('elements/demo.html'),
+        this.destinationPath('elements/' + tagName + '/demo/index.html'),
+        {tagName: tagName}
+      );
+
+      element.files.forEach(function(file) {
+        var templatePath = 'elements/' + element.name + '/' + file;
+        var destinationPath = replaceKoa(templatePath);
+        var tagName = replaceKoa(file.replace('.html', ''));
 
         this.fs.copyTpl(
-          this.templatePath('elements/koa-' + tag + '/koa-' + tag + '.html'),
-          this.destinationPath('elements/' + tagName + '/' + tagName + '.html'),
+          this.templatePath(templatePath),
+          this.destinationPath(destinationPath),
           {tagName: tagName, themeName: this.themeName}
         );
+      }.bind(this));
 
-        this.fs.copyTpl(
-          this.templatePath('elements/demo.html'),
-          this.destinationPath('elements/' + tagName + '/demo/index.html'),
-          {tagName: tagName}
-        );
-      } else {
-        var parentTag = tag.split('/')[0];
-        var childTag = tag.split('/')[1];
-        var parentTagName = this.themeName + '-' + parentTag;
-        var tagName = this.themeName + '-' + childTag;
-        var tPath = 'elements/koa-' + parentTag + '/koa-' + childTag + '.html';
-        var dPath = 'elements/' + parentTagName + '/' + tagName + '.html';
-
-        this.fs.copyTpl(
-          this.templatePath(tPath),
-          this.destinationPath(dPath),
-          {tagName: tagName, themeName: this.themeName}
-        );
-      }
     }.bind(this));
   },
 
