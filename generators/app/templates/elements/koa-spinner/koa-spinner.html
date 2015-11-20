@@ -1,47 +1,23 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--spinner-color` | Color of the spinner | `--google-blue-500`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-spinner-behavior.html">
+<link rel="import" href="../<%= themeName %>-styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
-
-      properties: {
-        /**
-         * Displays the spinner.
-         */
-        active: {
-          type: Boolean,
-          value: false,
-          reflectToAttribute: true
-        },
-
-        /**
-         * Alternative text content for accessibility support.
-         * If alt is present, it will add an aria-label whose content matches
-         * alt when active.
-         * If alt is not present, it will default to 'loading' as the alt value.
-         */
-        alt: {
-          type: String,
-          value: 'loading'
-        }
-      },
 
       reset: function() {
 

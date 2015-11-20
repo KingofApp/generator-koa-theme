@@ -1,55 +1,27 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--badge-background` | The background color of the badge | `--accent-color`
-`--badge-opacity` | The opacity of the badge | `1.0`
-`--badge-text-color` | The color of the badge text | `white`
-`--badge-width` | The width of the badge circle | `22px`
-`--badge-height` | The height of the badge circle | `22px`
-`--badge-margin-left` | Optional spacing added to the left of the badge. | `0px`
-`--badge-margin-bottom` | Optional spacing added to the bottom of the badge. | `0px`
-`--badge` | Mixin applied to the badge | `{}`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-badge-behavior.html">
+<link rel="import" href="../<%= themeName %>-styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        role: 'status',
-        tabindex: 0
-      },
-
-      properties: {
-        /**
-         * The id of the element that the badge is anchored to. This element
-         * must be a sibling of the badge.
-         */
-        for: {
-          type: String
-        },
-
-        /**
-         * The label displayed in the badge. The label is centered, and ideally
-         * should have very few characters.
-         */
-        label: {
-          type: String
-        }
-      }
+      behaviors: [
+        Polymer.KoaBadgeBehavior
+      ]
     });
   </script>
 </dom-module>

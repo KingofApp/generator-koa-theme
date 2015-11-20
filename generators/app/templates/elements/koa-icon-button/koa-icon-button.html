@@ -1,65 +1,50 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--icon-button-disabled-text` | The color of the disabled button | `--disabled-text-color`
-`--icon-button` | Mixin for a button | `{}`
-`--icon-button-disabled` | Mixin for a disabled button | `{}`
--->
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/koa-behaviors/koa-icon-button-behavior.html">
+<link rel="import" href="../<%= themeName %>-styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
+      :host {
+        cursor: pointer;
+        display: inline-block;
 
-    <!-- Write your template here -->
+        @apply(--icon-button);
+      }
+
+      :host([disabled]) {
+        color: var(--icon-button-disabled-text, --disabled-text-color);
+        cursor: auto;
+        pointer-events: none;
+
+        @apply(--icon-button-disabled);
+      }
+
+      :host([pressed]) {
+        background-color: var(--icon-button-pressed-background-color, --disabled-text-color);
+      }
+
+      iron-icon {
+        --iron-icon-width: 100%;
+        --iron-icon-height: 100%;
+      }
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+    <iron-icon id="icon" src="[[src]]" icon="[[icon]]" alt$="[[alt]]"></iron-icon>
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        role: 'button',
-        tabindex: 0
-      },
-
       behaviors: [
-        Polymer.IronButtonState,
-        Polymer.IronControlState
-      ],
-
-      properties: {
-        /**
-         * The URL of an image for the icon. If the src property is specified,
-         * the icon property should not be.
-         */
-        src: {
-          type: String
-        },
-
-        /**
-         * Specifies the icon name or index in the set of icons available in
-         * the icon's icon set. If the icon property is specified, the src
-         * property should not be.
-         */
-        icon: {
-          type: String
-        },
-
-        /**
-         * Specifies the alternate text for the button, for accessibility.
-         */
-        alt: {
-          type: String
-        }
-      }
+        Polymer.KoaIconButtonBehavior
+      ]
     });
   </script>
 </dom-module>

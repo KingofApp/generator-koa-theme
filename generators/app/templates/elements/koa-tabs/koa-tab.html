@@ -1,37 +1,26 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-button-state.html">
-<link rel="import" href="../../bower_components/iron-behaviors/iron-control-state.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--tab` | Mixin applied to the tab | `{}`
-`--tab-content` | Mixin applied to the tab content | `{}`
-`--tab-content-unselected` | Mixin applied to the tab content when the tab is not selected | `{}`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-tab-behavior.html">
+<link rel="import" href="../<%= themeName %>-styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        role: 'tab'
-      },
-
       behaviors: [
-        Polymer.IronButtonState,
-        Polymer.IronControlState
+        Polymer.KoaTabBehavior
       ]
     });
   </script>
