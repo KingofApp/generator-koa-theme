@@ -1,33 +1,27 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-
-<!--
-### Styling
-
-Custom property | Description | Default
-----------------|-------------|--------
-`--toolbar-background` | Toolbar background color | `--default-primary-color`
-`--toolbar-color` | Toolbar foreground color | `--text-primary-color`
-`--toolbar-height` | Custom height for toolbar | `64px`
-`--toolbar-sm-height` | Custom height for small screen toolbar | `56px`
-`--toolbar` | Mixin applied to the toolbar | `{}`
--->
+<link rel="import" href="../../bower_components/koa-behaviors/koa-toolbar-behavior.html">
+<link rel="import" href="../<%= themeName %>-styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
   <template>
+    <!-- write your styles here -->
     <style>
-      /* Write your styles here */
-    </style>
 
-    <!-- Write your template here -->
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+
+    <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
 
-      hostAttributes: {
-        'role': 'toolbar'
-      }
+      behaviors: [
+        Polymer.KoaToolbarBehavior
+      ]
     });
   </script>
 </dom-module>
