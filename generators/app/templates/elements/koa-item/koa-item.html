@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../bower_components/koa-behaviors/koa-item-behavior.html">
 <link rel="import" href="../<%= themeName %>-styles/default-theme.html">
 
@@ -6,12 +7,45 @@
   <template>
     <!-- write your styles here -->
     <style>
+      :host {
+        display: block;
+        min-height: var(--item-min-height, 48px);
 
+        @apply(--item);
+      }
+
+      :host(.iron-selected) {
+        font-weight: var(--item-selected-weight, bold);
+
+        @apply(--item-selected);
+      }
+
+      :host([disabled]) {
+        color: var(--item-disabled-color, --disabled-text-color);
+
+        @apply(--item-disabled);
+      }
+
+      :host(:focus) {
+        position: relative;
+        outline: 0;
+
+        @apply(--item-focused);
+      }
+
+      :host(:focus):before {
+        @apply(--layout-fit);
+
+        content: '';
+        pointer-events: none;
+
+        @apply(--item-focused-before);
+      }
     </style>
     <!-- end styles -->
 
     <!-- write your template here -->
-
+    <content></content>
     <!-- end template -->
   </template>
 
