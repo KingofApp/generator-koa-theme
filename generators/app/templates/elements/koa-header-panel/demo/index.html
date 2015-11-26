@@ -9,11 +9,68 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../../bower_components/paper-styles/shadow.html">
     <link rel="import" href="../<%= tagName %>.html">
+
+    <style is="custom-style">
+      body {
+        padding: 40px;
+      }
+
+      <%= tagName %> {
+        float: left;
+        width: 240px;
+        height: 240px;
+        margin: 12px;
+        @apply(--shadow-elevation-2dp);
+      }
+
+      .<%= themeName %>-header {
+        height: 60px;
+        font-size: 16px;
+        line-height: 60px;
+        padding: 0 10px;
+        color: white;
+        transition: height 0.2s;
+      }
+
+      .content {
+        height: 2000px;
+      }
+
+      .blue .<%= themeName %>-header {
+        background-color: var(--paper-light-blue-500);
+      }
+
+      .orange .<%= themeName %>-header {
+        background-color: var(--paper-amber-500);
+      }
+
+      /* TODO: replace these with background: linear-gradient(white, var(...))
+       when custom properties allow it */
+
+      .blue .content {
+        background: linear-gradient(white, #b3e5fc);
+      }
+
+      .orange .content {
+        background: linear-gradient(white, #ffecb3);
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
+    <div class="layout wrap inline center-center">
+      <<%= tagName %> class="blue">
+        <div class="<%= themeName %>-header">standard</div>
+        <div class="content"></div>
+      </<%= tagName %>>
 
-    <!-- end template -->
+      <<%= tagName %> mode="scroll" class="orange">
+        <div class="<%= themeName %>-header">scroll</div>
+        <div class="content"></div>
+      </<%= tagName %>>
+    </div>
   </body>
 </html>
