@@ -9,11 +9,69 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
     <link rel="import" href="../<%= tagName %>.html">
+
+    <style is="custom-style">
+      <%= tagName %> {
+        display: block;
+        margin-bottom: 40px;
+      }
+
+      <%= tagName %>.blue {
+        --checkbox-checked-color: var(--paper-light-blue-500);
+        --checkbox-unchecked-color: var(--paper-light-blue-900);
+      }
+
+      <%= tagName %>.red {
+        --checkbox-checked-color: var(--paper-red-500);
+        --checkbox-unchecked-color: var(--paper-red-900);
+      }
+
+      <%= tagName %>.green {
+        --checkbox-checked-color: var(--paper-green-500);
+        --checkbox-unchecked-color: var(--paper-green-900);
+      }
+
+      <%= tagName %>.orange {
+        --checkbox-checked-color: var(--paper-orange-500);
+        --checkbox-unchecked-color: var(--paper-orange-900);
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
-
-    <!-- end template -->
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Enabled</h4>
+        <div class="horizontal-section">
+          <<%= tagName %>>Oxygen</<%= tagName %>>
+          <<%= tagName %>>Carbon</<%= tagName %>>
+          <<%= tagName %> checked>Hydrogen</<%= tagName %>>
+          <<%= tagName %> checked>Nitrogen</<%= tagName %>>
+          <<%= tagName %> checked>Calcium</<%= tagName %>>
+        </div>
+      </div>
+      <div>
+        <h4>Disabled</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> disabled>Oxygen</<%= tagName %>>
+          <<%= tagName %> disabled>Carbon</<%= tagName %>>
+          <<%= tagName %> checked disabled>Hydrogen</<%= tagName %>>
+          <<%= tagName %> checked disabled>Nitrogen</<%= tagName %>>
+          <<%= tagName %> checked disabled>Calcium</<%= tagName %>>
+        </div>
+      </div>
+      <div>
+        <h4>Color</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> class="blue" checked aria-label="Hurray for oxygen">Oxygen</<%= tagName %>>
+          <<%= tagName %> class="red" checked>Carbon</<%= tagName %>>
+          <<%= tagName %> class="orange" checked>Hydrogen</<%= tagName %>>
+          <<%= tagName %> class="green" checked>Nitrogen</<%= tagName %>>
+          <<%= tagName %> class="blue" checked>Calcium</<%= tagName %>>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
