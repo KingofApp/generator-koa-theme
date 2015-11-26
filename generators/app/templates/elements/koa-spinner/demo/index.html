@@ -9,11 +9,56 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
     <link rel="import" href="../<%= tagName %>.html">
+
+    <style is="custom-style">
+      .horizontal-section {
+        width: 100px;
+      }
+
+      <%= tagName %>, button {
+        display: block;
+        margin-bottom: 24px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      <%= tagName %>.red {
+        --spinner-color: var(--google-red-500);
+      }
+
+      <%= tagName %>.orange {
+        --spinner-color: var(--google-yellow-500);
+      }
+
+      <%= tagName %>.green {
+        --spinner-color: var(--google-green-500);
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
+    <div class="horizontal-section-container">
+      <div>
+        <h4>&lt;<%= tagName %>&gt;</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> active></<%= tagName %>>
+          <<%= tagName %> class="red" active></<%= tagName %>>
+          <<%= tagName %> class="orange" active></<%= tagName %>>
+          <<%= tagName %> class="green" active></<%= tagName %>>
+          <button onclick="toggle(event)">Toggle</button>
+        </div>
+      </div>
+    </div>
 
-    <!-- end template -->
+    <script>
+      function toggle(event) {
+        var spinners = event.target.parentElement.querySelectorAll('<%= tagName %>');
+        Array.prototype.forEach.call(spinners, function(spinner) {
+          spinner.active = !spinner.active;
+        });
+      };
+    </script>
   </body>
 </html>
