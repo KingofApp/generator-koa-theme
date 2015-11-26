@@ -9,11 +9,117 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../<%= themeName %>-button/<%= themeName %>-button.html">
     <link rel="import" href="../<%= tagName %>.html">
+
+    <style is="custom-style">
+      section > <%= themeName %>-button {
+        background-color: var(--google-grey-300);
+        padding: 5px;
+      }
+
+      section > <%= themeName %>-button:hover {
+        background-color: var(--paper-light-blue-200);
+        padding: 5px;
+      }
+
+      <%= tagName %>.colored {
+        border: 2px solid;
+        border-color: var(--paper-green-500);
+        background-color: var(--paper-light-green-50);
+        color: var(--paper-green-500);
+      }
+
+      <%= tagName %>.size-position {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        width: 300px;
+        height: 300px;
+        overflow: auto;
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
+    <section onclick="clickHandler(event)">
+      <h4>Dialog layouts</h4>
 
-    <!-- end template -->
+      <<%= themeName %>-button data-dialog="dialog">plain dialog</<%= themeName %>-button>
+      <<%= themeName %>-button data-dialog="actions">dialog with actions</<%= themeName %>-button>
+      <<%= themeName %>-button data-dialog="modal">modal dialog</<%= themeName %>-button>
+      <<%= themeName %>-button data-dialog="nested">dialog with nested dialog</<%= themeName %>-button>
+
+      <<%= tagName %> id="dialog">
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </<%= tagName %>>
+
+      <<%= tagName %> id="actions">
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="buttons">
+          <<%= themeName %>-button >More Info...</<%= themeName %>-button>
+          <<%= themeName %>-button dialog-dismiss>Decline</<%= themeName %>-button>
+          <<%= themeName %>-button dialog-confirm autofocus>Accept</<%= themeName %>-button>
+        </div>
+      </<%= tagName %>>
+
+      <<%= tagName %> id="modal" modal>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <div class="buttons">
+          <<%= themeName %>-button dialog-confirm autofocus>Tap me to close</<%= themeName %>-button>
+        </div>
+      </<%= tagName %>>
+
+      <<%= tagName %> id="nested">
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="buttons">
+          <<%= themeName %>-button data-dialog="innerDialog">Open nested dialog</<%= themeName %>-button>
+        </div>
+      </<%= tagName %>>
+
+      <<%= tagName %> id="innerDialog">
+        <h2>Dialog Title</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </<%= tagName %>>
+    </section>
+
+    <section onclick="clickHandler(event)">
+      <h4>Custom styling</h4>
+      <<%= themeName %>-button data-dialog="colors">colors</<%= themeName %>-button>
+      <<%= themeName %>-button data-dialog="position">size &amp; position</<%= themeName %>-button>
+
+      <<%= tagName %> id="colors" class="colored">
+        <h2>Custom Colors</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </<%= tagName %>>
+
+      <<%= tagName %> id="position" class="size-position">
+        <h2>Custom Size &amp; Position</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </<%= tagName %>>
+    </section>
+
+    <script>
+      function clickHandler(e) {
+        var button = e.target;
+        while (!button.hasAttribute('data-dialog') && button !== document.body) {
+          button = button.parentElement;
+        }
+
+        if (!button.hasAttribute('data-dialog')) {
+          return;
+        }
+
+        var id = button.getAttribute('data-dialog');
+        var dialog = document.getElementById(id);
+        if (dialog) {
+          dialog.open();
+        }
+      }
+    </script>
   </body>
 </html>
