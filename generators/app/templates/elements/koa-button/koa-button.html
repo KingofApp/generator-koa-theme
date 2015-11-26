@@ -5,12 +5,37 @@
   <template>
     <!-- write your styles here -->
     <style>
+      :host {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
 
+        @apply(--button);
+      }
+
+      :host([disabled]) {
+        cursor: auto;
+        pointer-events: none;
+
+        @apply(--button-disabled);
+      }
+
+      :host(.keyboard-focus) {
+        @apply(--button-keyboard-focus);
+      }
+
+      :host([big].keyboard-focus) {
+        @apply(--button-keyboard-focus);
+      }
+
+      :host([link].keyboard-focus) {
+        @apply(--button-keyboard-focus);
+      }
     </style>
     <!-- end styles -->
 
     <!-- write your template here -->
-
+    <content></content>
     <!-- end template -->
   </template>
 

@@ -22,9 +22,12 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
+    "iron-collapse": "PolymerElements/iron-collapse#^1.0.0",
+    "iron-dropdown": "PolymerElements/iron-dropdown#^1.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
     "iron-icon": "PolymerElements/iron-icon#^1.0.0",
     "iron-image": "PolymerElements/iron-image#^1.0.0",
-    "koa-behaviors": "KingofApp/koa-behaviors#^0.1.0"
+    "koa-behaviors": "KingofApp/koa-behaviors#^0.2.0"
   },
   "devDependencies": {
     "paper-styles": "PolymerElements/paper-styles#^1.0.0",

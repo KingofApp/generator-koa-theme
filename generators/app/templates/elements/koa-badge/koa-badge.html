@@ -6,12 +6,24 @@
   <template>
     <!-- write your styles here -->
     <style>
+      :host {
+        background-color: var(--badge-background, --accent-color);
+        color: var(--badge-text-color, white);
+        height: var(--badge-height, 20px);
+        margin-bottom: var(--badge-margin-bottom, 0px);
+        margin-left: var(--badge-margin-left, 0px);
+        opacity: var(--badge-opacity, 1.0);
+        outline: none;
+        position: absolute;
+        width: var(--badge-width, 20px);
 
+        @apply(--badge);
+      }
     </style>
     <!-- end styles -->
 
     <!-- write your template here -->
-
+    {{label}}
     <!-- end template -->
   </template>
 
