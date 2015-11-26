@@ -9,11 +9,76 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
     <link rel="import" href="../<%= tagName %>.html">
+
+    <style is="custom-style">
+      <%= tagName %> + <%= tagName %> {
+        margin-top: 20px;
+      }
+
+      <%= tagName %>.red {
+        --toolbar-background: red;
+      }
+
+      .spacer {
+        @apply(--layout-flex);
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
+    <<%= tagName %>>
+      <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+      <span class="title">Toolbar</span>
+      <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
+      <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+    </<%= tagName %>>
 
-    <!-- end template -->
+    <<%= tagName %> class="red">
+      <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+      <span class="title">Toolbar: custom background color</span>
+      <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
+      <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+    </<%= tagName %>>
+
+    <<%= tagName %> class="tall">
+      <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+      <span class="title">Toolbar: tall</span>
+      <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
+      <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+    </<%= tagName %>>
+
+    <<%= tagName %> class="tall">
+      <<%= themeName %>-icon-button icon="menu" class="bottom"></<%= themeName %>-icon-button>
+      <span class="bottom title">Toolbar: tall with elements pin to the bottom</span>
+      <<%= themeName %>-icon-button icon="refresh" class="bottom"></<%= themeName %>-icon-button>
+      <<%= themeName %>-icon-button icon="add" class="bottom">+</<%= themeName %>-icon-button>
+    </<%= tagName %>>
+
+    <<%= tagName %> class="medium-tall">
+      <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+      <span class="spacer"></span>
+      <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
+      <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+      <span class="bottom title">Toolbar: medium-tall with label aligns to the bottom</span>
+    </<%= tagName %>>
+
+    <<%= tagName %> class="tall">
+      <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+      <div class="spacer"></div>
+      <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
+      <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+      <div class="middle title">label aligns to the middle</div>
+      <div class="bottom title">some stuffs align to the bottom</div>
+    </<%= tagName %>>
+
+    <<%= tagName %> class="tall">
+      <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+      <div class="spacer"></div>
+      <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
+      <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+      <div class="middle title">element (e.g. progress) fits at the bottom of the toolbar</div>
+      <div class="bottom fit" style="height: 20px; background-color: #0f9d58;"></div>
+    </<%= tagName %>>
   </body>
 </html>
