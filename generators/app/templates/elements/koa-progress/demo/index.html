@@ -9,11 +9,100 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../<%= themeName %>-button/<%= themeName %>-button.html">
     <link rel="import" href="../<%= tagName %>.html">
+
+    <style is="custom-style">
+      body {
+        padding: 40px;
+      }
+
+      <%= tagName %> {
+        display: block;
+        width: 100%;
+        margin: 20px 0;
+      }
+
+      <%= tagName %>.blue {
+        --progress-active-color: var(--paper-light-blue-500);
+        --progress-secondary-color: var(--paper-light-blue-100);
+      }
+
+      <%= tagName %>.red {
+        --progress-active-color: var(--paper-red-500);
+        --progress-secondary-color: var(--paper-red-100);
+      }
+
+      <%= tagName %>.orange {
+        --progress-active-color: var(--paper-orange-500);
+        --progress-secondary-color: var(--paper-orange-100);
+      }
+
+      <%= tagName %>.green {
+        --progress-active-color: var(--paper-light-green-500);
+        --progress-secondary-color: var(--paper-light-green-100);
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
+    <div class="vertical-section-container">
+      <h4>Progress bar</h4>
+      <div class="vertical-section">
+        <<%= tagName %>></<%= tagName %>>
+        <<%= themeName %>-button raised onclick="startProgress();">Start</<%= themeName %>-button>
+      </div>
 
-    <!-- end template -->
+      <h4>Indeterminate</h4>
+      <div class="vertical-section">
+        <<%= tagName %> indeterminate></<%= tagName %>><br>
+        <<%= tagName %> class="blue" indeterminate value="800" min="100" max="1000"></<%= tagName %>><br>
+      </div>
+
+      <h4>Color</h4>
+      <div class="vertical-section">
+        <<%= tagName %> value="40" class="blue"></<%= tagName %>><br>
+        <<%= tagName %> value="800" min="100" max="1000" class="red"></<%= tagName %>><br>
+        <<%= tagName %> value="40" class="orange"></<%= tagName %>><br>
+        <<%= tagName %> value="200" max="200" class="green"></<%= tagName %>><br>
+        <<%= tagName %> value="40" secondary-progress="80" class="blue"></<%= tagName %>><br>
+      </div>
+    </div>
+
+    <script>
+      var progress = document.querySelector('<%= tagName %>');
+      var button = document.querySelector('<%= themeName %>-button');
+      var repeat, maxRepeat = 5, animating = false;
+
+      function nextProgress() {
+        animating = true;
+        if (progress.value < progress.max) {
+          progress.value += (progress.step || 1);
+        } else {
+          if (++repeat >= maxRepeat) {
+            animating = false;
+            button.disabled = false;
+            return;
+          }
+          progress.value = progress.min;
+        }
+
+        requestAnimationFrame(nextProgress);
+      }
+
+      function startProgress() {
+        repeat = 0;
+        progress.value = progress.min;
+        button.disabled = true;
+        if (!animating) {
+          nextProgress();
+        }
+      }
+
+      window.addEventListener('WebComponentsReady', function() {
+        startProgress();
+      });
+    </script>
   </body>
 </html>
