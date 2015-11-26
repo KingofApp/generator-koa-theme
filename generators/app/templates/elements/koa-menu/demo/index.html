@@ -9,11 +9,104 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../<%= themeName %>-item/<%= themeName %>-item.html">
     <link rel="import" href="../<%= tagName %>.html">
+    <link rel="import" href="../<%= themeName %>-submenu.html">
+
+    <style is="custom-style">
+      .horizontal-section {
+        padding: 0 !important;
+      }
+
+      .avatar {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #ccc;
+      }
+
+      <%= themeName %>-item {
+        --item: {
+          cursor: pointer;
+        };
+      }
+
+      .sublist {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Standard</h4>
+        <div class="horizontal-section">
+          <<%= tagName %>>
+            <<%= themeName %>-item>Inbox</<%= themeName %>-item>
+            <<%= themeName %>-item>Starred</<%= themeName %>-item>
+            <<%= themeName %>-item>Sent mail</<%= themeName %>-item>
+            <<%= themeName %>-item>Drafts</<%= themeName %>-item>
+          </<%= tagName %>>
+        </div>
+      </div>
 
-    <!-- end template -->
+      <div>
+        <h4>Pre-selected</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> selected="0">
+            <<%= themeName %>-item>Inbox</<%= themeName %>-item>
+            <<%= themeName %>-item disabled>Starred</<%= themeName %>-item>
+            <<%= themeName %>-item>Sent mail</<%= themeName %>-item>
+            <<%= themeName %>-item>Drafts</<%= themeName %>-item>
+          </<%= tagName %>>
+        </div>
+      </div>
+
+      <div>
+        <h4>Multi-select</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> multi>
+            <<%= themeName %>-item>Bold</<%= themeName %>-item>
+            <<%= themeName %>-item>Italic</<%= themeName %>-item>
+            <<%= themeName %>-item>Underline</<%= themeName %>-item>
+            <<%= themeName %>-item>Strikethrough</<%= themeName %>-item>
+          </<%= tagName %>>
+        </div>
+      </div>
+
+      <div>
+        <h4>Sub-menu</h4>
+        <div class="horizontal-section">
+          <<%= tagName %>>
+            <<%= themeName %>-submenu>
+              <<%= themeName %>-item class="menu-trigger">Topics</<%= themeName %>-item>
+              <<%= tagName %> class="menu-content sublist">
+                <<%= themeName %>-item>Topic 1</<%= themeName %>-item>
+                <<%= themeName %>-item>Topic 2</<%= themeName %>-item>
+                <<%= themeName %>-item>Topic 3</<%= themeName %>-item>
+              </<%= tagName %>>
+            </<%= themeName %>-submenu>
+            <<%= themeName %>-submenu>
+              <<%= themeName %>-item class="menu-trigger">Faves</<%= themeName %>-item>
+              <<%= tagName %> class="menu-content sublist" multi>
+                <<%= themeName %>-item>Fave 1</<%= themeName %>-item>
+                <<%= themeName %>-item>Fave 2</<%= themeName %>-item>
+              </<%= tagName %>>
+            </<%= themeName %>-submenu>
+            <<%= themeName %>-submenu disabled>
+              <<%= themeName %>-item class="menu-trigger">Unavailable</<%= themeName %>-item>
+              <<%= tagName %> class="menu-content sublist" multi>
+                <<%= themeName %>-item>Unavailable 1</<%= themeName %>-item>
+                <<%= themeName %>-item>Unavailable 2</<%= themeName %>-item>
+              </<%= tagName %>>
+            </<%= themeName %>-submenu>
+          </<%= tagName %>>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
