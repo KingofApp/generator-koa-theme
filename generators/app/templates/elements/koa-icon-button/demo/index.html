@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <title><%= tagName %> demo</title>
+
+    <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../../bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../<%= tagName %>.html">
+
+    <style is="custom-style">
+      .horizontal-section {
+        min-width: 100px;
+      }
+
+      <%= tagName %> {
+        margin-left: 30px;
+        display: block;
+        text-align: center;
+      }
+
+      <%= tagName %>.blue {
+        color: var(--paper-light-blue-500);
+      }
+
+      <%= tagName %>.red {
+        color: var(--paper-red-500);
+      }
+
+      <%= tagName %>.orange {
+        color: var(--paper-orange-500);
+      }
+
+      <%= tagName %>.green {
+        color: var(--paper-green-500);
+      }
+
+      <%= tagName %>.huge {
+        margin-left: 0px;
+        width: 116px;
+        height: 116px;
+      }
+    </style>
+  </head>
+  <body onclick="clickAction(event);">
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Enabled</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> icon="menu" alt="menu" title="menu"></<%= tagName %>>
+          <<%= tagName %> icon="favorite" alt="heart" title="heart"></<%= tagName %>>
+          <<%= tagName %> icon="arrow-back" alt="arrow-back" title="arrow-back"></<%= tagName %>>
+          <<%= tagName %> icon="arrow-forward" alt="arrow-forward" title="arrow-forward"></<%= tagName %>>
+          <<%= tagName %> icon="clear" alt="clear" title="clear"></<%= tagName %>>
+          <<%= tagName %> icon="polymer" alt="polymer" title="polymer"></<%= tagName %>>
+          <<%= tagName %> src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="octocat" title="octocat"></<%= tagName %>>
+        </div>
+      </div>
+
+      <div>
+        <h4>Disabled</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> icon="menu" alt="menu" disabled></<%= tagName %>>
+          <<%= tagName %> icon="favorite" alt="heart" disabled></<%= tagName %>>
+          <<%= tagName %> icon="arrow-back" alt="arrow-back" disabled></<%= tagName %>>
+          <<%= tagName %> icon="arrow-forward" alt="arrow-forward" disabled></<%= tagName %>>
+          <<%= tagName %> icon="clear" alt="clear" disabled></<%= tagName %>>
+          <<%= tagName %> icon="polymer" alt="polymer" disabled></<%= tagName %>>
+          <<%= tagName %> src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="octocat" disabled></<%= tagName %>>
+        </div>
+      </div>
+
+      <div>
+        <h4>Color</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> icon="menu" alt="menu" class="blue"></<%= tagName %>>
+          <<%= tagName %> icon="favorite" alt="heart" class="red"></<%= tagName %>>
+          <<%= tagName %> icon="arrow-back" alt="arrow-back" class="orange"></<%= tagName %>>
+          <<%= tagName %> icon="arrow-forward" alt="arrow-forward" class="green"></<%= tagName %>>
+          <<%= tagName %> icon="clear" alt="clear" class="blue"></<%= tagName %>>
+          <<%= tagName %> icon="polymer" alt="polymer" class="red"></<%= tagName %>>
+          <<%= tagName %> class="blue" src="https://assets-cdn.github.com/images/modules/logos_page/Octocat.png" alt="octocat"></<%= tagName %>>
+        </div>
+      </div>
+
+      <div>
+        <h4>Size</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> icon="favorite" alt="heart" class="huge"></<%= tagName %>>
+          <br><br><br>
+          <<%= tagName %> icon="polymer" alt="polymer" class="huge"></<%= tagName %>>
+        </div>
+      </div>
+
+      <div>
+        <h4>Noink</h4>
+        <div class="horizontal-section">
+          <<%= tagName %> noink icon="favorite" alt="heart"></<%= tagName %>>
+          <br><br><br>
+          <<%= tagName %> noink icon="polymer" alt="polymer"></<%= tagName %>>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function clickAction(e) {
+        var t = e.target;
+        if (t.localName === '<%= tagName %>') {
+          if (t.hasAttribute('disabled')) {
+            console.error('should not be able to click disabled button', t);
+          } else {
+            console.log('click', t);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

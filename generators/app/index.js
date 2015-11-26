@@ -69,14 +69,6 @@ module.exports = yeoman.generators.NamedBase.extend({
     }
 
     this.elements.forEach(function(element) {
-      var tagName = replaceKoa(element.name);
-
-      this.fs.copyTpl(
-        this.templatePath('elements/demo.html'),
-        this.destinationPath('elements/' + tagName + '/demo/index.html'),
-        {tagName: tagName}
-      );
-
       element.files.forEach(function(file) {
         var templatePath = 'elements/' + element.name + '/' + file;
         var destinationPath = replaceKoa(templatePath);
@@ -89,6 +81,13 @@ module.exports = yeoman.generators.NamedBase.extend({
         );
       }.bind(this));
 
+      var tagName = replaceKoa(element.name);
+
+      this.fs.copyTpl(
+        this.templatePath('elements/' + element.name + '/demo/index.html'),
+        this.destinationPath('elements/' + tagName + '/demo/index.html'),
+        {tagName: tagName, themeName: this.themeName}
+      );
     }.bind(this));
   },
 
