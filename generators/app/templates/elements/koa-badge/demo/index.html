@@ -9,11 +9,90 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
     <link rel="import" href="../<%= tagName %>.html">
+
+    <style is="custom-style">
+      .horizontal-section {
+        min-width: 120px;
+      }
+
+      .with-badge {
+        display: inline-block;
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+
+      .red {
+        --badge-background: var(--paper-red-300);
+      }
+      .orange {
+        --badge-background: var(--paper-amber-300);
+      }
+      .green {
+        --badge-background: var(--paper-green-300);
+      }
+
+      <%= themeName %>-icon-button {
+        background-color: #ddd;
+        padding: 3px;
+        border-radius: 3px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .with-badge > <%= tagName %> {
+        --badge-margin-left: 10px;
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
+    <div class="horizontal-section-container">
+      <div>
+        <h4>Badging direct sibling</h4>
+        <div class="horizontal-section">
+          <div class="with-badge" tabindex="0">
+            <span>Oxygen</span>
+            <<%= tagName %> label="8"></<%= tagName %>>
+          </div>
+          <br>
+          <div class="with-badge" tabindex="0">
+            <span>Carbon</span>
+            <<%= tagName %> label="6"></<%= tagName %>>
+          </div>
+          <br>
+          <div class="with-badge" tabindex="0">
+            <span>Hydrogen</span>
+            <<%= tagName %> label="1"></<%= tagName %>>
+          </div>
+          <br>
+          <div class="with-badge" tabindex="0">
+            <span>Nitrogen</span>
+            <<%= tagName %> label="7"></<%= tagName %>>
+          </div>
+          <br>
+          <div class="with-badge" tabindex="0">
+            <span>Calcium</span>
+            <<%= tagName %> label="20"></<%= tagName %>>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Badging element by id</h4>
+        <div class="horizontal-section">
+          <<%= themeName %>-icon-button id="heart" icon="favorite" alt="heart"></<%= themeName %>-icon-button>
+          <<%= tagName %> class="red" for="heart" label="♣︎"></<%= tagName %>>
 
-    <!-- end template -->
+          <<%= themeName %>-icon-button id="back" icon="arrow-back" alt="go back"></<%= themeName %>-icon-button>
+          <<%= tagName %> class="orange" for="back" label="♥︎"></<%= tagName %>>
+
+          <<%= themeName %>-icon-button id="fwd" icon="arrow-forward" alt="go forward"></<%= themeName %>-icon-button>
+          <<%= tagName %> class="green" for="fwd" label="♦︎"></<%= tagName %>>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
