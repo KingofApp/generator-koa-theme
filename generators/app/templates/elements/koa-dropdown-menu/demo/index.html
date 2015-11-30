@@ -9,11 +9,127 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../<%= tagName %>-item/<%= themeName %>-item.html">
+    <link rel="import" href="../../<%= tagName %>-menu/<%= themeName %>-menu.html">
     <link rel="import" href="../<%= tagName %>.html">
+
+    <style>
+      <%= tagName %> {
+        text-align: left;
+        margin: auto;
+        width: 180px;
+      }
+
+      <%= tagName %>.letters {
+        width: 90px;
+      }
+
+      .horizontal-section {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <!-- write your demo here -->
+    <template id="Demo" is="dom-bind">
+      <div class="horizontal-section-container">
+        <div>
+          <h4>Basic Menu</h4>
+          <div class="horizontal-section">
+            <<%= tagName %> label="Dinosaurs">
+              <<%= themeName %>-menu class="dropdown-content">
+                <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
+                  <<%= themeName %>-item>[[dinosaur]]</<%= themeName %>-item>
+                </template>
+              </<%= themeName %>-menu>
+            </<%= tagName %>>
+          </div>
+        </div>
+      </div>
 
+      <div class="horizontal-section-container">
+        <div>
+          <h4>Pre-selected Value</h4>
+          <div class="horizontal-section">
+            <<%= tagName %> label="Dinosaurs">
+              <<%= themeName %>-menu class="dropdown-content" selected="1">
+                <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
+                  <<%= themeName %>-item>[[dinosaur]]</<%= themeName %>-item>
+                </template>
+              </<%= themeName %>-menu>
+            </<%= tagName %>>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-section-container">
+        <div>
+          <h4>Disabled</h4>
+          <div class="horizontal-section">
+            <<%= tagName %> disabled label="Disabled">
+              <<%= themeName %>-menu class="dropdown-content">
+                <template is="dom-repeat" items="[[letters]]" as="letter">
+                  <<%= themeName %>-item>[[letter]]</<%= themeName %>-item>
+                </template>
+              </<%= themeName %>-menu>
+            </<%= tagName %>>
+          </div>
+        </div>
+      </div>
+
+      <div class="horizontal-section-container">
+        <div>
+          <h4>No Animations</h4>
+          <div class="horizontal-section">
+            <<%= tagName %> label="Dinosaurs" no-animations>
+              <<%= themeName %>-menu class="dropdown-content">
+                <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
+                  <<%= themeName %>-item>[[dinosaur]]</<%= themeName %>-item>
+                </template>
+              </<%= themeName %>-menu>
+            </<%= tagName %>>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script>
+      Demo.letters = [
+        'alpha',
+        'beta',
+        'gamma',
+        'delta',
+        'epsilon'
+      ];
+      Demo.dinosaurs = [
+        'allosaurus',
+        'brontosaurus',
+        'carcharodontosaurus',
+        'diplodocus',
+        'ekrixinatosaurus',
+        'fukuiraptor',
+        'gallimimus',
+        'hadrosaurus',
+        'iguanodon',
+        'jainosaurus',
+        'kritosaurus',
+        'liaoceratops',
+        'megalosaurus',
+        'nemegtosaurus',
+        'ornithomimus',
+        'protoceratops',
+        'quetecsaurus',
+        'rajasaurus',
+        'stegosaurus',
+        'triceratops',
+        'utahraptor',
+        'vulcanodon',
+        'wannanosaurus',
+        'xenoceratops',
+        'yandusaurus',
+        'zephyrosaurus'
+      ];
+    </script>
     <!-- end template -->
   </body>
 </html>
