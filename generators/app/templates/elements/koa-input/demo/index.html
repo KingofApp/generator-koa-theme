@@ -9,11 +9,98 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../bower_components/iron-icon/iron-icon.html">
+    <link rel="import" href="../../../bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../../bower_components/paper-styles/shadow.html">
+    <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
     <link rel="import" href="../<%= tagName %>.html">
+    <link rel="import" href="../<%= themeName %>-textarea.html">
+
+    <style is="custom-style">
+      body {
+        padding: 40px;
+      }
+
+      <%= tagName %>.short {
+        width: 200px;
+      }
+
+      <%= themeName %>-icon-button {
+        color: var(--paper-red-300);
+        width: 23px; /* 15px + 2*4px for padding */
+        height: 23px;
+        padding: 0px 4px;
+      }
+    </style>
   </head>
   <body>
-    <!-- write your demo here -->
+    <div class="vertical center-justified layout">
+      <h4>Text input</h4>
+      <div class="vertical-section">
+        <<%= tagName %> label="label"></<%= tagName %>>
 
-    <!-- end template -->
+        <<%= tagName %> label="password" type="password"></<%= tagName %>>
+
+        <<%= tagName %> label="disabled" disabled></<%= tagName %>>
+      </div>
+
+      <h4>Text area</h4>
+      <div class="vertical-section">
+        <<%= themeName %>-textarea label="textarea label"></<%= themeName %>-textarea>
+      </div>
+
+      <h4>Validation</h4>
+      <div class="vertical-section">
+        <<%= tagName %> label="input validates on blur (required, auto-validate)" required auto-validate error-message="needs some text!"></<%= tagName %>>
+
+        <<%= tagName %> label="only type letters (auto-validate)" auto-validate pattern="[a-zA-Z]*" error-message="letters only!"></<%= tagName %>>
+
+        <<%= tagName %> id="inputForValidation" required label="only type letters (no auto validate)" pattern="[a-zA-Z]*" error-message="letters only, required input!"></<%= tagName %>>
+        <br>
+        <button onclick="validate()">Validate!</button>
+      </div>
+
+      <h4>Character counter</h4>
+      <div class="vertical-section">
+        <<%= tagName %> label="label" char-counter></<%= tagName %>>
+
+        <<%= tagName %> label="at most 10 letters" char-counter auto-validate pattern="[a-zA-Z]*" maxlength="10" error-message="letters only!"></<%= tagName %>>
+
+        <<%= themeName %>-textarea label="textarea" char-counter></<%= themeName %>-textarea>
+
+        <<%= themeName %>-textarea label="textarea with maxlength" char-counter maxlength="10"></<%= themeName %>-textarea>
+
+        <<%= themeName %>-textarea label="text area with rows and max-rows" rows="3" max-rows="4"></<%= themeName %>-textarea>
+      </div>
+
+      <h4>Prefixes and Suffixes</h4>
+      <div class="vertical-section">
+        <<%= tagName %> class="short" label="total" type="number">
+          <div prefix>$</div>
+        </<%= tagName %>>
+
+        <<%= tagName %> class="short" label="username">
+          <div suffix>@email.com</div>
+        </<%= tagName %>>
+
+        <<%= tagName %> class="short" label="icons and buttons" id="inputWithButton">
+          <iron-icon icon="search" prefix></iron-icon>
+          <<%= themeName %>-icon-button suffix onclick="clearInput()"
+              icon="clear" alt="clear" title="clear" tabindex="0">
+          </<%= themeName %>-icon-button>
+        </<%= tagName %>>
+      </div>
+    </div>
+
+    <script>
+      function validate() {
+        document.getElementById('inputForValidation').validate();
+      }
+
+      function clearInput() {
+        document.getElementById('inputWithButton').value = '';
+      }
+    </script>
   </body>
 </html>
