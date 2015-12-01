@@ -1,17 +1,85 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
 <link rel="import" href="../../bower_components/koa-behaviors/koa-input-behavior.html">
 <link rel="import" href="../<%= themeName %>-styles/default-theme.html">
+<link rel="import" href="<%= themeName %>-input-char-counter.html">
+<link rel="import" href="<%= themeName %>-input-container.html">
+<link rel="import" href="<%= themeName %>-input-error.html">
 
 <dom-module id="<%= tagName %>">
   <template>
     <!-- write your styles here -->
     <style>
+      :host {
+        display: block;
+      }
 
+      input::-webkit-input-placeholder {
+        color: var(--input-container-color, --secondary-text-color);
+      }
+
+      input:-moz-placeholder {
+        color: var(--input-container-color, --secondary-text-color);
+      }
+
+      input::-moz-placeholder {
+        color: var(--input-container-color, --secondary-text-color);
+      }
+
+      input:-ms-input-placeholder {
+        color: var(--input-container-color, --secondary-text-color);
+      }
     </style>
     <!-- end styles -->
 
     <!-- write your template here -->
+    <<%= themeName %>-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
+      <content select="[prefix]"></content>
 
+      <label hidden$="[[!label]]">[[label]]</label>
+
+      <input is="iron-input" id="input"
+        aria-labelledby$="[[_ariaLabelledBy]]"
+        disabled$="[[disabled]]"
+        bind-value="{{value}}"
+        invalid="{{invalid}}"
+        prevent-invalid-input="[[preventInvalidInput]]"
+        allowed-pattern="[[allowedPattern]]"
+        validator="[[validator]]"
+        type$="[[type]]"
+        pattern$="[[pattern]]"
+        required$="[[required]]"
+        autocomplete$="[[autocomplete]]"
+        autofocus$="[[autofocus]]"
+        inputmode$="[[inputmode]]"
+        minlength$="[[minlength]]"
+        maxlength$="[[maxlength]]"
+        min$="[[min]]"
+        max$="[[max]]"
+        step$="[[step]]"
+        name$="[[name]]"
+        placeholder$="[[placeholder]]"
+        readonly$="[[readonly]]"
+        list$="[[list]]"
+        size$="[[size]]"
+        autocapitalize$="[[autocapitalize]]"
+        autocorrect$="[[autocorrect]]"
+        on-change="_onChange"
+        autosave$="[[autosave]]"
+        results$="[[results]]"
+        accept$="[[accept]]"
+        multiple$="[[multiple]]">
+
+      <content select="[suffix]"></content>
+
+      <template is="dom-if" if="[[errorMessage]]">
+        <<%= themeName %>-input-error>[[errorMessage]]</<%= themeName %>-input-error>
+      </template>
+
+      <template is="dom-if" if="[[charCounter]]">
+        <<%= themeName %>-input-char-counter></<%= themeName %>-input-char-counter>
+      </template>
+    </<%= themeName %>-input-container>
     <!-- end template -->
   </template>
 

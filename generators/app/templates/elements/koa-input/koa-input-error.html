@@ -1,0 +1,38 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/koa-behaviors/koa-input-behavior.html">
+<link rel="import" href="../<%= themeName %>-styles/default-theme.html">
+
+<dom-module id="<%= tagName %>">
+  <template>
+    <!-- write your styles here -->
+    <style>
+      :host {
+        color: var(--input-container-invalid-color, --google-red-500);
+        display: inline-block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        visibility: hidden;
+      }
+
+      :host([invalid]) {
+        visibility: visible;
+      }
+    </style>
+    <!-- end styles -->
+
+    <!-- write your template here -->
+    <content></content>
+    <!-- end template -->
+  </template>
+
+  <script>
+    Polymer({
+      is: '<%= tagName %>',
+
+      behaviors: [
+        Polymer.KoaInputErrorBehavior
+      ]
+    });
+  </script>
+</dom-module>
