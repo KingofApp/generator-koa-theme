@@ -22,6 +22,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.2.0",
+    "iron-autogrow-textarea": "PolymerElements/iron-autogrow-textarea#^1.0.0",
     "iron-collapse": "PolymerElements/iron-collapse#^1.0.0",
     "iron-dropdown": "PolymerElements/iron-dropdown#^1.0.0",
     "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
