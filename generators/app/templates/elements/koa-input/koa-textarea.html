@@ -1,17 +1,51 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
 <link rel="import" href="../../bower_components/koa-behaviors/koa-textarea-behavior.html">
 <link rel="import" href="../<%= themeName %>-styles/default-theme.html">
+<link rel="import" href="<%= themeName %>-input-char-counter.html">
+<link rel="import" href="<%= themeName %>-input-container.html">
+<link rel="import" href="<%= themeName %>-input-error.html">
 
 <dom-module id="<%= tagName %>">
   <template>
     <!-- write your styles here -->
     <style>
-
+      :host {
+        display: block;
+      }
     </style>
     <!-- end styles -->
 
     <!-- write your template here -->
+    <paper-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
 
+      <label hidden$="[[!label]]">[[label]]</label>
+
+      <iron-autogrow-textarea id="input" class="paper-input-input"
+        bind-value="{{value}}"
+        disabled$="[[disabled]]"
+        autocomplete$="[[autocomplete]]"
+        autofocus$="[[autofocus]]"
+        inputmode$="[[inputmode]]"
+        name$="[[name]]"
+        placeholder$="[[placeholder]]"
+        readonly$="[[readonly]]"
+        required$="[[required]]"
+        maxlength$="[[maxlength]]"
+        autocapitalize$="[[autocapitalize]]"
+        rows$="[[rows]]"
+        max-rows$="[[maxRows]]"
+        on-change="_onChange"></iron-autogrow-textarea>
+
+      <template is="dom-if" if="[[errorMessage]]">
+        <paper-input-error>[[errorMessage]]</paper-input-error>
+      </template>
+
+      <template is="dom-if" if="[[charCounter]]">
+        <paper-input-char-counter></paper-input-char-counter>
+      </template>
+
+    </paper-input-container>
     <!-- end template -->
   </template>
 
