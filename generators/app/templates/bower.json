@@ -21,12 +21,19 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.1.0",
+    "polymer": "Polymer/polymer#^1.2.0",
+    "iron-autogrow-textarea": "PolymerElements/iron-autogrow-textarea#^1.0.0",
+    "iron-collapse": "PolymerElements/iron-collapse#^1.0.0",
+    "iron-dropdown": "PolymerElements/iron-dropdown#^1.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
     "iron-icon": "PolymerElements/iron-icon#^1.0.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.0.0",
     "iron-image": "PolymerElements/iron-image#^1.0.0",
-    "koa-behaviors": "KingofApp/koa-behaviors#^0.1.0"
+    "iron-input": "PolymerElements/iron-input#^1.0.0",
+    "koa-behaviors": "KingofApp/koa-behaviors#^0.3.0"
   },
   "devDependencies": {
+    "iron-icons": "PolymerElements/iron-icons#^1.0.0",
     "paper-styles": "PolymerElements/paper-styles#^1.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }

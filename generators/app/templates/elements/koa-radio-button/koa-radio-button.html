@@ -6,12 +6,86 @@
   <template>
     <!-- write your styles here -->
     <style>
+      :host {
+        cursor: pointer;
+        display: inline-block;
+        white-space: nowrap;
+      }
 
+      :host(:focus) {
+        outline: none;
+      }
+
+      #radioContainer {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+      }
+
+      #offRadio {
+        position: absolute;
+        background-color: var(--radio-button-unchecked-background-color, transparent);
+        border-color: var(--radio-button-unchecked-color, --primary-text-color);
+      }
+
+      #onRadio {
+        position: absolute;
+        background-color: var(--radio-button-checked-color, --default-primary-color);
+      }
+
+      :host([checked]) #offRadio {
+        border-color: var(--radio-button-checked-color, --default-primary-color);
+      }
+
+      :host([checked]) #onRadio {
+
+      }
+
+      #radioLabel {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: var(--radio-button-label-spacing, 10px);
+        white-space: normal;
+        pointer-events: none;
+        color: var(--radio-button-label-color, --primary-text-color);
+      }
+
+      :host-context([dir="rtl"]) #radioLabel {
+        margin-left: 0px;
+        margin-right: var(--radio-button-label-spacing, 10px);
+      }
+
+      #radioLabel[hidden] {
+        display: none;
+      }
+
+      :host([disabled]) {
+        pointer-events: none;
+      }
+
+      :host([disabled]) #offRadio {
+        border-color: var(--radio-button-unchecked-color, --primary-text-color);
+      }
+
+      :host([disabled][checked]) #onRadio {
+        background-color: var(--radio-button-unchecked-color, --primary-text-color);
+      }
+
+      :host([disabled]) #radioLabel {
+        /* slightly darker than the button, so that it's readable */
+        opacity: 0.65;
+      }
     </style>
     <!-- end styles -->
 
     <!-- write your template here -->
+    <div id="radioContainer">
+      <div id="offRadio"></div>
+      <div id="onRadio"></div>
+    </div>
 
+    <div id="radioLabel"><content></content></div>
     <!-- end template -->
   </template>
 
