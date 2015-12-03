@@ -76,7 +76,14 @@
 
       behaviors: [
         Polymer.KoaTabsBehavior
-      ]
+      ],
+
+      properties: {
+        selectable: {
+          type: String,
+          value: '<%= themeName %>-tab'
+        }
+      }
     });
   </script>
 </dom-module>

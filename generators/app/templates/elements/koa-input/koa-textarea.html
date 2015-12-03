@@ -17,11 +17,11 @@
     <!-- end styles -->
 
     <!-- write your template here -->
-    <paper-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
+    <<%= themeName %>-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
 
       <label hidden$="[[!label]]">[[label]]</label>
 
-      <iron-autogrow-textarea id="input" class="paper-input-input"
+      <iron-autogrow-textarea id="input" class="input-input"
         bind-value="{{value}}"
         disabled$="[[disabled]]"
         autocomplete$="[[autocomplete]]"
@@ -38,14 +38,14 @@
         on-change="_onChange"></iron-autogrow-textarea>
 
       <template is="dom-if" if="[[errorMessage]]">
-        <paper-input-error>[[errorMessage]]</paper-input-error>
+        <<%= themeName %>-input-error>[[errorMessage]]</<%= themeName %>-input-error>
       </template>
 
       <template is="dom-if" if="[[charCounter]]">
-        <paper-input-char-counter></paper-input-char-counter>
+        <<%= themeName %>-input-char-counter></<%= themeName %>-input-char-counter>
       </template>
 
-    </paper-input-container>
+    </<%= themeName %>-input-container>
     <!-- end template -->
   </template>
 
