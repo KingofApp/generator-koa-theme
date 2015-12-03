@@ -69,7 +69,7 @@
 
         <<%= themeName %>-textarea label="textarea" char-counter></<%= themeName %>-textarea>
 
-        <<%= themeName %>-textarea label="textarea with maxlength" char-counter maxlength="10"></<%= themeName %>-textarea>
+        <<%= themeName %>-textarea label="textarea with maxlength" maxlength="10" char-counter></<%= themeName %>-textarea>
 
         <<%= themeName %>-textarea label="text area with rows and max-rows" rows="3" max-rows="4"></<%= themeName %>-textarea>
       </div>
@@ -86,9 +86,7 @@
 
         <<%= tagName %> class="short" label="icons and buttons" id="inputWithButton">
           <iron-icon icon="search" prefix></iron-icon>
-          <<%= themeName %>-icon-button suffix onclick="clearInput()"
-              icon="clear" alt="clear" title="clear" tabindex="0">
-          </<%= themeName %>-icon-button>
+          <<%= themeName %>-icon-button suffix onclick="clearInput()" icon="clear" alt="clear" title="clear"></<%= themeName %>-icon-button>
         </<%= tagName %>>
       </div>
     </div>
