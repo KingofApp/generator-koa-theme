@@ -10,8 +10,8 @@
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
     <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
-    <link rel="import" href="../../../bower_components/<%= themeName %>-styles/color.html">
-    <link rel="import" href="../../../bower_components/<%= themeName %>-styles/demo-pages.html">
+    <link rel="import" href="../../../bower_components/paper-styles/color.html">
+    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
     <link rel="import" href="../../<%= themeName %>-toolbar/<%= themeName %>-toolbar.html">
     <link rel="import" href="../<%= tagName %>.html">
 
@@ -66,31 +66,7 @@
     </style>
   </head>
   <body>
-    <h3>A. No ink effect and no sliding bar</h3>
-
-    <<%= tagName %> selected="0" noink no-bar>
-      <<%= themeName %>-tab>ITEM ONE</<%= themeName %>-tab>
-      <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
-      <<%= themeName %>-tab>ITEM THREE</<%= themeName %>-tab>
-    </<%= tagName %>>
-
-    <h3>B. The bottom bar appears to indicate the selected tab, but without sliding effect.</h3>
-
-    <<%= tagName %> selected="0" noink no-slide>
-      <<%= themeName %>-tab>ITEM ONE</<%= themeName %>-tab>
-      <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
-      <<%= themeName %>-tab>ITEM THREE</<%= themeName %>-tab>
-    </<%= tagName %>>
-
-    <h3>C. The bar slides to the selected tab</h3>
-
-    <<%= tagName %> selected="0" noink>
-      <<%= themeName %>-tab>ITEM ONE</<%= themeName %>-tab>
-      <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
-      <<%= themeName %>-tab>ITEM THREE</<%= themeName %>-tab>
-    </<%= tagName %>>
-
-    <h3>D. Inky Tabs</h3>
+    <h3>A. Standar</h3>
 
     <<%= tagName %> selected="0">
       <<%= themeName %>-tab>ITEM ONE</<%= themeName %>-tab>
@@ -98,7 +74,7 @@
       <<%= themeName %>-tab>ITEM THREE</<%= themeName %>-tab>
     </<%= tagName %>>
 
-    <h3>E. Scrollable Tabs</h3>
+    <h3>B. Scrollable Tabs</h3>
 
     <<%= tagName %> id="scrollableTabs" selected="0" scrollable>
       <<%= themeName %>-tab>NUMBER ONE ITEM</<%= themeName %>-tab>
@@ -115,7 +91,7 @@
       <<%= themeName %>-tab>TWELFTH ITEM</<%= themeName %>-tab>
     </<%= tagName %>>
 
-    <h3>F. Scrollable tabs within right-to-left region</h3>
+    <h3>C. Scrollable tabs within right-to-left region</h3>
 
     <div dir="rtl">
       <<%= tagName %> selected="0" scrollable>
@@ -134,7 +110,7 @@
       </<%= tagName %>>
     </div>
 
-    <h3>G. Link Tabs</h3>
+    <h3>D. Link Tabs</h3>
 
     <<%= tagName %> selected="0">
       <<%= themeName %>-tab link><a href="#item1" class="link">ITEM ONE</a></<%= themeName %>-tab>
@@ -142,7 +118,7 @@
       <<%= themeName %>-tab link><a href="#item3" class="link">ITEM THREE</a></<%= themeName %>-tab>
     </<%= tagName %>>
 
-    <h3>H. Tabs in Toolbar</h3>
+    <h3>E. Tabs in Toolbar</h3>
 
     <<%= themeName %>-toolbar class="tall">
       <<%= tagName %> selected="0" class="bottom self-end" style="width: 300px;">
@@ -152,15 +128,7 @@
       <div class="bottom flex"></div>
     </<%= themeName %>-toolbar>
 
-    <h3>I. Tabs aligned to bottom</h3>
-
-    <<%= tagName %> selected="0" align-bottom>
-      <<%= themeName %>-tab>ITEM ONE</<%= themeName %>-tab>
-      <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
-      <<%= themeName %>-tab>ITEM THREE</<%= themeName %>-tab>
-    </<%= tagName %>>
-
-    <h3>J. Bound Selection</h3>
+    <h3>F. Bound Selection</h3>
 
     <template is="dom-bind">
       <h2>Current Tab: <span>[[selected]]</span></h2>
