@@ -34,12 +34,13 @@
 
     <!-- write your template here -->
     <<%= themeName %>-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
-      <content select="[prefix]"></content>
-
       <label hidden$="[[!label]]">[[label]]</label>
+
+      <content select="[prefix]"></content>
 
       <input is="iron-input" id="input"
         aria-labelledby$="[[_ariaLabelledBy]]"
+        aria-describedby$="[[_ariaDescribedBy]]"
         disabled$="[[disabled]]"
         bind-value="{{value}}"
         invalid="{{invalid}}"
