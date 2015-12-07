@@ -19,8 +19,8 @@
       }
 
       :host([disabled]) {
-        pointer-events: none;
         opacity: 0.33;
+        pointer-events: none;
 
         @apply(--input-container-disabled);
       }
@@ -34,8 +34,8 @@
 
         background: var(--input-container-focus-color, --default-primary-color);
         height: 2px;
-          -webkit-transform: scale3d(0,1,1);
-        transform: scale3d(0,1,1);
+          -webkit-transform: scale3d(0, 1, 1);
+        transform: scale3d(0, 1, 1);
           -webkit-transform-origin: center center;
         transform-origin: center center;
 
@@ -50,7 +50,7 @@
       }
 
       .underline.is-invalid .focused-line {
-        background: var(--input-container-invalid-color, --google-red-500);
+        background: var(--input-container-invalid-color, #db4437);
           -webkit-transform: none;
         transform: none;
           -webkit-transition: -webkit-transform 0.25s;
@@ -74,9 +74,11 @@
         @apply(--input-container-underline-disabled);
       }
 
-      .label-and-input-container {
-        @apply(--layout-flex);
-        @apply(--layout-relative);
+      ::content label {
+        color: var(--input-container-color, --secondary-text-color);
+        font: inherit;
+
+        @apply(--input-container-label);
       }
 
       .input-content {
@@ -86,35 +88,14 @@
         position: relative;
       }
 
-      .input-content ::content label {
-        color: var(--input-container-color, --secondary-text-color);
-        font: inherit;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-
-        @apply(--input-container-label);
-      }
-
-      .input-content.label-is-highlighted ::content label {
-        color: var(--input-container-focus-color, --default-primary-color);
-
-        @apply(--input-container-label-focus);
-      }
-
-      .input-content.is-invalid ::content label {
-        color: var(--input-container-invalid-color, --google-red-500);
-      }
-
-      .input-content.label-is-hidden ::content label {
-        visibility: hidden;
+      .input-container {
+        @apply(--layout-flex);
+        @apply(--layout-relative);
       }
 
       .input-content ::content input,
       .input-content ::content textarea,
-      .input-content ::content iron-autogrow-textarea,
-      .input-content ::content .input-input {
+      .input-content ::content iron-autogrow-textarea {
           -webkit-appearance: none;
         background: transparent;
         border: none;
@@ -130,9 +111,11 @@
       }
 
       ::content [prefix] {
+        @apply(--input-prefix);
       }
 
       ::content [suffix] {
+        @apply(--input-suffix);
       }
 
       /* Firefox sets a min-width on the input, which can cause layout issues */
@@ -149,7 +132,7 @@
       }
 
       .add-on-content.is-invalid ::content * {
-        color: var(--input-container-invalid-color, --google-red-500);
+        color: var(--input-container-invalid-color, #db4437);
       }
 
       .add-on-content.is-highlighted ::content * {
@@ -159,11 +142,13 @@
     <!-- end styles -->
 
     <!-- write your template here -->
-    <div class$="[[_computeInputContentClass(focused, invalid, _inputHasContent)]]">
+    <content select="label"></content>
+
+    <div class="input-content">
       <content select="[prefix]" id="prefix"></content>
 
-      <div class="label-and-input-container" id="labelAndInputContainer">
-        <content select=":not([add-on]):not([prefix]):not([suffix])"></content>
+      <div class="input-container" id="inputContainer">
+        <content select=":not(label):not([add-on]):not([prefix]):not([suffix])"></content>
       </div>
 
       <content select="[suffix]"></content>

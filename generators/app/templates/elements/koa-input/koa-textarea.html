@@ -18,10 +18,9 @@
 
     <!-- write your template here -->
     <<%= themeName %>-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
-
       <label hidden$="[[!label]]">[[label]]</label>
 
-      <iron-autogrow-textarea id="input" class="input-input"
+      <iron-autogrow-textarea id="input"
         bind-value="{{value}}"
         disabled$="[[disabled]]"
         autocomplete$="[[autocomplete]]"
@@ -44,7 +43,6 @@
       <template is="dom-if" if="[[charCounter]]">
         <<%= themeName %>-input-char-counter></<%= themeName %>-input-char-counter>
       </template>
-
     </<%= themeName %>-input-container>
     <!-- end template -->
   </template>
