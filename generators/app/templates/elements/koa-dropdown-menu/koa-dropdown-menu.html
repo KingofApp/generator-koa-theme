@@ -60,9 +60,9 @@
     <div role="button"></div>
     <<%= themeName %>-menu-button
       id="menuButton"
-      vertical-align="top"
-      horizontal-align="right"
-      vertical-offset="[[_computeMenuVerticalOffset(noLabelFloat)]]"
+      vertical-align="[[verticalAlign]]"
+      horizontal-align="[[horizontalAlign]]"
+      vertical-offset="[[verticalOffset]]"
       disabled="[[disabled]]"
       no-animations="[[noAnimations]]"
       on-iron-select="_onIronSelect"
@@ -92,7 +92,20 @@
 
       behaviors: [
         Polymer.KoaDropdownMenuBehavior
-      ]
+      ],
+
+      properties: {
+        /**
+         * The value for this element that will be used when submitting in
+         * a form. It is read only, and will always have the same value
+         * as `selectedItemLabel`.
+         */
+        value: {
+          type: String,
+          notify: true,
+          readOnly: true
+        }
+      }
     });
   </script>
 </dom-module>
