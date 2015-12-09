@@ -9,13 +9,12 @@
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../../../bower_components/paper-styles/color.html">
     <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
     <link rel="import" href="../../<%= themeName %>-item/<%= themeName %>-item.html">
     <link rel="import" href="../../<%= themeName %>-menu/<%= themeName %>-menu.html">
     <link rel="import" href="../<%= tagName %>.html">
 
-    <style>
+    <style is="custom-style">
       <%= tagName %> {
         text-align: left;
         margin: auto;
@@ -28,6 +27,12 @@
 
       .horizontal-section {
         text-align: center;
+      }
+
+      .nounderline {
+        --input-container-underline: {
+          display: none;
+        };
       }
     </style>
   </head>
@@ -83,11 +88,11 @@
           <h4>No underline (menu from bottom)</h4>
           <div class="horizontal-section">
             <<%= tagName %> class="nounderline" label="Letters" vertical-align="bottom">
-              <<%= themeName %>-listbox class="dropdown-content">
+              <<%= themeName %>-menu class="dropdown-content">
                 <template is="dom-repeat" items="[[letters]]" as="letter">
                   <<%= themeName %>-item>[[letter]]</<%= themeName %>-item>
                 </template>
-              </<%= themeName %>-listbox>
+              </<%= themeName %>-menu>
             </<%= tagName %>>
           </div>
         </div>
