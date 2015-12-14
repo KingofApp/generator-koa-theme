@@ -37,16 +37,27 @@
         @apply(--button-disabled);
       }
 
-      :host(.keyboard-focus) {
+      :host([big]) {
+        font-size: 1.2em;
+      }
+
+      :host(:not([big]):not([link]).keyboard-focus) {
+        font-weight: bold;
         @apply(--button-keyboard-focus);
       }
 
       :host([big].keyboard-focus) {
+        font-weight: bold;
         @apply(--button-keyboard-focus);
       }
 
       :host([link].keyboard-focus) {
+        font-weight: bold;
         @apply(--button-keyboard-focus);
+      }
+
+      :host > ::content * {
+        text-transform: inherit;
       }
     </style>
     <!-- end styles -->
