@@ -14,8 +14,13 @@
         display: block;
         min-height: var(--item-min-height, 48px);
         padding: 0px 16px;
+        position: relative;
 
         @apply(--item);
+      }
+
+      :host([hidden]) {
+        display: none !important;
       }
 
       :host(.iron-selected) {
