@@ -43,6 +43,14 @@
         --badge-margin-left: 20px;
         --badge-margin-bottom: 0px;
       }
+
+      .red {
+        --badge-background: var(--paper-red-300);
+      }
+
+      .blue {
+        --badge-background: var(--paper-light-blue-300);
+      }
     </style>
   </head>
   <body>
@@ -67,6 +75,15 @@
           <span>Mood</span>
           <<%= tagName %> icon="social:mood" label="happy"></<%= tagName %>>
         </div>
+      </div>
+
+      <h3>Badges can be customized using custom properties</h3>
+      <div class="horizontal-section">
+        <<%= themeName %>-icon-button id="number2" icon="communication:email" alt="inbox"></<%= themeName %>-icon-button>
+        <<%= tagName %> for="number2" label="4" class="red"></<%= tagName %>>
+
+        <<%= themeName %>-icon-button id="icon2" icon="account-box" alt="account-box"></<%= themeName %>-icon-button>
+        <<%= tagName %> icon="social:mood" for="icon2" label="happy" class="blue"></<%= tagName %>>
       </div>
     </div>
   </body>
