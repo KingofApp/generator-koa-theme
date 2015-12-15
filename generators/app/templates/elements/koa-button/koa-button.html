@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/koa-behaviors/koa-button-behavior.html">
+<link rel="import" href="../<%= themeName %>-styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
   <template>
@@ -35,6 +36,10 @@
         pointer-events: none;
 
         @apply(--button-disabled);
+      }
+
+      :host([pressed]) {
+        background-color: var(--button-background-color-pressed, --secondary-text-color);
       }
 
       :host([big]) {
