@@ -1,7 +1,10 @@
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../<%= themeName %>-styles/default-theme.html">
+
 <dom-module id="<%= themeName %>-menu-shared-styles">
   <template>
     <style>
-      /* need a wrapper element to make this higher specificity than the :host rule in <%= tagName %> */
+      /* need a wrapper element to make this higher specificity than the :host rule in <%= themeName %>-item */
       .selectable-content > ::content > .iron-selected {
         font-weight: bold;
 
@@ -22,9 +25,15 @@
       .selectable-content > ::content > *:focus:after {
         @apply(--layout-fit);
 
+        background: currentColor;
+        opacity: 0.12;
         content: '';
 
         @apply(--menu-focused-item-after);
+      }
+
+      .selectable-content > ::content > *[colored]:focus:after {
+        opacity: 0.26;
       }
     </style>
   </template>
