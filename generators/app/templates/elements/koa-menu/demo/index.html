@@ -34,9 +34,12 @@
         };
       }
 
-      .sublist {
-        padding-left: 20px;
-        padding-right: 20px;
+      .sublist <%= themeName %>-item {
+        padding-left: 30px;
+      }
+
+      .sublist2 <%= themeName %>-item {
+        padding-left: 50px;
       }
     </style>
   </head>
@@ -81,25 +84,49 @@
       <div>
         <h4>Sub-menu</h4>
         <div class="horizontal-section">
-          <<%= tagName %>>
-            <<%= themeName %>-submenu>
-              <<%= themeName %>-item class="menu-trigger">Topics</<%= themeName %>-item>
-              <<%= tagName %> class="menu-content sublist">
-                <<%= themeName %>-item>Topic 1</<%= themeName %>-item>
-                <<%= themeName %>-item>Topic 2</<%= themeName %>-item>
-                <<%= themeName %>-item>Topic 3</<%= themeName %>-item>
-              </<%= tagName %>>
-            </<%= themeName %>-submenu>
-            <<%= themeName %>-submenu>
-              <<%= themeName %>-item class="menu-trigger">Faves</<%= themeName %>-item>
+          <<%= tagName %> attr-for-item-title="label" multi>
+            <<%= themeName %>-submenu label="<%= tagName %>">
+              <<%= themeName %>-item class="menu-trigger"><%= tagName %></<%= themeName %>-item>
               <<%= tagName %> class="menu-content sublist" multi>
-                <<%= themeName %>-item>Fave 1</<%= themeName %>-item>
-                <<%= themeName %>-item>Fave 2</<%= themeName %>-item>
-              </<%= tagName %>>
-            </<%= themeName %>-submenu>
-            <<%= themeName %>-submenu disabled>
+                <<%= themeName %>-submenu label="Properties">
+                  <<%= themeName %>-item class="menu-trigger">Properties</<%= themeName %>-item>
+                  <<%= tagName %> class="menu-content sublist2">
+                    <<%= themeName %>-item>focusedItem</<%= themeName %>-item>
+                    <<%= themeName %>-item>attrForItemTitle</<%= themeName %>-item>
+                  </<%= tagName %>>
+                </<%= themeName %>-submenu>
+                <<%= themeName %>-submenu label="Methods">
+                  <<%= themeName %>-item class="menu-trigger">Methods</<%= themeName %>-item>
+                  <<%= tagName %> class="menu-content sublist2">
+                    <<%= themeName %>-item>select(value)</<%= themeName %>-item>
+                  </<%= tagName %>>
+                </<%= themeName %>-submenu>
+            </<%= tagName %>>
+          </<%= themeName %>-submenu>
+
+          <<%= themeName %>-submenu label="<%= themeName %>-submenu">
+            <<%= themeName %>-item class="menu-trigger"><%= themeName %>-submenu</<%= themeName %>-item>
+            <<%= tagName %> class="menu-content sublist">
+              <<%= themeName %>-submenu label="Properties">
+                <<%= themeName %>-item class="menu-trigger">Properties</<%= themeName %>-item>
+                <<%= tagName %> class="menu-content sublist2">
+                  <<%= themeName %>-item>opened</<%= themeName %>-item>
+                </<%= tagName %>>
+                </<%= themeName %>-submenu>
+                <<%= themeName %>-submenu label="Methods">
+                  <<%= themeName %>-item class="menu-trigger">Methods</<%= themeName %>-item>
+                  <<%= tagName %> class="menu-content sublist2">
+                    <<%= themeName %>-item>open()</<%= themeName %>-item>
+                    <<%= themeName %>-item>close()</<%= themeName %>-item>
+                    <<%= themeName %>-item>toggle()</<%= themeName %>-item>
+                  </<%= tagName %>>
+              </<%= themeName %>-submenu>
+            </<%= tagName %>>
+          </<%= themeName %>-submenu>
+
+            <<%= themeName %>-submenu label="Unavailable" disabled>
               <<%= themeName %>-item class="menu-trigger">Unavailable</<%= themeName %>-item>
-              <<%= tagName %> class="menu-content sublist" multi>
+              <<%= tagName %> class="menu-content sublist">
                 <<%= themeName %>-item>Unavailable 1</<%= themeName %>-item>
                 <<%= themeName %>-item>Unavailable 2</<%= themeName %>-item>
               </<%= tagName %>>
