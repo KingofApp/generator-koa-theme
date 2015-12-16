@@ -7,6 +7,9 @@
     <!-- write your styles here -->
     <style>
       :host {
+        background: #fff;
+        border-radius: 2px;
+        box-sizing: border-box;
         display: inline-block;
         position: relative;
 
@@ -19,8 +22,10 @@
       }
 
       .header {
-        position: relative;
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
         overflow: hidden;
+        position: relative;
 
         @apply(--card-header);
       }
@@ -35,18 +40,24 @@
 
       .header .title-text {
         color: var(--card-header-color, #000);
+        padding: 16px;
+        font-size: 24px;
+        font-weight: 400;
 
         @apply(--card-header-text);
       }
 
       :host ::content .card-content {
-        position:relative;
+        padding: 16px;
+        position: relative;
 
         @apply(--card-content);
       }
 
       :host ::content .card-actions {
-        position:relative;
+        border-top: 1px solid #e8e8e8;
+        padding: 5px 16px;
+        position: relative;
 
         @apply(--card-actions);
       }
