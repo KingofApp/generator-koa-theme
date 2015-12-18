@@ -48,17 +48,20 @@
 
       :host(:not([big]):not([link]).keyboard-focus) {
         font-weight: bold;
+
         @apply(--button-keyboard-focus);
       }
 
       :host([big].keyboard-focus) {
         font-weight: bold;
-        @apply(--button-keyboard-focus);
+
+        @apply(--button-big-keyboard-focus);
       }
 
       :host([link].keyboard-focus) {
         font-weight: bold;
-        @apply(--button-keyboard-focus);
+
+        @apply(--button-link-keyboard-focus);
       }
 
       :host > ::content * {
