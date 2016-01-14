@@ -49,6 +49,11 @@ module.exports = yeoman.generators.NamedBase.extend({
       this.destinationPath('styles')
     );
 
+    this.fs.copy(
+      this.templatePath('css-variables.json'),
+      this.destinationPath('css-variables.json')
+    );
+
     this.fs.copyTpl(
       this.templatePath('koa-theme.html'),
       this.destinationPath(this.themeKoaName + '.html'),
