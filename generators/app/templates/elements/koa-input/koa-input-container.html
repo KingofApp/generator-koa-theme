@@ -73,6 +73,7 @@
       ::content label {
         color: var(--input-container-color, --secondary-text-color);
         font: inherit;
+        width: 100%;
 
         @apply(--input-container-label);
       }
@@ -102,15 +103,18 @@
         position: relative; /* to make a stacking context */
         text-align: inherit;
         width: 100%;
+        max-width: 100%;
 
         @apply(--input-container-input);
       }
 
       ::content [prefix] {
+        @apply(--layout-flex-none);
         @apply(--input-prefix);
       }
 
       ::content [suffix] {
+        @apply(--layout-flex-none);
         @apply(--input-suffix);
       }
 
