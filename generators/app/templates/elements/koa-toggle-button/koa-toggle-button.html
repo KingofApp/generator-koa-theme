@@ -34,7 +34,7 @@
       }
 
       .toggle-button {
-        background-color: var(--toggle-button-unchecked-button-color, --paper-grey-50);
+        background-color: var(--toggle-button-unchecked-button-color, #fafafa);
         border-radius: 50%;
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6);
         height: 20px;
@@ -54,7 +54,7 @@
       }
 
       :host([checked]:not([disabled])) .toggle-bar {
-        background-color: var(--toggle-button-checked-bar-color, --default-primary-color);
+        background-color: var(--toggle-button-checked-bar-color, --primary-color);
         opacity: 0.5;
 
         @apply(--toggle-button-checked-bar);
@@ -71,7 +71,7 @@
       }
 
       :host([checked]:not([disabled])) .toggle-button {
-        background-color: var(--toggle-button-checked-button-color, --default-primary-color);
+        background-color: var(--toggle-button-checked-button-color, --primary-color);
 
         @apply(--toggle-button-checked-button);
       }

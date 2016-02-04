@@ -32,7 +32,7 @@
       .focused-line {
         @apply(--layout-fit);
 
-        background: var(--input-container-focus-color, --default-primary-color);
+        background: var(--input-container-focus-color, --primary-color);
         height: 2px;
           -webkit-transform: scale3d(0, 1, 1);
         transform: scale3d(0, 1, 1);
@@ -48,7 +48,7 @@
       }
 
       .underline.is-invalid .focused-line {
-        background: var(--input-container-invalid-color, #db4437);
+        background: var(--input-container-invalid-color, --error-color);
           -webkit-transform: none;
         transform: none;
       }
@@ -132,11 +132,11 @@
       }
 
       .add-on-content.is-invalid ::content * {
-        color: var(--input-container-invalid-color, #db4437);
+        color: var(--input-container-invalid-color, --error-color);
       }
 
       .add-on-content.is-highlighted ::content * {
-        color: var(--input-container-focus-color, --default-primary-color);
+        color: var(--input-container-focus-color, --primary-color);
       }
     </style>
     <!-- end styles -->
