@@ -3,153 +3,81 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
     <title><%= tagName %> demo</title>
 
     <script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../../../bower_components/paper-styles/demo-pages.html">
+    <link rel="import" href="../../../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../<%= themeName %>-item/<%= themeName %>-item.html">
     <link rel="import" href="../../<%= themeName %>-menu/<%= themeName %>-menu.html">
     <link rel="import" href="../<%= tagName %>.html">
 
-    <style is="custom-style">
-      <%= tagName %> {
-        text-align: left;
-        margin: auto;
-        width: 180px;
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .vertical-section-container {
+        max-width: 500px;
       }
 
-      <%= tagName %>.letters {
-        width: 90px;
-      }
-
-      .horizontal-section {
+      .vertical-section {
         text-align: center;
+        margin: 0 0 40px;
       }
 
-      .nounderline {
-        --input-container-underline: {
-          display: none;
-        };
+      <%= tagName %> {
+        width: 200px;
       }
     </style>
   </head>
-  <body>
-    <template id="Demo" is="dom-bind">
-      <div class="horizontal-section-container">
-        <div>
-          <h4>Basic Menu</h4>
-          <div class="horizontal-section">
-            <<%= tagName %> label="Dinosaurs">
-              <<%= themeName %>-menu class="dropdown-content">
-                <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
-                  <<%= themeName %>-item>[[dinosaur]]</<%= themeName %>-item>
-                </template>
-              </<%= themeName %>-menu>
-            </<%= tagName %>>
-          </div>
-        </div>
+  <body unresolved>
+    <div class="vertical-section-container centered">
+      <h4>This is a plain <%= tagName %></h4>
+      <div class="vertical-section">
+        <<%= tagName %> label="Dinosaurs">
+          <<%= themeName %>-menu class="dropdown-content">
+            <<%= themeName %>-item>allosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>brontosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>carcharodontosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>diplodocus</<%= themeName %>-item>
+          </<%= themeName %>-menu>
+        </<%= tagName %>>
       </div>
 
-      <div class="horizontal-section-container">
-        <div>
-          <h4>Pre-selected Value</h4>
-          <div class="horizontal-section">
-            <<%= tagName %> label="Dinosaurs">
-              <<%= themeName %>-menu class="dropdown-content" selected="1">
-                <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
-                  <<%= themeName %>-item>[[dinosaur]]</<%= themeName %>-item>
-                </template>
-              </<%= themeName %>-menu>
-            </<%= tagName %>>
-          </div>
-        </div>
+      <h4>You can pre-select a value using the <i>selected</i> attribute</h4>
+      <div class="vertical-section">
+        <<%= tagName %> label="Dinosaurs">
+          <<%= themeName %>-menu class="dropdown-content" selected="1">
+            <<%= themeName %>-item>allosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>brontosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>carcharodontosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>diplodocus</<%= themeName %>-item>
+          </<%= themeName %>-menu>
+        </<%= tagName %>>
       </div>
 
-      <div class="horizontal-section-container">
-        <div>
-          <h4>Disabled</h4>
-          <div class="horizontal-section">
-            <<%= tagName %> disabled label="Disabled">
-              <<%= themeName %>-menu class="dropdown-content">
-                <template is="dom-repeat" items="[[letters]]" as="letter">
-                  <<%= themeName %>-item>[[letter]]</<%= themeName %>-item>
-                </template>
-              </<%= themeName %>-menu>
-            </<%= tagName %>>
-          </div>
-        </div>
+      <h4>You can change the direction in which the menu opens</h4>
+      <div class="vertical-section">
+          <<%= tagName %> label="Upwards and to the left!" vertical-align="bottom" horizontal-align="left">
+            <<%= themeName %>-menu class="dropdown-content">
+              <<%= themeName %>-item>allosaurus</<%= themeName %>-item>
+              <<%= themeName %>-item>brontosaurus</<%= themeName %>-item>
+              <<%= themeName %>-item>carcharodontosaurus</<%= themeName %>-item>
+              <<%= themeName %>-item>diplodocus</<%= themeName %>-item>
+            </<%= themeName %>-menu>
+          </<%= tagName %>>
       </div>
 
-      <div class="horizontal-section-container">
-        <div>
-          <h4>No underline (menu from bottom)</h4>
-          <div class="horizontal-section">
-            <<%= tagName %> class="nounderline" label="Letters" vertical-align="bottom">
-              <<%= themeName %>-menu class="dropdown-content">
-                <template is="dom-repeat" items="[[letters]]" as="letter">
-                  <<%= themeName %>-item>[[letter]]</<%= themeName %>-item>
-                </template>
-              </<%= themeName %>-menu>
-            </<%= tagName %>>
-          </div>
-        </div>
+      <h4>A <%= tagName %> can be disabled</h4>
+      <div class="vertical-section">
+        <<%= tagName %> label="Disabled dinosaurs" disabled>
+          <<%= themeName %>-menu class="dropdown-content">
+            <<%= themeName %>-item>allosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>brontosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>carcharodontosaurus</<%= themeName %>-item>
+            <<%= themeName %>-item>diplodocus</<%= themeName %>-item>
+          </<%= themeName %>-menu>
+        </<%= tagName %>>
       </div>
-
-      <div class="horizontal-section-container">
-        <div>
-          <h4>No Animations</h4>
-          <div class="horizontal-section">
-            <<%= tagName %> label="Dinosaurs" no-animations>
-              <<%= themeName %>-menu class="dropdown-content">
-                <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
-                  <<%= themeName %>-item>[[dinosaur]]</<%= themeName %>-item>
-                </template>
-              </<%= themeName %>-menu>
-            </<%= tagName %>>
-          </div>
-        </div>
-      </div>
-    </template>
-
-    <script>
-      Demo.letters = [
-        'alpha',
-        'beta',
-        'gamma',
-        'delta',
-        'epsilon'
-      ];
-      Demo.dinosaurs = [
-        'allosaurus',
-        'brontosaurus',
-        'carcharodontosaurus',
-        'diplodocus',
-        'ekrixinatosaurus',
-        'fukuiraptor',
-        'gallimimus',
-        'hadrosaurus',
-        'iguanodon',
-        'jainosaurus',
-        'kritosaurus',
-        'liaoceratops',
-        'megalosaurus',
-        'nemegtosaurus',
-        'ornithomimus',
-        'protoceratops',
-        'quetecsaurus',
-        'rajasaurus',
-        'stegosaurus',
-        'triceratops',
-        'utahraptor',
-        'vulcanodon',
-        'wannanosaurus',
-        'xenoceratops',
-        'yandusaurus',
-        'zephyrosaurus'
-      ];
-    </script>
+    </div>
   </body>
 </html>

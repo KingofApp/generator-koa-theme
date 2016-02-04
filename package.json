@@ -1,6 +1,6 @@
 {
   "name": "generator-koa-theme",
-  "version": "0.7.4",
+  "version": "0.8.0",
   "description": "Scaffold out a King of App theme",
   "license": "MIT",
   "main": "app/index.js",

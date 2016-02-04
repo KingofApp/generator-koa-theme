@@ -59,12 +59,6 @@ module.exports = yeoman.generators.NamedBase.extend({
       this.destinationPath(this.themeKoaName + '.html'),
       {themeName: this.themeName}
     );
-
-    this.fs.copyTpl(
-      this.templatePath('dist/koa-theme.html'),
-      this.destinationPath('dist/' + this.themeKoaName + '.html'),
-      {themeName: this.themeName}
-    );
   },
 
   writingElements: function() {

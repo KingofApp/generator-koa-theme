@@ -8,10 +8,10 @@
     <!-- write your styles here -->
     <style>
       :host {
-        background: var(--toolbar-background, --default-primary-color);
+        background: var(--toolbar-background, --primary-color);
           -moz-box-sizing: border-box;
         box-sizing: border-box;
-        color: var(--toolbar-color, --text-primary-color);
+        color: var(--toolbar-color, #ffffff);
         display: block;
         height: var(--toolbar-height, 64px);
         position: relative;
@@ -32,18 +32,19 @@
       .toolbar-tools {
         @apply(--layout-horizontal);
         @apply(--layout-center);
-        @apply(--toolbar-content);
 
         height: var(--toolbar-height, 64px);
         padding: 0 16px;
         pointer-events: none;
         position: relative;
+
+        @apply(--toolbar-content);
       }
 
       /*
        * TODO: Where should media query breakpoints live so they can be shared between elements?
        */
-      @media (max-width: 639px) {
+      @media (max-width: 600px) {
         :host {
           height: var(--toolbar-sm-height, 56px);
         }
@@ -98,7 +99,9 @@
 
       .toolbar-tools > ::content .title {
         @apply(--layout-flex);
+        @apply(--paper-font-common-base);
 
+        font-family: var(--title-font-family);
         font-size: 20px;
         font-weight: 400;
         line-height: 1;
