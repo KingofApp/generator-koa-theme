@@ -11,6 +11,8 @@
         white-space: nowrap;
         cursor: pointer;
         --calculated-checkbox-size: var(--checkbox-size, 18px);
+
+        @apply(--paper-font-common-base);
       }
 
       :host(:focus) {
@@ -68,8 +70,8 @@
       }
 
       #checkbox.checked {
-        background-color: var(--checkbox-checked-color, --default-primary-color);
-        border-color: var(--checkbox-checked-color, --default-primary-color);
+        background-color: var(--checkbox-checked-color, --primary-color);
+        border-color: var(--checkbox-checked-color, --primary-color);
       }
 
       #checkmark {
@@ -82,13 +84,13 @@
         border-right-width: calc(2/15 * var(--calculated-checkbox-size));
         border-bottom-width: calc(2/15 * var(--calculated-checkbox-size));
         border-color: var(--checkbox-checkmark-color, white);
-        transform-origin: 97% 86%;
         -webkit-transform-origin: 97% 86%;
+        transform-origin: 97% 86%;
       }
 
       :host-context([dir="rtl"]) #checkmark {
-        transform-origin: 50% 14%;
         -webkit-transform-origin: 50% 14%;
+        transform-origin: 50% 14%;
       }
 
       /* label */
@@ -132,7 +134,7 @@
 
       /* invalid state */
       #checkbox.invalid:not(.checked) {
-        border-color: var(--checkbox-error-color, #db4437);
+        border-color: var(--checkbox-error-color, --error-color);
       }
     </style>
     <!-- end styles -->

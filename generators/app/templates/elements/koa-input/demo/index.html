@@ -11,7 +11,6 @@
 
     <link rel="import" href="../../../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../../bower_components/iron-flex-layout/iron-flex-layout.html">
-    <link rel="import" href="../../../bower_components/iron-icon/iron-icon.html">
     <link rel="import" href="../../../bower_components/iron-icons/iron-icons.html">
     <link rel="import" href="../../../bower_components/paper-styles/color.html">
     <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
@@ -49,7 +48,7 @@
         padding: 0px 4px;
       }
 
-      iron-icon {
+      koa-icon {
         padding-right: 5px;
       }
     </style>
@@ -85,7 +84,7 @@
           <div prefix>$</div>
         </<%= tagName %>>
         <<%= tagName %> label="username" id="inputWithButton">
-          <iron-icon icon="mail" prefix></iron-icon>
+          <koa-icon icon="mail" prefix></koa-icon>
           <div suffix>@email.com</div>
           <<%= themeName %>-icon-button suffix onclick="clearInput()"
               icon="clear" alt="clear" title="clear">

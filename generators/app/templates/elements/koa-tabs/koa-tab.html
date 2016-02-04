@@ -10,13 +10,14 @@
         @apply(--layout-inline);
         @apply(--layout-center);
         @apply(--layout-center-justified);
-        @apply(--layout-flex);
+        @apply(--layout-flex-auto);
 
         cursor: pointer;
         overflow: hidden;
         padding: 0 12px;
         position: relative;
 
+        @apply(--paper-font-common-base);
         @apply(--tab);
       }
 
@@ -53,7 +54,7 @@
       }
 
       .tab-content > ::content > a {
-        @apply(--layout-flex)
+        @apply(--layout-flex-auto)
 
         height: 100%;
       }

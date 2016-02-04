@@ -1,18 +1,23 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../../bower_components/koa-behaviors/koa-card-behavior.html">
+<link rel="import" href="../../styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
   <template>
     <!-- write your styles here -->
     <style>
       :host {
-        background: #fff;
+        background-color: var(--card-background-color, --primary-background-color);
         border-radius: 2px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                    0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                    0 3px 1px -2px rgba(0, 0, 0, 0.2);
         box-sizing: border-box;
         display: inline-block;
         position: relative;
 
+        @apply(--paper-font-common-base);
         @apply(--card);
       }
 
