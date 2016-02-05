@@ -6,7 +6,7 @@ var fs = require('fs');
 module.exports = yeoman.generators.NamedBase.extend({
   init: function() {
     this.themeName = this.name;
-    this.themeKoaName = 'koa-' + this.themeName + '-theme';
+    this.themeKoaName = 'koa-theme-' + this.themeName;
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
     this.elements = [];
   },
