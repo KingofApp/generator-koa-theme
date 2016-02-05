@@ -1,12 +1,16 @@
 # Install
 
-1. If you haven't, install Yeoman:
+1. If you haven't, install Yeoman and Bower:
+
+  ```
+  npm install -g bower
+  ```
 
   ```
   npm install -g yo
   ```
 
-2. Then install the generator-koa-theme:
+2. Then, install the generator-koa-theme:
 
   ```
   npm install -g generator-koa-theme
@@ -25,9 +29,7 @@
   Now, you have a scaffold like this:
 
   ```
-  koa-mythemename-theme
-  ├── dist
-  │   └── koa-mythemename-theme.html
+  koa-theme-mythemename
   ├── elements
   │   ├── mythemename-badge
   │   │    ├── demo
@@ -40,7 +42,8 @@
   │   └── main.css
   ├── .gitignore
   ├── bower.json
-  └── koa-mythemename-theme.html
+  ├── css-variables.json
+  └── koa-theme-mythemename.html
   ```
 
 2. Serve all the files with a basic HTTP serve.
@@ -52,7 +55,7 @@
   ```
 
   ```
-  serve koa-mythemename-theme
+  serve koa-theme-mythemename
   ```
 
 3. Begins to change all elements as you want!
