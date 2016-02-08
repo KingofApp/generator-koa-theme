@@ -1,4 +1,4 @@
-[![npm version](https://badge.fury.io/js/generator-koa-theme.svg)](https://badge.fury.io/js/generator-koa-theme)
+[![npm](https://img.shields.io/npm/v/generator-koa-theme.svg)](https://www.npmjs.com/package/generator-koa-theme)
 
 # generator-koa-theme
 
