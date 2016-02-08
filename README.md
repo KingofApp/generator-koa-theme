@@ -1,4 +1,10 @@
-# Install
+[![npm version](https://badge.fury.io/js/generator-koa-theme.svg)](https://badge.fury.io/js/generator-koa-theme)
+
+# generator-koa-theme
+
+Scaffold out a King of App theme.
+
+## Install
 
 1. If you haven't, install Yeoman and Bower:
 
@@ -16,7 +22,7 @@
   npm install -g generator-koa-theme
   ```
 
-# Getting started
+## Getting started
 
 1. Create a new theme with the generator.
 
