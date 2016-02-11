@@ -1,10 +1,12 @@
 'use strict';
 
 var yeoman = require('yeoman-generator');
+var packageJson = require('../../package.json');
 var fs = require('fs');
 
 module.exports = yeoman.generators.NamedBase.extend({
   init: function() {
+    this.generatorVersion = 'v' + packageJson.version;
     this.themeName = this.name;
     this.themeKoaName = 'koa-theme-' + this.themeName;
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
@@ -57,7 +59,7 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.fs.copyTpl(
       this.templatePath('koa-theme.html'),
       this.destinationPath(this.themeKoaName + '.html'),
-      {themeName: this.themeName}
+      {themeName: this.themeName, generatorVersion: this.generatorVersion}
     );
   },
 
