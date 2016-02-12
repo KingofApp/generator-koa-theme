@@ -28,7 +28,7 @@
     "iron-flex-layout": "PolymerElements/iron-flex-layout#^1.0.0",
     "iron-image": "PolymerElements/iron-image#^1.2.0",
     "iron-input": "PolymerElements/iron-input#^1.0.0",
-    "koa-behaviors": "KingofApp/koa-behaviors#^0.8.0"
+    "koa-behaviors": "KingofApp/koa-behaviors#^0.9.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
