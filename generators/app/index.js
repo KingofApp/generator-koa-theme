@@ -42,6 +42,11 @@ module.exports = yeoman.generators.NamedBase.extend({
     );
 
     this.fs.copy(
+      this.templatePath('_bowerrc'),
+      this.destinationPath('.bowerrc')
+    );
+
+    this.fs.copy(
       this.templatePath('_gitignore'),
       this.destinationPath('.gitignore')
     );
