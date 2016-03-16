@@ -8,7 +8,7 @@ module.exports = yeoman.generators.NamedBase.extend({
   init: function() {
     this.generatorVersion = 'v' + packageJson.version;
     this.themeName = this.name;
-    this.themeKoaName = 'koa-theme-' + this.themeName;
+    this.themeKoaName = 'koapp-theme-' + this.themeName;
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
     this.elements = [];
   },
@@ -42,6 +42,22 @@ module.exports = yeoman.generators.NamedBase.extend({
     );
 
     this.fs.copy(
+      this.templatePath('_bowerrc'),
+      this.destinationPath('.bowerrc')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('config.json'),
+      this.destinationPath('config.json'),
+      {
+        themeName: this.themeName,
+        themeKoaName: this.themeKoaName,
+        authorName: this.user.git.name(),
+        authorEmail: this.user.git.email()
+      }
+    );
+
+    this.fs.copy(
       this.templatePath('_gitignore'),
       this.destinationPath('.gitignore')
     );
@@ -49,11 +65,6 @@ module.exports = yeoman.generators.NamedBase.extend({
     this.directory(
       this.templatePath('styles'),
       this.destinationPath('styles')
-    );
-
-    this.fs.copy(
-      this.templatePath('css-variables.json'),
-      this.destinationPath('css-variables.json')
     );
 
     this.fs.copyTpl(
