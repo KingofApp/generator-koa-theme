@@ -8,7 +8,7 @@ module.exports = yeoman.generators.NamedBase.extend({
   init: function() {
     this.generatorVersion = 'v' + packageJson.version;
     this.themeName = this.name;
-    this.themeKoaName = 'koa-theme-' + this.themeName;
+    this.themeKoaName = 'koapp-theme-' + this.themeName;
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
     this.elements = [];
   },
