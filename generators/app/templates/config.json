@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "<%= themeKoaName %>",
   "identifier": "<%= themeKoaName %>",
   "description": {
-    "en-US" : "<%= themeName %> theme for King of App"
+    "en-US" : "<%= themeName %>"
   },
   "version": "0.0.0",
   "author": "<%= authorName %>, <<%= authorEmail %>>",
@@ -19,13 +19,13 @@
     "market": true
   },
   "images" : {
-    "list" : "images/<%= themeKoaName %>/list.png",
+    "list" : "themes/<%= themeKoaName %>/images/list.png",
     "screenshots" : [
-      "images/<%= themeKoaName %>/screenshot01.png",
-      "images/<%= themeKoaName %>/screenshot02.png"
+      "themes/<%= themeKoaName %>/images/screenshot01.png",
+      "themes/<%= themeKoaName %>/images/screenshot02.png"
     ],
-    "popover" : "images/<%= themeKoaName %>/popover.png",
-    "banner" : "images/<%= themeKoaName %>/banner.png"
+    "popover" : "themes/<%= themeKoaName %>/images/popover.png",
+    "banner" : "themes/<%= themeKoaName %>/images/banner.png"
   },
   "defaultConfig": {
     "colors": {
