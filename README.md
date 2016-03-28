@@ -24,7 +24,25 @@ Scaffold out a King of App theme.
 
 ## Getting started
 
-1. Create a new theme with the generator.
+1. Download and start the [King of App visualizer](https://github.com/KingofApp/com.kingofapp.visualizer).
+
+  ```
+  git clone -b dev git@github.com:KingofApp/com.kingofapp.visualizer.git
+  ```
+
+  ```
+  cd com.kingofapp.visualizer
+  ```
+
+  ```
+  npm start
+  ```
+
+2. Go to themes path and create a new theme with the generator.
+
+  ```
+  cd com.kingofapp.visualizer/app/themes
+  ```
 
   ```
   yo koa-theme mythemename
@@ -35,7 +53,7 @@ Scaffold out a King of App theme.
   Now, you have a scaffold like this:
 
   ```
-  koa-theme-mythemename
+  koapp-theme-mythemename
   ├── elements
   │   ├── mythemename-badge
   │   │    ├── demo
@@ -46,22 +64,15 @@ Scaffold out a King of App theme.
   ├── styles
   │   ├── default-theme.html
   │   └── main.css
+  ├── .bowerrc
   ├── .gitignore
   ├── bower.json
-  ├── css-variables.json
-  └── koa-theme-mythemename.html
-  ```
-
-2. Serve all the files with a basic HTTP serve.
-
-  For example with [serve](https://www.npmjs.com/package/serve):
-
-  ```
-  npm install -g serve
-  ```
-
-  ```
-  serve koa-theme-mythemename
+  ├── config.json
+  └── koapp-theme-mythemename.html
   ```
 
 3. Begins to change all elements as you want!
+
+You can see the changes:
+* In the visualizer app: `http://localhost:9001`
+* In each element demo. Example: `http://localhost:9001/themes/koapp-theme-mythemename/elements/mythemename-button/demo/`
