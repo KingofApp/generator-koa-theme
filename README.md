@@ -72,3 +72,7 @@ Scaffold out a King of App theme.
   ```
 
 3. Begins to change all elements as you want!
+
+You can see the changes:
+* In the visualizer app: `http://localhost:9001`
+* In each element demo. Example: `http://localhost:9001/themes/koapp-theme-mythemename/elements/mythemename-button/demo/`
