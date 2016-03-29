@@ -71,7 +71,23 @@ Scaffold out a King of App theme.
   └── koapp-theme-mythemename.html
   ```
 
-3. Begins to change all elements as you want!
+3. Update the `theme` object in the `app/core/structure.json`:
+
+  ```json
+  {
+    "config": {
+      ...
+      "theme": {
+        "identifier": "koapp-theme-mythemename",
+        "path": "themes/koapp-theme-mythemename/koapp-theme-mythemename.html"
+      },
+      ...
+    },
+    ...
+  }
+  ```
+
+4. Begins to change all elements as you want!
 
 You can see the changes:
 * In the visualizer app: `http://localhost:9001`
