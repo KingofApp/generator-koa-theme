@@ -55,10 +55,21 @@
 
         @apply(--item-focused-before);
       }
+
+      .content-icon {
+        @apply(--layout-horizontal);
+        @apply(--layout-center);
+
+        width: var(--item-icon-width, 56px);
+        @apply(--item-icon);
+      }
     </style>
     <!-- end styles -->
 
     <!-- write your template here -->
+    <div id="contentIcon" class="content-icon" hidden>
+      <content select="[item-icon]"></content>
+    </div>
     <content></content>
     <!-- end template -->
   </template>
