@@ -9,34 +9,152 @@
 
     <script src="../../../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../../../../bower_components/iron-icon/iron-icon.html">
+    <link rel="import" href="../../../../../bower_components/iron-icons/communication-icons.html">
+    <link rel="import" href="../../../../../bower_components/iron-icons/iron-icons.html">
     <link rel="import" href="../../../../../bower_components/paper-styles/demo-pages.html">
-    <link rel="import" href="../../../../../bower_components/paper-styles/shadow.html">
+    <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
     <link rel="import" href="../<%= tagName %>.html">
+    <link rel="import" href="../<%= tagName %>-body.html">
 
     <style is="custom-style">
-      .list {
-        @apply(--shadow-elevation-2dp);
-
-        background-color: white;
-        display: inline-block;
-        margin: 12px;
-        width: 240px;
+      div[role="listbox"] {
+        border: 1px solid #e5e5e5;
       }
 
-      h4 {
-        margin-left: 24px;
+      .avatar {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--paper-amber-500);
+      }
+
+      .blue {
+        background-color: var(--paper-light-blue-300);
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div>
-        <h4>Single line items</h4>
-        <div class="list" role="listbox">
+    <div class="vertical-section-container centered">
+      <h3><%= tagName %>s are simple list elements, ideally used in an element with <i>role="listbox"</i></h3>
+      <div class="vertical-section">
+        <div role="listbox">
           <<%= tagName %>>Inbox</<%= tagName %>>
           <<%= tagName %>>Starred</<%= tagName %>>
           <<%= tagName %>>Sent mail</<%= tagName %>>
-          <<%= tagName %>>Drafts</<%= tagName %>>
+        </div>
+      </div>
+
+      <h3>They can be styled using custom properties</h3>
+      <div class="vertical-section">
+        <style is="custom-style">
+          <%= tagName %>.fancy {
+            --item-focused: {
+              background: var(--paper-amber-500);
+              font-weight: bold;
+            };
+            --item-focused-before: {
+              opacity: 0;
+            };
+          }
+        </style>
+        <div role="listbox">
+          <<%= tagName %> class="fancy">Inbox</<%= tagName %>>
+          <<%= tagName %> class="fancy">Starred</<%= tagName %>>
+          <<%= tagName %> class="fancy">Sent mail</<%= tagName %>>
+        </div>
+      </div>
+
+      <h3>To add a leading element, use a <%= tagName %> with an <i>item-icon</i> attribute. This
+      leading image can be an iron-icon, or any other regular element.</h3>
+      <div class="vertical-section">
+        <div role="listbox">
+          <<%= tagName %>>
+            <iron-icon icon="inbox" item-icon></iron-icon>
+            Inbox
+          </<%= tagName %>>
+          <<%= tagName %>>
+            <iron-icon icon="star" item-icon></iron-icon>
+            Starred
+          </<%= tagName %>>
+        </div>
+      </div>
+
+      <h3>For two-line or three-line items, use a <%= tagName %>-body inside a <%= tagName %></h3>
+      <div class="vertical-section">
+        <div role="listbox">
+          <<%= tagName %>>
+            <<%= tagName %>-body two-line>
+              <div>Profile Photo</div>
+              <div secondary>Change your Google+ profile photo</div>
+            </<%= tagName %>-body>
+          </<%= tagName %>>
+          <<%= tagName %>>
+            <<%= tagName %>-body three-line>
+              <div>Ali Connors</div>
+              <div secondary>Brunch this weekend?</div>
+              <div secondary>I'll be in your neighborhood doing errands</div>
+            </<%= tagName %>-body>
+          </<%= tagName %>>
+          <<%= tagName %>>
+            <iron-icon icon="communication:phone" item-icon></iron-icon>
+            <<%= tagName %>-body two-line>
+              <div>(650) 555-1234</div>
+              <div secondary>Mobile</div>
+            </<%= tagName %>-body>
+          </<%= tagName %>>
+          <<%= tagName %>>
+            <div class="avatar blue" item-icon></div>
+            <<%= tagName %>-body two-line>
+              <div>Alphonso Engelking</div>
+              <div secondary>Change photo</div>
+            </<%= tagName %>-body>
+          </<%= tagName %>>
+        </div>
+      </div>
+
+      <h3>Complex layouts are usually a combination of all these elements</h3>
+      <div class="vertical-section">
+        <div role="listbox">
+          <<%= tagName %>>
+            <div class="avatar blue" item-icon></div>
+            <<%= tagName %>-body two-line>
+              <div>Photos</div>
+              <div secondary>Jan 9, 2014</div>
+            </<%= tagName %>-body>
+            <<%= themeName %>-icon-button icon="star" alt="favourite this!"></<%= themeName %>-icon-button>
+          </<%= tagName %>>
+          <<%= tagName %>>
+            <div class="avatar" item-icon></div>
+            <<%= tagName %>-body two-line>
+              <div>Recipes</div>
+              <div secondary>Jan 17, 2014</div>
+            </<%= tagName %>-body>
+            <<%= themeName %>-icon-button icon="star" alt="favourite this!"></<%= themeName %>-icon-button>
+          </<%= tagName %>>
+        </div>
+      </div>
+
+      <h3><%= tagName %>s can be used as links</h3>
+      <div class="vertical-section">
+        <style is="custom-style">
+          .<%= tagName %>-link {
+            color: inherit;
+            text-decoration: none;
+          }
+        </style>
+        <div role="listbox">
+          <a class="<%= tagName %>-link" href="#inbox" tabindex="-1">
+            <<%= tagName %>>Inbox</<%= tagName %>>
+          </a>
+          <a class="<%= tagName %>-link" href="#starred" tabindex="-1">
+            <<%= tagName %>>Starred</<%= tagName %>>
+          </a>
+          <a class="<%= tagName %>-link" href="#sent" tabindex="-1">
+            <<%= tagName %>>Sent mail</<%= tagName %>>
+          </a>
         </div>
       </div>
     </div>
