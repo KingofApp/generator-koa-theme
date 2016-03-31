@@ -8,7 +8,6 @@
 
 <dom-module id="<%= tagName %>">
   <template>
-    <!-- write your styles here -->
     <style>
       :host {
         display: block;
@@ -30,7 +29,6 @@
         color: var(--input-container-color, --secondary-text-color);
       }
     </style>
-    <!-- end styles -->
 
     <!-- write your template here -->
     <<%= themeName %>-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
