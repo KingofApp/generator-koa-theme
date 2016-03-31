@@ -7,7 +7,6 @@
 
 <dom-module id="<%= tagName %>">
   <template>
-    <!-- write your styles here -->
     <style>
       :host {
         @apply(--layout);
@@ -236,7 +235,6 @@
         border: 2px solid var(--slider-knob-start-border-color, #bdbdbd);
       }
     </style>
-    <!-- end styles -->
 
     <!-- write your template here -->
     <div id="sliderContainer" class$="[[_getClassNames(disabled, pin, snaps, immediateValue, min, expand, dragging, transiting, editable)]]">
