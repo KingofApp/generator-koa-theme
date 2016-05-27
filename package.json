@@ -1,6 +1,6 @@
 {
   "name": "generator-koa-theme",
-  "version": "0.12.4",
+  "version": "0.13.0",
   "description": "Scaffold out a King of App theme",
   "license": "MIT",
   "main": "app/index.js",
@@ -15,7 +15,6 @@
     "yeoman-generator": "^0.21.1"
   },
   "devDependencies": {
-    "eslint": "^2.2.0",
     "eslint-plugin-html": "^1.4.0",
     "gulp": "^3.9.0",
     "gulp-eslint": "^2.0.0"
