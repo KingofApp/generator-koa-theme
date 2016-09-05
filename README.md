@@ -27,7 +27,7 @@ Scaffold out a King of App theme.
 1. Download and start the [King of App visualizer](https://github.com/KingofApp/com.kingofapp.visualizer).
 
   ```
-  git clone -b dev git@github.com:KingofApp/com.kingofapp.visualizer.git
+  git clone -b dev https://git@github.com/KingofApp/com.kingofapp.visualizer.git
   ```
 
   ```
