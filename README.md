@@ -4,6 +4,9 @@
 
 Scaffold out a King of App theme.
 
+
+**For C9.io users, follow [this instructions](https://github.com/KingofApp/generator-koa-theme/blob/master/c9_installation.md)**
+
 ## Install
 
 1. If you haven't, install Yeoman and Bower:
