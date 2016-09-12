@@ -1,11 +1,12 @@
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../../../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../../../../bower_components/koa-behaviors/koa-card-behavior.html">
 <link rel="import" href="../../styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
   <template>
-    <style>
+    <style is="custom-style" include="iron-flex">
       :host {
         background-color: var(--card-background-color, --primary-background-color);
         border-radius: 2px;
@@ -34,7 +35,6 @@
       }
 
       .header iron-image {
-        display: block;
         width: 100%;
         --iron-image-width: 100%;
         pointer-events: none;
@@ -66,25 +66,106 @@
 
         @apply(--card-actions);
       }
+
+      :host([horizontal]) .header {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+        max-width: 30%;
+        float: left;
+
+        @apply(--layout-horizontal);
+      }
+
+      :host([horizontal]) .header iron-image {
+        background-size: cover;
+        --iron-image-width: 100%;
+        pointer-events: none;
+
+        @apply(--card-header-horizontal-image);
+      }
+
+      :host([horizontal]) .title-text {
+        color: var(--card-header-color, #000);
+        padding: 16px;
+        font-family: var(--card-header-font-family, --title-font-family);
+        font-size: 24px;
+        font-weight: 400;
+        width: 85%;
+        height: 20%;
+        position: relative;
+
+        @apply(--card-header-horizontal-text);
+      }
+
+      :host([horizontal]) ::content .card-content {
+        padding: 16px;
+        width: 85%;
+        position: relative;
+        height: 55%;
+
+        @apply(--card-horizontal-content);
+      }
+
+      :host([horizontal]) ::content .card-actions {
+        border-top: 1px solid #e8e8e8;
+        padding: 5px 16px;
+        width: 85%;
+        position: relative;
+        height: 25%;
+
+        @apply(--card-horizontal-actions);
+      }
+
+      :host([horizontal]) .horizontal-content {
+        float: left;
+        height: 100%;
+        width: 70%;
+
+        @apply(--card-content-container);
+      }
+
     </style>
 
     <!-- write your template here -->
     <div class="header">
-      <iron-image hidden$="[[!image]]" src="[[image]]" preload$="[[preloadImage]]" fade$="[[fadeImage]]"></iron-image>
-      <div hidden$="[[!heading]]" class="title-text">[[heading]]</div>
+      <template is="dom-if" if="[[ !horizontal ]]">
+        <iron-image hidden$="[[!image]]" src="[[image]]" preload$="[[preloadImage]]" fade$="[[fadeImage]]"></iron-image>
+      </template>
+
+      <template is="dom-if" if="[[ horizontal ]]">
+        <iron-image style="width:230px; height:230px;" sizing="cover" class="imageContainer" hidden$="[[!image]]" src="[[image]]" preload$="[[preloadImage]]" fade$="[[fadeImage]]"></iron-image>
+      </template>
+
+      <template is="dom-if" if="[[ !horizontal ]]">
+        <div hidden$="[[!heading]]" class="title-text">[[heading]]</div>
+      </template>
     </div>
 
-    <content></content>
+    <div class="horizontal-content">
+      <template is="dom-if" if="[[ horizontal ]]">
+        <div hidden$="[[!heading]]" class="title-text">[[heading]]</div>
+      </template>
+
+      <content></content>
+
+    </div>
     <!-- end template -->
   </template>
 
   <script>
     Polymer({
       is: '<%= tagName %>',
-
+      properties: {
+        horizontal: {
+          type: Boolean
+        }
+      },
       behaviors: [
         Polymer.KoaCardBehavior
-      ]
+      ],
+      ready: function() {
+          this.horizontal === undefined ? this.horizontal = false : this.horizontal = true;
+      }
     });
   </script>
 </dom-module>
