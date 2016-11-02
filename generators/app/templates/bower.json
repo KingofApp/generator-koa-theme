@@ -1,7 +1,7 @@
 {
   "name": "<%= themeKoaName %>",
-  "authors": "<%= authorName %>, <<%= authorEmail %>>",
-  "description": "<%= themeName %> theme for King of App",
+  "authors": "<%= userName %>",
+  "description": "<%- englishDescription %>",
   "main": "<%= themeKoaName %>.html",
   "moduleType": [
     "globals"
@@ -10,8 +10,8 @@
     "kingofapp",
     "theme"
   ],
-  "license": "MIT",
-  "homepage": "http://kingofapp.com",
+  "license": "<%- license %>",
+  "homepage": "<%- homepage %>",
   "private": true,
   "ignore": [
     "**/.*",

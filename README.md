@@ -1,97 +1,76 @@
-[![npm](https://img.shields.io/npm/v/generator-koa-theme.svg)](https://www.npmjs.com/package/generator-koa-theme)
+# generator-koapp-theme
 
-# generator-koa-theme
+![Koa-logo](http://kingofapp.es/wp-content/uploads/2015/02/logoking-r1.png)
 
-Scaffold out a King of App theme.
+> Scaffold out a King of App Theme
 
+### Installation
 
-**For C9.io users, follow [this instructions](https://github.com/KingofApp/generator-koa-theme/blob/master/c9_installation.md)**
+First, install [Yeoman](http://yeoman.io) and generator-koapp-theme using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
-## Install
+```bash
+npm install -g yo
+npm install -g generator-koapp-theme
+```
 
-1. If you haven't, install Yeoman and Bower:
+Generate your new theme:
 
-  ```
-  npm install -g bower
-  ```
+```bash
+yo koapp-theme
+```
 
-  ```
-  npm install -g yo
-  ```
+Then start your new theme:
 
-2. Then, install the generator-koa-theme:
+```bash
+cd {Project-name} && gulp
+```
 
-  ```
-  npm install -g generator-koa-theme
-  ```
+### Automated Tasks (Gulp)
 
-## Getting started
+**Main Tasks**
 
-1. Download and start the [King of App visualizer](https://github.com/KingofApp/com.kingofapp.visualizer).
+- `gulp` It runs `watch-config`, `watch-bower`
+- `gulp distribution` It runs `dist-zip`
 
-  ```
-  git clone -b dev https://git@github.com/KingofApp/com.kingofapp.visualizer.git
-  ```
+**All Tasks**
 
-  ```
-  cd com.kingofapp.visualizer
-  ```
+- `gulp lint` Linter for your code.
+- `gulp e2e` It runs integration test with Protractor.
+- `gulp dist-zip` It generates a compression file ready to upload
+- `gulp watch-bower` It's monitoring for changes in bower.json.
+- `gulp watch-config` It's monitoring for changes in config.json,  also it will update a../../app/core/structure.json
 
-  ```
-  npm start
-  ```
+### Contribution
 
-2. Go to themes path and create a new theme with the generator.
+Please open an issue with your suggestion/question.
 
-  ```
-  cd com.kingofapp.visualizer/app/themes
-  ```
+If you want to improve the code, please follow these steps and submit a pull request.
 
-  ```
-  yo koa-theme mythemename
-  ```
+- Download
+```bash
+git clone https://github.com/KingofApp/generator-koapp-theme.git && cd generator-koapp-theme
+```
 
-  Note: `mythemename` will be the ID of the theme.
+- Install all dependencies
+```bash
+npm install
+```
 
-  Now, you have a scaffold like this:
+- Added to local NPM
+```bash
+npm link
+```
 
-  ```
-  koapp-theme-mythemename
-  ├── elements
-  │   ├── mythemename-badge
-  │   │    ├── demo
-  │   │    │   └── index.html
-  │   │    └── mythemename-badge.html
-  │   ├── ...
-  │
-  ├── styles
-  │   ├── default-theme.html
-  │   └── main.css
-  ├── .bowerrc
-  ├── .gitignore
-  ├── bower.json
-  ├── config.json
-  └── koapp-theme-mythemename.html
-  ```
+- Execute it
+```bash
+yo
+```
 
-3. Update the `theme` object in the `app/core/structure.json`:
+- Test your changes ;-)
+```bash
+npm test
+```
 
-  ```json
-  {
-    "config": {
-      ...
-      "theme": {
-        "identifier": "koapp-theme-mythemename",
-        "path": "themes/koapp-theme-mythemename/koapp-theme-mythemename.html"
-      },
-      ...
-    },
-    ...
-  }
-  ```
+### License
 
-4. Begins to change all elements as you want!
-
-You can see the changes:
-* In the visualizer app: `http://localhost:9001`
-* In each element demo. Example: `http://localhost:9001/themes/koapp-theme-mythemename/elements/mythemename-button/demo/`
+MIT © [King of App](https://github.com/KingofApp)
