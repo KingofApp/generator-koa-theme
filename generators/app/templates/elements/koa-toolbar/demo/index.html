@@ -13,8 +13,8 @@
     <link rel="import" href="../../../../../bower_components/iron-flex-layout/iron-flex-layout.html">
     <link rel="import" href="../../../../../bower_components/iron-icons/iron-icons.html">
     <link rel="import" href="../../../styles/default-theme.html">
-    <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
-    <link rel="import" href="../../<%= themeName %>-progress/<%= themeName %>-progress.html">
+    <link rel="import" href="../../<%= pluginName %>-icon-button/<%= pluginName %>-icon-button.html">
+    <link rel="import" href="../../<%= pluginName %>-progress/<%= pluginName %>-progress.html">
     <link rel="import" href="../<%= tagName %>.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
@@ -22,7 +22,7 @@
         min-width: calc(100% - 200px);
       }
 
-      <%= tagName %> <%= themeName %>-progress {
+      <%= tagName %> <%= pluginName %>-progress {
         --progress-active-color: var(--accent-color);
       }
 
@@ -65,15 +65,15 @@
       </div>
 
       <h3>
-        <code><%= themeName %>-icon-button</code> is styled specially when used in a toolbar
+        <code><%= pluginName %>-icon-button</code> is styled specially when used in a toolbar
         before the title element or if the button has <code>icon="menu"</code>.
       </h3>
       <div class="vertical-section">
         <<%= tagName %>>
-          <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="menu"></<%= pluginName %>-icon-button>
           <span class="title">Title</span>
-          <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
-          <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="refresh"></<%= pluginName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="add">+</<%= pluginName %>-icon-button>
         </<%= tagName %>>
       </div>
 
@@ -82,10 +82,10 @@
       </h3>
       <div class="vertical-section">
         <<%= tagName %> class="tall">
-          <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="menu"></<%= pluginName %>-icon-button>
           <span class="title">Title</span>
-          <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
-          <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="refresh"></<%= pluginName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="add">+</<%= pluginName %>-icon-button>
         </<%= tagName %>>
       </div>
 
@@ -95,10 +95,10 @@
       </h3>
       <div class="vertical-section">
         <<%= tagName %> class="medium-tall">
-          <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="menu"></<%= pluginName %>-icon-button>
           <span class="title">Title</span>
-          <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
-          <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="refresh"></<%= pluginName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="add">+</<%= pluginName %>-icon-button>
         </<%= tagName %>>
       </div>
 
@@ -109,17 +109,17 @@
       </h3>
       <div class="vertical-section">
         <<%= tagName %> class="tall">
-          <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="menu"></<%= pluginName %>-icon-button>
           <span class="title">Title</span>
-          <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
-          <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="refresh"></<%= pluginName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="add">+</<%= pluginName %>-icon-button>
 
           <span class="middle title">Middle Title</span>
 
           <span class="bottom title">Bottom Title</span>
-          <<%= themeName %>-icon-button icon="content-cut" class="bottom"></<%= themeName %>-icon-button>
-          <<%= themeName %>-icon-button icon="content-copy" class="bottom"></<%= themeName %>-icon-button>
-          <<%= themeName %>-icon-button icon="content-paste" class="bottom"></<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="content-cut" class="bottom"></<%= pluginName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="content-copy" class="bottom"></<%= pluginName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="content-paste" class="bottom"></<%= pluginName %>-icon-button>
         </<%= tagName %>>
       </div>
 
@@ -129,10 +129,10 @@
       </h3>
       <div class="vertical-section">
         <<%= tagName %> class="medium-tall">
-          <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="menu"></<%= pluginName %>-icon-button>
           <span class="title">Top Title</span>
-          <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
-          <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="refresh"></<%= pluginName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="add">+</<%= pluginName %>-icon-button>
 
           <span class="middle title">Middle Title</span>
 
@@ -146,12 +146,12 @@
       </h3>
       <div class="vertical-section">
         <<%= tagName %> class="medium-tall">
-          <<%= themeName %>-icon-button icon="menu"></<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="menu"></<%= pluginName %>-icon-button>
           <div class="spacer"></div>
-          <<%= themeName %>-icon-button icon="refresh"></<%= themeName %>-icon-button>
-          <<%= themeName %>-icon-button icon="add">+</<%= themeName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="refresh"></<%= pluginName %>-icon-button>
+          <<%= pluginName %>-icon-button icon="add">+</<%= pluginName %>-icon-button>
           <div class="middle title">Title</div>
-          <<%= themeName %>-progress class="middle fit" value="60"></<%= themeName %>-progress>
+          <<%= pluginName %>-progress class="middle fit" value="60"></<%= pluginName %>-progress>
         </<%= tagName %>>
       </div>
     </div>

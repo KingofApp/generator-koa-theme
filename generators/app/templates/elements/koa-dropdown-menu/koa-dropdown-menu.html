@@ -1,7 +1,7 @@
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/koa-behaviors/koa-dropdown-menu-behavior.html">
-<link rel="import" href="../<%= themeName %>-input/<%= themeName %>-input.html">
-<link rel="import" href="../<%= themeName %>-menu-button/<%= themeName %>-menu-button.html">
+<link rel="import" href="../<%= pluginName %>-input/<%= pluginName %>-input.html">
+<link rel="import" href="../<%= pluginName %>-menu-button/<%= pluginName %>-menu-button.html">
 <link rel="import" href="../../styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
@@ -33,14 +33,14 @@
         @apply(--dropdown-menu-disabled);
       }
 
-      <%= themeName %>-menu-button {
+      <%= pluginName %>-menu-button {
         display: block;
         padding: 0;
 
         @apply(--dropdown-menu-button);
       }
 
-      <%= themeName %>-input {
+      <%= pluginName %>-input {
         @apply(--dropdown-menu-input);
       }
 
@@ -54,7 +54,7 @@
     <!-- write your template here -->
     <!-- this div fulfills an a11y requirement for combobox, do not remove -->
     <div role="button"></div>
-    <<%= themeName %>-menu-button
+    <<%= pluginName %>-menu-button
       id="menuButton"
       vertical-align="[[verticalAlign]]"
       horizontal-align="[[horizontalAlign]]"
@@ -65,8 +65,8 @@
       on-iron-deselect="_onIronDeselect"
       opened="{{opened}}">
       <div class="dropdown-trigger">
-        <!-- <%= themeName %>-input has type="text" for a11y, do not remove -->
-        <<%= themeName %>-input
+        <!-- <%= pluginName %>-input has type="text" for a11y, do not remove -->
+        <<%= pluginName %>-input
           type="text"
           invalid="[[invalid]]"
           readonly
@@ -76,10 +76,10 @@
           error-message="[[errorMessage]]"
           label="[[label]]">
           <koa-icon icon="arrow-drop-down" suffix></koa-icon>
-        </<%= themeName %>-input>
+        </<%= pluginName %>-input>
       </div>
       <content id="content" select=".dropdown-content"></content>
-    </<%= themeName %>-menu-button>
+    </<%= pluginName %>-menu-button>
     <!-- end template -->
   </template>
 

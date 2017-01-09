@@ -7,7 +7,7 @@ describe('generator-koapp-Theme:app', function () {
   this.timeout(15000);
 
   var anwsers = {
-    themeName: '   new theme',
+    pluginName: '   new theme',
     userName: 'Yo Mismo',
     spanishDescription: 'Mi nuevo tema',
     englishDescription: 'My new theme',
@@ -18,7 +18,7 @@ describe('generator-koapp-Theme:app', function () {
   };
 
   var anwsersExpected = {
-    themeName: 'new-theme',
+    pluginName: 'new-theme',
     varModuleName: 'newTheme',
     homepage: 'http://kingofapp.com',
     userName: 'Yo Mismo',
@@ -30,7 +30,7 @@ describe('generator-koapp-Theme:app', function () {
     generatorVersion: 'v0.15.0'
   };
 
-  anwsersExpected.themeKoaName = 'koapp-theme-' + anwsersExpected.themeName;
+  anwsersExpected.themeKoaName = 'koapp-theme-' + anwsersExpected.pluginName;
 
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
@@ -39,50 +39,50 @@ describe('generator-koapp-Theme:app', function () {
   });
 
   var filesCreated = [
-    'elements/' + anwsersExpected.themeName + '-badge/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-badge/' + anwsersExpected.themeName + '-badge.html',
-    'elements/' + anwsersExpected.themeName + '-button/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-button/' + anwsersExpected.themeName + '-button.html',
-    'elements/' + anwsersExpected.themeName + '-card/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-card/' + anwsersExpected.themeName + '-card.html',
-    'elements/' + anwsersExpected.themeName + '-checkbox/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-checkbox/' + anwsersExpected.themeName + '-checkbox.html',
-    'elements/' + anwsersExpected.themeName + '-dialog/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-dialog/' + anwsersExpected.themeName + '-dialog.html',
-    'elements/' + anwsersExpected.themeName + '-dropdown-menu/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-dropdown-menu/' + anwsersExpected.themeName + '-dropdown-menu.html',
-    'elements/' + anwsersExpected.themeName + '-grid/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-grid/' + anwsersExpected.themeName + '-grid.html',
-    'elements/' + anwsersExpected.themeName + '-icon-button/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-icon-button/' + anwsersExpected.themeName + '-icon-button.html',
-    'elements/' + anwsersExpected.themeName + '-input/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-input/' + anwsersExpected.themeName + '-input-char-counter.html',
-    'elements/' + anwsersExpected.themeName + '-input/' + anwsersExpected.themeName + '-input-container.html',
-    'elements/' + anwsersExpected.themeName + '-input/' + anwsersExpected.themeName + '-input-error.html',
-    'elements/' + anwsersExpected.themeName + '-input/' + anwsersExpected.themeName + '-input.html',
-    'elements/' + anwsersExpected.themeName + '-input/' + anwsersExpected.themeName + '-textarea.html',
-    'elements/' + anwsersExpected.themeName + '-item/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-item/' + anwsersExpected.themeName + '-item-body.html',
-    'elements/' + anwsersExpected.themeName + '-item/' + anwsersExpected.themeName + '-item.html',
-    'elements/' + anwsersExpected.themeName + '-menu/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-menu/' + anwsersExpected.themeName + '-menu-shared-styles.html',
-    'elements/' + anwsersExpected.themeName + '-menu/' + anwsersExpected.themeName + '-menu.html',
-    'elements/' + anwsersExpected.themeName + '-menu/' + anwsersExpected.themeName + '-submenu.html',
-    'elements/' + anwsersExpected.themeName + '-menu-button/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-menu-button/' + anwsersExpected.themeName + '-menu-button.html',
-    'elements/' + anwsersExpected.themeName + '-progress/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-progress/' + anwsersExpected.themeName + '-progress.html',
-    'elements/' + anwsersExpected.themeName + '-radio-button/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-radio-button/' + anwsersExpected.themeName + '-radio-button.html',
-    'elements/' + anwsersExpected.themeName + '-slider/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-slider/' + anwsersExpected.themeName + '-slider.html',
-    'elements/' + anwsersExpected.themeName + '-tabs/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-tabs/' + anwsersExpected.themeName + '-tab.html',
-    'elements/' + anwsersExpected.themeName + '-tabs/' + anwsersExpected.themeName + '-tabs.html',
-    'elements/' + anwsersExpected.themeName + '-toggle-button/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-toggle-button/' + anwsersExpected.themeName + '-toggle-button.html',
-    'elements/' + anwsersExpected.themeName + '-toolbar/demo/index.html',
-    'elements/' + anwsersExpected.themeName + '-toolbar/' + anwsersExpected.themeName + '-toolbar.html',
+    'elements/' + anwsersExpected.pluginName + '-badge/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-badge/' + anwsersExpected.pluginName + '-badge.html',
+    'elements/' + anwsersExpected.pluginName + '-button/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-button/' + anwsersExpected.pluginName + '-button.html',
+    'elements/' + anwsersExpected.pluginName + '-card/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-card/' + anwsersExpected.pluginName + '-card.html',
+    'elements/' + anwsersExpected.pluginName + '-checkbox/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-checkbox/' + anwsersExpected.pluginName + '-checkbox.html',
+    'elements/' + anwsersExpected.pluginName + '-dialog/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-dialog/' + anwsersExpected.pluginName + '-dialog.html',
+    'elements/' + anwsersExpected.pluginName + '-dropdown-menu/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-dropdown-menu/' + anwsersExpected.pluginName + '-dropdown-menu.html',
+    'elements/' + anwsersExpected.pluginName + '-grid/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-grid/' + anwsersExpected.pluginName + '-grid.html',
+    'elements/' + anwsersExpected.pluginName + '-icon-button/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-icon-button/' + anwsersExpected.pluginName + '-icon-button.html',
+    'elements/' + anwsersExpected.pluginName + '-input/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-input/' + anwsersExpected.pluginName + '-input-char-counter.html',
+    'elements/' + anwsersExpected.pluginName + '-input/' + anwsersExpected.pluginName + '-input-container.html',
+    'elements/' + anwsersExpected.pluginName + '-input/' + anwsersExpected.pluginName + '-input-error.html',
+    'elements/' + anwsersExpected.pluginName + '-input/' + anwsersExpected.pluginName + '-input.html',
+    'elements/' + anwsersExpected.pluginName + '-input/' + anwsersExpected.pluginName + '-textarea.html',
+    'elements/' + anwsersExpected.pluginName + '-item/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-item/' + anwsersExpected.pluginName + '-item-body.html',
+    'elements/' + anwsersExpected.pluginName + '-item/' + anwsersExpected.pluginName + '-item.html',
+    'elements/' + anwsersExpected.pluginName + '-menu/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-menu/' + anwsersExpected.pluginName + '-menu-shared-styles.html',
+    'elements/' + anwsersExpected.pluginName + '-menu/' + anwsersExpected.pluginName + '-menu.html',
+    'elements/' + anwsersExpected.pluginName + '-menu/' + anwsersExpected.pluginName + '-submenu.html',
+    'elements/' + anwsersExpected.pluginName + '-menu-button/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-menu-button/' + anwsersExpected.pluginName + '-menu-button.html',
+    'elements/' + anwsersExpected.pluginName + '-progress/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-progress/' + anwsersExpected.pluginName + '-progress.html',
+    'elements/' + anwsersExpected.pluginName + '-radio-button/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-radio-button/' + anwsersExpected.pluginName + '-radio-button.html',
+    'elements/' + anwsersExpected.pluginName + '-slider/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-slider/' + anwsersExpected.pluginName + '-slider.html',
+    'elements/' + anwsersExpected.pluginName + '-tabs/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-tabs/' + anwsersExpected.pluginName + '-tab.html',
+    'elements/' + anwsersExpected.pluginName + '-tabs/' + anwsersExpected.pluginName + '-tabs.html',
+    'elements/' + anwsersExpected.pluginName + '-toggle-button/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-toggle-button/' + anwsersExpected.pluginName + '-toggle-button.html',
+    'elements/' + anwsersExpected.pluginName + '-toolbar/demo/index.html',
+    'elements/' + anwsersExpected.pluginName + '-toolbar/' + anwsersExpected.pluginName + '-toolbar.html',
     'bower.json',
     '.bowerrc',
     'config.json',
@@ -97,7 +97,7 @@ describe('generator-koapp-Theme:app', function () {
     'gulp-tasks/testing.js',
     'tests/protractor.conf.js',
     'tests/e2e/spec.js',
-    'koapp-theme-' + anwsersExpected.themeName + '.html'
+    'koapp-theme-' + anwsersExpected.pluginName + '.html'
   ];
 
   filesCreated.forEach(function (file) {
@@ -110,7 +110,7 @@ describe('generator-koapp-Theme:app', function () {
 
   it('checks content package.json', function () {
     assert.jsonFileContent('package.json', {
-      name: anwsersExpected.themeName,
+      name: anwsersExpected.pluginName,
       author: anwsersExpected.userName,
       description: anwsersExpected.englishDescription,
       license: anwsersExpected.license

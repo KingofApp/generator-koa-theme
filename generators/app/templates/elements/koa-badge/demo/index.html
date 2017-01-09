@@ -13,7 +13,7 @@
     <link rel="import" href="../../../../../bower_components/iron-icons/iron-icons.html">
     <link rel="import" href="../../../../../bower_components/iron-icons/social-icons.html">
     <link rel="import" href="../../../../../bower_components/iron-icons/communication-icons.html">
-    <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
+    <link rel="import" href="../../<%= pluginName %>-icon-button/<%= pluginName %>-icon-button.html">
     <link rel="import" href="../<%= tagName %>.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
@@ -25,7 +25,7 @@
         text-align: center;
       }
 
-      <%= themeName %>-icon-button {
+      <%= pluginName %>-icon-button {
         padding: 3px;
         border-radius: 3px;
         margin-left: 30px;
@@ -57,10 +57,10 @@
     <div class="vertical-section-container centered">
       <h3>Badges can be applied to specific elements</h3>
       <div class="horizontal-section">
-        <<%= themeName %>-icon-button id="number" icon="communication:email" alt="inbox"></<%= themeName %>-icon-button>
+        <<%= pluginName %>-icon-button id="number" icon="communication:email" alt="inbox"></<%= pluginName %>-icon-button>
         <<%= tagName %> for="number" label="4"></<%= tagName %>>
 
-        <<%= themeName %>-icon-button id="icon" icon="account-box" alt="person"></<%= themeName %>-icon-button>
+        <<%= pluginName %>-icon-button id="icon" icon="account-box" alt="person"></<%= pluginName %>-icon-button>
         <<%= tagName %> icon="social:mood" for="icon" label="happy"></<%= tagName %>>
       </div>
 
@@ -79,10 +79,10 @@
 
       <h3>Badges can be customized using custom properties</h3>
       <div class="horizontal-section">
-        <<%= themeName %>-icon-button id="number2" icon="communication:email" alt="inbox"></<%= themeName %>-icon-button>
+        <<%= pluginName %>-icon-button id="number2" icon="communication:email" alt="inbox"></<%= pluginName %>-icon-button>
         <<%= tagName %> for="number2" label="4" class="red"></<%= tagName %>>
 
-        <<%= themeName %>-icon-button id="icon2" icon="account-box" alt="account-box"></<%= themeName %>-icon-button>
+        <<%= pluginName %>-icon-button id="icon2" icon="account-box" alt="account-box"></<%= pluginName %>-icon-button>
         <<%= tagName %> icon="social:mood" for="icon2" label="happy" class="blue"></<%= tagName %>>
       </div>
     </div>

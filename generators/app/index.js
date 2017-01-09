@@ -1,72 +1,39 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
+var fs          = require('fs');
+var path        = require('path');
 var packageJson = require('../../package.json');
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
+var yeoman      = require('yeoman-generator');
+var chalk       = require('chalk');
+var yosay       = require('yosay');
+var tools       = require('koapp');
 
 var themeInput = {};
 
 module.exports = yeoman.Base.extend({
 
-  prompting: function () {
-    this.log(yosay(
-      'Welcome to ' + chalk.red('King of App ') + chalk.blue('Theme Generator') + '!'
-    ));
+  init: function () {
+    var self = this;
 
-    return this.prompt([{
-      type: 'input',
-      name: 'themeName',
-      message: 'Theme name',
-      required: true
-    }, {
-      type: 'input',
-      name: 'userName',
-      message: 'Author\'s name'
-    }, {
-      type: 'input',
-      name: 'homepage',
-      message: 'Author\'s homepage'
-    }, {
-      type: 'input',
-      name: 'spanishDescription',
-      message: 'Spanish description'
-    }, {
-      type: 'input',
-      name: 'englishDescription',
-      message: 'English description'
-    }, {
-      type: 'inpt',
-      name: 'license',
-      message: 'License',
-      default: 'MIT'
-    }, {
-      type: 'input',
-      name: 'categories',
-      message: 'Categories (comma to split)'
-    }, {
-      type: 'input',
-      name: 'price',
-      message: 'Price'
-    }]).then(function (answers) {
-      this.log('Thanks! The process will start now...');
+    this.option('homepage',           {type: String, desc: 'Author\'s homepage',  alias: 'w'});
+    this.option('pluginName',         {type: String, desc: 'Module name',         alias: 'n'});
+    this.option('userName',           {type: String, desc: 'Author\'s name',      alias: 'u'});
+    this.option('spanishDescription', {type: String, desc: 'Spanish description', alias: 's'});
+    this.option('englishDescription', {type: String, desc: 'English description', alias: 'e'});
+    this.option('price',              {type: Number, desc: 'Price',               alias: 'p'});
+    this.option('license',            {type: String, desc: 'License',             alias: 'l', default: 'MIT'});
+    this.option('categories',         {type: tools.parseCategories, desc: 'Categories (comma to split)', alias: 'c'});
 
-      this.homepage = answers.homepage;
-      this.themeName = fixThemeName(answers.themeName, '-');
-      this.varthemeName = camelize(answers.themeName);
-      this.userName = answers.userName;
-      this.spanishDescription = answers.spanishDescription;
-      this.englishDescription = answers.englishDescription;
-      this.license = answers.license;
-      this.categories = fixThemeCategories(answers.categories);
-      this.price = answers.price;
-      this.generatorVersion = 'v' + packageJson.version;
-      this.themeKoaName = 'koapp-theme-' + this.themeName;
-      this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
-      this.elements = [];
-    }.bind(this));
+    ['homepage', 'userName', 'spanishDescription', 'englishDescription', 'license', 'price'].forEach(function(id){
+      self[id] = decodeURI(self.options[id]);
+    });
+    this.elements         = [];
+    this.generatorVersion = 'v' + packageJson.version;
+    this.categories       = tools.fixPluginCategories(this.options.categories || '');
+    this.pluginName       = tools.fixPluginName(this.options.pluginName, '-');
+    this.varpluginName    = tools.camelize(this.options.pluginName);
+    this.themeKoaName     = 'koapp-theme-' + this.pluginName;
+    this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
   },
 
   getElementsTree: function () {
@@ -89,9 +56,9 @@ module.exports = yeoman.Base.extend({
     var _self = this;
 
     var keys = [
-      'themeName',
+      'pluginName',
       'homepage',
-      'varthemeName',
+      'varpluginName',
       'userName',
       'spanishDescription',
       'englishDescription',
@@ -127,87 +94,42 @@ module.exports = yeoman.Base.extend({
       {item: 'toolbar', position: 23}
     ];
 
-    this.fs.copyTpl(
-      this.templatePath('bower.json'),
-      this.destinationPath('bower.json'),
-      themeInput
-    );
+    var originalFiles = [
+      ['_bowerrc', 'bowerrc'],
+      ['_gitignore', '.gitignore'],
+      ['gulp-tasks/distribution.js', 'gulp-tasks/distribution.js'],
+      ['gulp-tasks/lint.js', 'gulp-tasks/lint.js'],
+      ['gulp-tasks/testing.js', 'gulp-tasks/testing.js'],
+      ['tests/protractor.conf.js', 'tests/protractor.conf.js']
+    ];
 
-    this.fs.copy(
-      this.templatePath('_bowerrc'),
-      this.destinationPath('.bowerrc')
-    );
+    var templatedFiles = [
+      ['bower.json', 'bower.json'],
+      ['config.json', 'config.json'],
+      ['package.json', 'package.json'],
+      ['gulp-tasks/integration.js', 'gulp-tasks/integration.js'],
+      ['tests/e2e/spec.js', 'tests/e2e/spec.js'],
+      ['koa-theme.html', this.themeKoaName + '.html']
+    ];
 
-    this.fs.copyTpl(
-      this.templatePath('config.json'),
-      this.destinationPath('config.json'),
-      themeInput
-    );
+    originalFiles.forEach(function(originDestinyPair) {
+      tools.copy(_self, 'copy', originDestinyPair[0], originDestinyPair[1]);
+    });
 
-    this.fs.copyTpl(
-      this.templatePath('package.json'),
-      this.destinationPath('package.json'),
-      themeInput
-    );
-
-    this.fs.copy(
-      this.templatePath('_gitignore'),
-      this.destinationPath('.gitignore')
-    );
-
-    this.fs.copy(
-      this.templatePath('Gulpfile.js'),
-      this.destinationPath('Gulpfile.js')
-    );
-
-    this.fs.copy(
-      this.templatePath('gulp-tasks/distribution.js'),
-      this.destinationPath('gulp-tasks/distribution.js')
-    );
-
-    this.fs.copy(
-      this.templatePath('gulp-tasks/lint.js'),
-      this.destinationPath('gulp-tasks/lint.js')
-    );
-
-    this.fs.copy(
-      this.templatePath('gulp-tasks/testing.js'),
-      this.destinationPath('gulp-tasks/testing.js')
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('gulp-tasks/integration.js'),
-      this.destinationPath('gulp-tasks/integration.js'),
-      themeInput
-    );
-
-    this.fs.copy(
-      this.templatePath('tests/protractor.conf.js'),
-      this.destinationPath('tests/protractor.conf.js')
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('tests/e2e/spec.js'),
-      this.destinationPath('tests/e2e/spec.js'),
-      themeInput
-    );
+    templatedFiles.forEach(function(originDestinyPair) {
+      tools.copy(_self, 'copyTpl', originDestinyPair[0], originDestinyPair[1], themeInput);
+    });
 
     this.directory(
       this.templatePath('styles'),
       this.destinationPath('styles')
     );
-
-    this.fs.copyTpl(
-      this.templatePath('koa-theme.html'),
-      this.destinationPath(this.themeKoaName + '.html'),
-      themeInput
-    );
   },
 
   writingElements: function () {
-    var themeName = this.themeName;
+    var pluginName = this.pluginName;
     function replaceKoa(text) {
-      return text.replace(new RegExp('koa-', 'g'), themeName + '-');
+      return text.replace(new RegExp('koa-', 'g'), pluginName + '-');
     }
 
     this.elements.forEach(function (element) {
@@ -216,20 +138,22 @@ module.exports = yeoman.Base.extend({
         var destinationPath = replaceKoa(templatePath);
         var tagName = replaceKoa(file.replace('.html', ''));
 
-        this.fs.copyTpl(
-          this.templatePath(templatePath),
-          this.destinationPath(destinationPath),
-          {tagName: tagName, themeName: this.themeName}
-        );
+        tools.copy( this,
+                    'copyTpl',
+                    this.templatePath(templatePath),
+                    this.destinationPath(destinationPath),
+                    {tagName: tagName, pluginName: this.pluginName}
+                  );
       }.bind(this));
 
       var tagName = replaceKoa(element.name);
 
-      this.fs.copyTpl(
-        this.templatePath('elements/' + element.name + '/demo/index.html'),
-        this.destinationPath('elements/' + tagName + '/demo/index.html'),
-        {tagName: tagName, themeName: this.themeName}
-      );
+      tools.copy( this,
+                  'copyTpl',
+                  this.templatePath('elements/' + element.name + '/demo/index.html'),
+                  this.destinationPath('elements/' + tagName + '/demo/index.html'),
+                  {tagName: tagName, pluginName: this.pluginName}
+                );
     }.bind(this));
   },
 

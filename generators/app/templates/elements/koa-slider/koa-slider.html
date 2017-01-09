@@ -1,8 +1,8 @@
 <link rel="import" href="../../../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../../bower_components/koa-behaviors/koa-slider-behavior.html">
-<link rel="import" href="../<%= themeName %>-input/<%= themeName %>-input.html">
-<link rel="import" href="../<%= themeName %>-progress/<%= themeName %>-progress.html">
+<link rel="import" href="../<%= pluginName %>-input/<%= pluginName %>-input.html">
+<link rel="import" href="../<%= pluginName %>-progress/<%= pluginName %>-progress.html">
 <link rel="import" href="../../styles/default-theme.html">
 
 <dom-module id="<%= tagName %>">
@@ -239,7 +239,7 @@
     <!-- write your template here -->
     <div id="sliderContainer" class$="[[_getClassNames(disabled, pin, snaps, immediateValue, min, expand, dragging, transiting, editable)]]">
       <div class="bar-container">
-        <<%= themeName %>-progress
+        <<%= pluginName %>-progress
           disabled$="[[disabled]]"
           id="sliderBar"
           aria-hidden="true"
@@ -251,7 +251,7 @@
           on-down="_bardown"
           on-up="_resetKnob"
           on-track="_onTrack">
-        </<%= themeName %>-progress>
+        </<%= pluginName %>-progress>
       </div>
 
       <template is="dom-if" if="[[snaps]]">
@@ -272,7 +272,7 @@
     </div>
 
     <template is="dom-if" if="[[editable]]">
-      <<%= themeName %>-input
+      <<%= pluginName %>-input
         id="input"
         type="number"
         step="[[step]]"
@@ -283,7 +283,7 @@
         value="[[immediateValue]]"
         on-change="_changeValue"
         on-keydown="_inputKeyDown">
-      </<%= themeName %>-input>
+      </<%= pluginName %>-input>
     </template>
     <!-- end template -->
   </template>

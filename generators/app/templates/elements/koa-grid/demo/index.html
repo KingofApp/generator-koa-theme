@@ -10,8 +10,8 @@
     <script src="../../../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
     <link rel="import" href="../../../../../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../<%= themeName %>-card/<%= themeName %>-card.html">
-    <link rel="import" href="../../<%= themeName %>-item/<%= themeName %>-item.html">
+    <link rel="import" href="../../<%= pluginName %>-card/<%= pluginName %>-card.html">
+    <link rel="import" href="../../<%= pluginName %>-item/<%= pluginName %>-item.html">
     <link rel="import" href="../<%= tagName %>.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
@@ -26,24 +26,24 @@
   </head>
   <body>
     <div class="vertical-section-container centered">
-      <h3>Grid of <code><%= themeName %>-item</code>'s with 2 columns</h3>
+      <h3>Grid of <code><%= pluginName %>-item</code>'s with 2 columns</h3>
       <div class="vertical-section">
         <<%= tagName %> columns="2">
           <template is="dom-repeat" items="[0,1,2,3,4,5]" index-as="index">
-            <<%= themeName %>-item>Item [[index]]</<%= themeName %>-item>
+            <<%= pluginName %>-item>Item [[index]]</<%= pluginName %>-item>
           </template>
         </<%= tagName %>>
       </div>
 
-      <h3>Grid of <code><%= themeName %>-card</code>'s with 2 columns and 1em of cell space</h3>
+      <h3>Grid of <code><%= pluginName %>-card</code>'s with 2 columns and 1em of cell space</h3>
       <div class="vertical-section">
         <<%= tagName %> columns="2" cell-space="1em">
           <template is="dom-repeat" items="[0,1,2,3,4,5]" index-as="index">
-            <<%= themeName %>-card heading="Card [[index]]" image="http://placehold.it/200x75">
+            <<%= pluginName %>-card heading="Card [[index]]" image="http://placehold.it/200x75">
               <div class="card-content">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </div>
-            </<%= themeName %>-card>
+            </<%= pluginName %>-card>
           </template>
         </<%= tagName %>>
       </div>

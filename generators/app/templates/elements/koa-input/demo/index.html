@@ -13,9 +13,9 @@
     <link rel="import" href="../../../../../bower_components/iron-flex-layout/iron-flex-layout.html">
     <link rel="import" href="../../../../../bower_components/iron-icons/iron-icons.html">
     <link rel="import" href="../../../../../bower_components/paper-styles/color.html">
-    <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
+    <link rel="import" href="../../<%= pluginName %>-icon-button/<%= pluginName %>-icon-button.html">
     <link rel="import" href="../<%= tagName %>.html">
-    <link rel="import" href="../<%= themeName %>-textarea.html">
+    <link rel="import" href="../<%= pluginName %>-textarea.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
       .vertical-section-container {
@@ -41,7 +41,7 @@
         width: calc(100% - 75px);
       }
 
-      <%= themeName %>-icon-button {
+      <%= pluginName %>-icon-button {
         color: var(--paper-red-300);
         width: 23px; /* 15px + 2*4px for padding */
         height: 23px;
@@ -58,7 +58,7 @@
       <h3>Inputs can have different types, and be disabled</h3>
       <div class="horizontal-section">
         <<%= tagName %> label="text input"></<%= tagName %>>
-        <<%= themeName %>-textarea label="autoresizing textarea input"></<%= themeName %>-textarea>
+        <<%= pluginName %>-textarea label="autoresizing textarea input"></<%= pluginName %>-textarea>
         <<%= tagName %> label="password input" type="password"></<%= tagName %>>
         <<%= tagName %> label="disabled input" disabled></<%= tagName %>>
       </div>
@@ -86,9 +86,9 @@
         <<%= tagName %> label="username" id="inputWithButton">
           <koa-icon icon="mail" prefix></koa-icon>
           <div suffix>@email.com</div>
-          <<%= themeName %>-icon-button suffix onclick="clearInput()"
+          <<%= pluginName %>-icon-button suffix onclick="clearInput()"
               icon="clear" alt="clear" title="clear">
-          </<%= themeName %>-icon-button>
+          </<%= pluginName %>-icon-button>
         </<%= tagName %>>
       </div>
     </div>

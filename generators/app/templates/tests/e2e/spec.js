@@ -21,13 +21,13 @@ describe('Theme e2e test', function() {
     });
   });
 
-  it('should display <%= themeName %>-menu & <%= themeName %>-submenu (koa-menu & koa-submenu)', function() {
+  it('should display <%= pluginName %>-menu & <%= pluginName %>-submenu (koa-menu & koa-submenu)', function() {
     var identifier = '#content > div > div > div > section:nth-child(14)';
     element(by.css(identifier)).getAttribute('outerHTML').then(function(text) {
-      expect(text).toMatch(/<%= themeName %>-menu/);
+      expect(text).toMatch(/<%= pluginName %>-menu/);
     });
     element(by.css(identifier)).getAttribute('outerHTML').then(function(text) {
-      expect(text).toMatch(/<%= themeName %>-submenu/);
+      expect(text).toMatch(/<%= pluginName %>-submenu/);
     });
   });
 
@@ -39,13 +39,13 @@ describe('Theme e2e test', function() {
     });
   });
 
-  it('should display <%= themeName %>-input & <%= themeName %>-textarea (koa-input & koa-textarea)', function() {
+  it('should display <%= pluginName %>-input & <%= pluginName %>-textarea (koa-input & koa-textarea)', function() {
     var identifier = '#content > div > div > div > section:nth-child(12)';
     element(by.css(identifier)).getAttribute('outerHTML').then(function(text) {
-      expect(text).toMatch(/<%= themeName %>-input/);
+      expect(text).toMatch(/<%= pluginName %>-input/);
     });
     element(by.css(identifier)).getAttribute('outerHTML').then(function(text) {
-      expect(text).toMatch(/<%= themeName %>-textarea/);
+      expect(text).toMatch(/<%= pluginName %>-textarea/);
     });
 
   });
@@ -61,15 +61,15 @@ describe('Theme e2e test', function() {
     });
   });
 
-  it('should display <%= themeName %>-<%= elements[i].item %> (koa-<%= elements[i].item %>)', function() {
+  it('should display <%= pluginName %>-<%= elements[i].item %> (koa-<%= elements[i].item %>)', function() {
     element(by.css('#content > div > div > div > section:nth-child(<%= elements[i].position %>)')).getAttribute('outerHTML').then(function(text) {
-      expect(text).toMatch(/<%= themeName %>-<%= elements[i].item %>/);
+      expect(text).toMatch(/<%= pluginName %>-<%= elements[i].item %>/);
     });
   });
 
-    it('should display <%= themeName %>-<%= elements[i].item %> (koa-<%= elements[i].item %> with a minimum dimensions)', function() {
+    it('should display <%= pluginName %>-<%= elements[i].item %> (koa-<%= elements[i].item %> with a minimum dimensions)', function() {
 
-      var selector = '<%= themeName %>-<%= elements[i].item %>';
+      var selector = '<%= pluginName %>-<%= elements[i].item %>';
 
       browser.executeScript(computedDetails(selector,'height')).then(function(text) {
         expect([true, "auto"]).toContain(text !== "auto" ? parseInt(text.replace("px", "")) > 0 : "auto");
@@ -82,8 +82,8 @@ describe('Theme e2e test', function() {
 
     });
 
-    it('should register <%= themeName %>-<%= elements[i].item %> (koa-<%= elements[i].item %> as a Polymer Element)', function() {
-      expect(browser.executeScript(isElementRegistered("<%= themeName %>-<%= elements[i].item %>"))).toBe(true);
+    it('should register <%= pluginName %>-<%= elements[i].item %> (koa-<%= elements[i].item %> as a Polymer Element)', function() {
+      expect(browser.executeScript(isElementRegistered("<%= pluginName %>-<%= elements[i].item %>"))).toBe(true);
     });
 
 

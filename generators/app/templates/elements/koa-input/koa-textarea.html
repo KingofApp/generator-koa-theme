@@ -2,9 +2,9 @@
 <link rel="import" href="../../../../bower_components/iron-autogrow-textarea/iron-autogrow-textarea.html">
 <link rel="import" href="../../../../bower_components/koa-behaviors/koa-textarea-behavior.html">
 <link rel="import" href="../../styles/default-theme.html">
-<link rel="import" href="<%= themeName %>-input-char-counter.html">
-<link rel="import" href="<%= themeName %>-input-container.html">
-<link rel="import" href="<%= themeName %>-input-error.html">
+<link rel="import" href="<%= pluginName %>-input-char-counter.html">
+<link rel="import" href="<%= pluginName %>-input-container.html">
+<link rel="import" href="<%= pluginName %>-input-error.html">
 
 <dom-module id="<%= tagName %>">
   <template>
@@ -15,7 +15,7 @@
     </style>
 
     <!-- write your template here -->
-    <<%= themeName %>-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
+    <<%= pluginName %>-input-container auto-validate$="[[autoValidate]]" disabled$="[[disabled]]" invalid="[[invalid]]" class="input-container">
       <label hidden$="[[!label]]">[[label]]</label>
 
       <iron-autogrow-textarea id="input"
@@ -35,13 +35,13 @@
         on-change="_onChange"></iron-autogrow-textarea>
 
       <template is="dom-if" if="[[errorMessage]]">
-        <<%= themeName %>-input-error>[[errorMessage]]</<%= themeName %>-input-error>
+        <<%= pluginName %>-input-error>[[errorMessage]]</<%= pluginName %>-input-error>
       </template>
 
       <template is="dom-if" if="[[charCounter]]">
-        <<%= themeName %>-input-char-counter></<%= themeName %>-input-char-counter>
+        <<%= pluginName %>-input-char-counter></<%= pluginName %>-input-char-counter>
       </template>
-    </<%= themeName %>-input-container>
+    </<%= pluginName %>-input-container>
     <!-- end template -->
   </template>
 
