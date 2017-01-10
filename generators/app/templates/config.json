@@ -2,14 +2,13 @@
   "name": "<%= themeKoaName %>",
   "identifier": "<%= themeKoaName %>",
   "description": {
-    "en-US" : "<%= themeName %>"
+    "es-ES": "<%- spanishDescription %>",
+    "en-US": "<%- englishDescription %>"
   },
   "version": "0.0.0",
-  "author": "<%= authorName %>, <<%= authorEmail %>>",
-  "category": [
-    ""
-  ],
-  "price": 0,
+  "author": "<%- userName %>",
+  "category": <%- categories %>,
+  "price": <%- price %>,
   "platforms": [
     "android",
     "ios",
