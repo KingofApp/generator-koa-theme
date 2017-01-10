@@ -2,7 +2,7 @@
 <link rel="import" href="../../../../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../../../../bower_components/koa-behaviors/koa-tabs-behavior.html">
 <link rel="import" href="../../styles/default-theme.html">
-<link rel="import" href="<%= themeName %>-tab.html">
+<link rel="import" href="<%= pluginName %>-tab.html">
 
 <dom-module id="<%= tagName %>">
   <template>
@@ -87,7 +87,7 @@
       properties: {
         selectable: {
           type: String,
-          value: '<%= themeName %>-tab'
+          value: '<%= pluginName %>-tab'
         }
       }
     });

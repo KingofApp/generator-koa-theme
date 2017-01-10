@@ -10,8 +10,8 @@
 
     <link rel="import" href="../../../../../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../../../../bower_components/iron-flex-layout/iron-flex-layout.html">
-    <link rel="import" href="../../<%= themeName %>-toolbar/<%= themeName %>-toolbar.html">
-    <link rel="import" href="../<%= themeName %>-tab.html">
+    <link rel="import" href="../../<%= pluginName %>-toolbar/<%= pluginName %>-toolbar.html">
+    <link rel="import" href="../<%= pluginName %>-tab.html">
     <link rel="import" href="../<%= tagName %>.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
@@ -29,9 +29,9 @@
       <h3>Plain <code><%= tagName %></code>.</h3>
       <div class="vertical-section">
         <<%= tagName %> selected="0">
-          <<%= themeName %>-tab>ITEM ONE</<%= themeName %>-tab>
-          <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
-          <<%= themeName %>-tab>ITEM THREE</<%= themeName %>-tab>
+          <<%= pluginName %>-tab>ITEM ONE</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>ITEM TWO</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>ITEM THREE</<%= pluginName %>-tab>
         </<%= tagName %>>
       </div>
 
@@ -42,18 +42,18 @@
       </h3>
       <div class="vertical-section">
         <<%= tagName %> selected="0" scrollable>
-          <<%= themeName %>-tab>NUMBER ONE ITEM</<%= themeName %>-tab>
-          <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
-          <<%= themeName %>-tab>THE THIRD ITEM</<%= themeName %>-tab>
-          <<%= themeName %>-tab>THE ITEM FOUR</<%= themeName %>-tab>
-          <<%= themeName %>-tab>FIFTH</<%= themeName %>-tab>
-          <<%= themeName %>-tab>THE SIXTH TAB</<%= themeName %>-tab>
-          <<%= themeName %>-tab>NUMBER SEVEN</<%= themeName %>-tab>
-          <<%= themeName %>-tab>EIGHT</<%= themeName %>-tab>
-          <<%= themeName %>-tab>NUMBER NINE</<%= themeName %>-tab>
-          <<%= themeName %>-tab>THE TENTH</<%= themeName %>-tab>
-          <<%= themeName %>-tab>THE ITEM ELEVEN</<%= themeName %>-tab>
-          <<%= themeName %>-tab>TWELFTH ITEM</<%= themeName %>-tab>
+          <<%= pluginName %>-tab>NUMBER ONE ITEM</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>ITEM TWO</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>THE THIRD ITEM</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>THE ITEM FOUR</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>FIFTH</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>THE SIXTH TAB</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>NUMBER SEVEN</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>EIGHT</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>NUMBER NINE</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>THE TENTH</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>THE ITEM ELEVEN</<%= pluginName %>-tab>
+          <<%= pluginName %>-tab>TWELFTH ITEM</<%= pluginName %>-tab>
         </<%= tagName %>>
       </div>
 
@@ -63,30 +63,30 @@
       <div class="vertical-section">
         <div dir="rtl">
           <<%= tagName %> selected="0">
-            <<%= themeName %>-tab>ITEM ONE</<%= themeName %>-tab>
-            <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
-            <<%= themeName %>-tab>ITEM THREE</<%= themeName %>-tab>
+            <<%= pluginName %>-tab>ITEM ONE</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>ITEM TWO</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>ITEM THREE</<%= pluginName %>-tab>
           </<%= tagName %>>
           &nbsp;
           <<%= tagName %> selected="0" scrollable>
-            <<%= themeName %>-tab>NUMBER ONE ITEM</<%= themeName %>-tab>
-            <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
-            <<%= themeName %>-tab>THE THIRD ITEM</<%= themeName %>-tab>
-            <<%= themeName %>-tab>THE ITEM FOUR</<%= themeName %>-tab>
-            <<%= themeName %>-tab>FIFTH</<%= themeName %>-tab>
-            <<%= themeName %>-tab>THE SIXTH TAB</<%= themeName %>-tab>
-            <<%= themeName %>-tab>NUMBER SEVEN</<%= themeName %>-tab>
-            <<%= themeName %>-tab>EIGHT</<%= themeName %>-tab>
-            <<%= themeName %>-tab>NUMBER NINE</<%= themeName %>-tab>
-            <<%= themeName %>-tab>THE TENTH</<%= themeName %>-tab>
-            <<%= themeName %>-tab>THE ITEM ELEVEN</<%= themeName %>-tab>
-            <<%= themeName %>-tab>TWELFTH ITEM</<%= themeName %>-tab>
+            <<%= pluginName %>-tab>NUMBER ONE ITEM</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>ITEM TWO</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>THE THIRD ITEM</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>THE ITEM FOUR</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>FIFTH</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>THE SIXTH TAB</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>NUMBER SEVEN</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>EIGHT</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>NUMBER NINE</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>THE TENTH</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>THE ITEM ELEVEN</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>TWELFTH ITEM</<%= pluginName %>-tab>
           </<%= tagName %>>
         </div>
       </div>
 
       <h3>
-        Tabs can be used in a <code><%= themeName %>-toolbar</code>.
+        Tabs can be used in a <code><%= pluginName %>-toolbar</code>.
       </h3>
       <div class="vertical-section">
         <style is="custom-style">
@@ -97,12 +97,12 @@
           }
         </style>
 
-        <<%= themeName %>-toolbar class="tall">
+        <<%= pluginName %>-toolbar class="tall">
           <<%= tagName %> selected="0" class="bottom self-end" style="width: 300px;">
-            <<%= themeName %>-tab>ITEM ONE</<%= themeName %>-tab>
-            <<%= themeName %>-tab>ITEM TWO</<%= themeName %>-tab>
+            <<%= pluginName %>-tab>ITEM ONE</<%= pluginName %>-tab>
+            <<%= pluginName %>-tab>ITEM TWO</<%= pluginName %>-tab>
           </<%= tagName %>>
-        </<%= themeName %>-toolbar>
+        </<%= pluginName %>-toolbar>
       </div>
     </div>
   </body>

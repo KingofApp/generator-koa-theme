@@ -12,10 +12,10 @@
     <link rel="import" href="../../../../../bower_components/neon-animation/neon-animations.html">
     <link rel="import" href="../../../../../bower_components/paper-styles/color.html">
     <link rel="import" href="../../../../../bower_components/paper-styles/demo-pages.html">
-    <link rel="import" href="../../<%= themeName %>-button/<%= themeName %>-button.html">
-    <link rel="import" href="../../<%= themeName %>-dropdown-menu/<%= themeName %>-dropdown-menu.html">
-    <link rel="import" href="../../<%= themeName %>-item/<%= themeName %>-item.html">
-    <link rel="import" href="../../<%= themeName %>-menu/<%= themeName %>-menu.html">
+    <link rel="import" href="../../<%= pluginName %>-button/<%= pluginName %>-button.html">
+    <link rel="import" href="../../<%= pluginName %>-dropdown-menu/<%= pluginName %>-dropdown-menu.html">
+    <link rel="import" href="../../<%= pluginName %>-item/<%= pluginName %>-item.html">
+    <link rel="import" href="../../<%= pluginName %>-menu/<%= pluginName %>-menu.html">
     <link rel="import" href="../<%= tagName %>.html">
 
     <style is="custom-style">
@@ -23,12 +23,12 @@
         -webkit-tap-highlight-color: rgba(0,0,0,0);
       }
 
-      section > <%= themeName %>-button {
+      section > <%= pluginName %>-button {
         background-color: var(--google-grey-300);
         padding: 5px;
       }
 
-      section > <%= themeName %>-button:hover {
+      section > <%= pluginName %>-button:hover {
         background-color: var(--paper-light-blue-200);
         padding: 5px;
       }
@@ -54,11 +54,11 @@
     <section onclick="clickHandler(event)">
       <h4>Dialog layouts</h4>
 
-      <<%= themeName %>-button data-dialog="dialog">plain dialog</<%= themeName %>-button>
-      <<%= themeName %>-button data-dialog="actions">dialog with actions</<%= themeName %>-button>
-      <<%= themeName %>-button data-dialog="modal">modal dialog</<%= themeName %>-button>
-      <<%= themeName %>-button data-dialog="dropdown">dialog with dropdown</<%= themeName %>-button>
-      <<%= themeName %>-button data-dialog="nested">dialog with nested dialog</<%= themeName %>-button>
+      <<%= pluginName %>-button data-dialog="dialog">plain dialog</<%= pluginName %>-button>
+      <<%= pluginName %>-button data-dialog="actions">dialog with actions</<%= pluginName %>-button>
+      <<%= pluginName %>-button data-dialog="modal">modal dialog</<%= pluginName %>-button>
+      <<%= pluginName %>-button data-dialog="dropdown">dialog with dropdown</<%= pluginName %>-button>
+      <<%= pluginName %>-button data-dialog="nested">dialog with nested dialog</<%= pluginName %>-button>
 
       <<%= tagName %> id="dialog">
         <h2>Dialog Title</h2>
@@ -69,42 +69,42 @@
         <h2>Dialog Title</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <div class="buttons">
-          <<%= themeName %>-button >More Info...</<%= themeName %>-button>
-          <<%= themeName %>-button dialog-dismiss>Decline</<%= themeName %>-button>
-          <<%= themeName %>-button dialog-confirm autofocus>Accept</<%= themeName %>-button>
+          <<%= pluginName %>-button >More Info...</<%= pluginName %>-button>
+          <<%= pluginName %>-button dialog-dismiss>Decline</<%= pluginName %>-button>
+          <<%= pluginName %>-button dialog-confirm autofocus>Accept</<%= pluginName %>-button>
         </div>
       </<%= tagName %>>
 
       <<%= tagName %> id="modal" modal>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <div class="buttons">
-          <<%= themeName %>-button dialog-confirm autofocus>Tap me to close</<%= themeName %>-button>
+          <<%= pluginName %>-button dialog-confirm autofocus>Tap me to close</<%= pluginName %>-button>
         </div>
       </<%= tagName %>>
 
       <<%= tagName %> id="dropdown">
         <h2>Dialog Title</h2>
-        <<%= themeName %>-dropdown-menu label="Value">
-          <<%= themeName %>-menu class="dropdown-content">
-            <<%= themeName %>-item>1</<%= themeName %>-item>
-            <<%= themeName %>-item>2</<%= themeName %>-item>
-            <<%= themeName %>-item>3</<%= themeName %>-item>
-            <<%= themeName %>-item>4</<%= themeName %>-item>
-            <<%= themeName %>-item>5</<%= themeName %>-item>
-            <<%= themeName %>-item>6</<%= themeName %>-item>
-            <<%= themeName %>-item>7</<%= themeName %>-item>
-            <<%= themeName %>-item>8</<%= themeName %>-item>
-            <<%= themeName %>-item>9</<%= themeName %>-item>
-            <<%= themeName %>-item>10</<%= themeName %>-item>
-          </<%= themeName %>-menu>
-        </<%= themeName %>-dropdown-menu>
+        <<%= pluginName %>-dropdown-menu label="Value">
+          <<%= pluginName %>-menu class="dropdown-content">
+            <<%= pluginName %>-item>1</<%= pluginName %>-item>
+            <<%= pluginName %>-item>2</<%= pluginName %>-item>
+            <<%= pluginName %>-item>3</<%= pluginName %>-item>
+            <<%= pluginName %>-item>4</<%= pluginName %>-item>
+            <<%= pluginName %>-item>5</<%= pluginName %>-item>
+            <<%= pluginName %>-item>6</<%= pluginName %>-item>
+            <<%= pluginName %>-item>7</<%= pluginName %>-item>
+            <<%= pluginName %>-item>8</<%= pluginName %>-item>
+            <<%= pluginName %>-item>9</<%= pluginName %>-item>
+            <<%= pluginName %>-item>10</<%= pluginName %>-item>
+          </<%= pluginName %>-menu>
+        </<%= pluginName %>-dropdown-menu>
       </<%= tagName %>>
 
       <<%= tagName %> id="nested">
         <h2>Dialog Title</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <div class="buttons">
-          <<%= themeName %>-button data-dialog="innerDialog">Open nested dialog</<%= themeName %>-button>
+          <<%= pluginName %>-button data-dialog="innerDialog">Open nested dialog</<%= pluginName %>-button>
         </div>
       </<%= tagName %>>
 
@@ -116,8 +116,8 @@
 
     <section onclick="clickHandler(event)">
       <h4>Custom styling</h4>
-      <<%= themeName %>-button data-dialog="colors">colors</<%= themeName %>-button>
-      <<%= themeName %>-button data-dialog="position">size &amp; position</<%= themeName %>-button>
+      <<%= pluginName %>-button data-dialog="colors">colors</<%= pluginName %>-button>
+      <<%= pluginName %>-button data-dialog="position">size &amp; position</<%= pluginName %>-button>
 
       <<%= tagName %> id="colors" class="colored">
         <h2>Custom Colors</h2>
@@ -132,7 +132,7 @@
 
     <section onclick="clickHandler(event)">
       <h4>Transitions</h4>
-      <<%= themeName %>-button data-dialog="animated">transitions</<%= themeName %>-button>
+      <<%= pluginName %>-button data-dialog="animated">transitions</<%= pluginName %>-button>
       <<%= tagName %> id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
         <h2>Dialog Title</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

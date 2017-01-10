@@ -13,20 +13,20 @@
     <link rel="import" href="../../../../../bower_components/iron-image/iron-image.html">
     <link rel="import" href="../../../../../bower_components/paper-styles/color.html">
     <link rel="import" href="../../../../../bower_components/paper-styles/demo-pages.html">
-    <link rel="import" href="../../<%= themeName %>-button/<%= themeName %>-button.html">
-    <link rel="import" href="../../<%= themeName %>-icon-button/<%= themeName %>-icon-button.html">
-    <link rel="import" href="../../<%= themeName %>-item/<%= themeName %>-item.html">
-    <link rel="import" href="../../<%= themeName %>-menu/<%= themeName %>-menu.html">
+    <link rel="import" href="../../<%= pluginName %>-button/<%= pluginName %>-button.html">
+    <link rel="import" href="../../<%= pluginName %>-icon-button/<%= pluginName %>-icon-button.html">
+    <link rel="import" href="../../<%= pluginName %>-item/<%= pluginName %>-item.html">
+    <link rel="import" href="../../<%= pluginName %>-menu/<%= pluginName %>-menu.html">
     <link rel="import" href="../<%= tagName %>.html">
 
     <style>
-      <%= themeName %>-button {
+      <%= pluginName %>-button {
         display: block;
         background: #4285f4;
         color: #fff;
       }
 
-      <%= themeName %>-menu {
+      <%= pluginName %>-menu {
         display: block;
       }
 
@@ -55,12 +55,12 @@
           <h4>Icon Button + Menu</h4>
           <div class="horizontal-section">
             <<%= tagName %>>
-              <<%= themeName %>-icon-button icon="menu" class="dropdown-trigger" alt="menu"></<%= themeName %>-icon-button>
-              <<%= themeName %>-menu class="dropdown-content">
+              <<%= pluginName %>-icon-button icon="menu" class="dropdown-trigger" alt="menu"></<%= pluginName %>-icon-button>
+              <<%= pluginName %>-menu class="dropdown-content">
                 <template is="dom-repeat" items="[[letters]]" as="letter">
-                  <<%= themeName %>-item>[[letter]]</<%= themeName %>-item>
+                  <<%= pluginName %>-item>[[letter]]</<%= pluginName %>-item>
                 </template>
-              </<%= themeName %>-menu>
+              </<%= pluginName %>-menu>
             </<%= tagName %>>
           </div>
         </div>
@@ -71,12 +71,12 @@
           <h4>Menu with multi selection</h4>
           <div class="horizontal-section">
             <<%= tagName %> ignore-select>
-              <<%= themeName %>-icon-button icon="menu" class="dropdown-trigger" alt="multi select"></<%= themeName %>-icon-button>
-              <<%= themeName %>-menu class="dropdown-content" multi>
+              <<%= pluginName %>-icon-button icon="menu" class="dropdown-trigger" alt="multi select"></<%= pluginName %>-icon-button>
+              <<%= pluginName %>-menu class="dropdown-content" multi>
                 <template is="dom-repeat" items="[[letters]]" as="letter">
-                  <<%= themeName %>-item>[[letter]]</<%= themeName %>-item>
+                  <<%= pluginName %>-item>[[letter]]</<%= pluginName %>-item>
                 </template>
-              </<%= themeName %>-menu>
+              </<%= pluginName %>-menu>
             </<%= tagName %>>
           </div>
         </div>
@@ -87,12 +87,12 @@
           <h4>Disabled</h4>
           <div class="horizontal-section">
             <<%= tagName %> disabled>
-              <<%= themeName %>-icon-button icon="menu" class="dropdown-trigger" alt="menu"></<%= themeName %>-icon-button>
-              <<%= themeName %>-menu class="dropdown-content">
+              <<%= pluginName %>-icon-button icon="menu" class="dropdown-trigger" alt="menu"></<%= pluginName %>-icon-button>
+              <<%= pluginName %>-menu class="dropdown-content">
                 <template is="dom-repeat" items="[[letters]]" as="letter">
-                  <<%= themeName %>-item>[[letter]]</<%= themeName %>-item>
+                  <<%= pluginName %>-item>[[letter]]</<%= pluginName %>-item>
                 </template>
-              </<%= themeName %>-menu>
+              </<%= pluginName %>-menu>
             </<%= tagName %>>
           </div>
         </div>
@@ -103,12 +103,12 @@
           <h4>Alternate Alignment</h4>
           <div class="horizontal-section">
             <<%= tagName %> vertical-align="bottom" horizontal-align="right">
-              <<%= themeName %>-icon-button icon="menu" class="dropdown-trigger" alt="bottom align"></<%= themeName %>-icon-button>
-              <<%= themeName %>-menu class="dropdown-content">
+              <<%= pluginName %>-icon-button icon="menu" class="dropdown-trigger" alt="bottom align"></<%= pluginName %>-icon-button>
+              <<%= pluginName %>-menu class="dropdown-content">
                 <template is="dom-repeat" items="[[letters]]" as="letter">
-                  <<%= themeName %>-item>[[letter]]</<%= themeName %>-item>
+                  <<%= pluginName %>-item>[[letter]]</<%= pluginName %>-item>
                 </template>
-              </<%= themeName %>-menu>
+              </<%= pluginName %>-menu>
             </<%= tagName %>>
           </div>
         </div>
@@ -119,15 +119,15 @@
           <h4>Alternate Button</h4>
           <div class="horizontal-section">
             <<%= tagName %>>
-              <<%= themeName %>-button class="dropdown-trigger" raised>
+              <<%= pluginName %>-button class="dropdown-trigger" raised>
                 <koa-icon icon="check"></koa-icon>
                 <span>Dinosaurs</span>
-              </<%= themeName %>-button>
-              <<%= themeName %>-menu class="dropdown-content">
+              </<%= pluginName %>-button>
+              <<%= pluginName %>-menu class="dropdown-content">
                 <template is="dom-repeat" items="[[dinosaurs]]" as="dinosaur">
-                  <<%= themeName %>-item>[[dinosaur]]</<%= themeName %>-item>
+                  <<%= pluginName %>-item>[[dinosaur]]</<%= pluginName %>-item>
                 </template>
-              </<%= themeName %>-menu>
+              </<%= pluginName %>-menu>
             </<%= tagName %>>
           </div>
         </div>
@@ -138,7 +138,7 @@
           <h4>Alternate Content</h4>
           <div class="horizontal-section">
             <<%= tagName %> vertical-align="bottom">
-              <<%= themeName %>-icon-button class="dropdown-trigger" icon="polymer" alt="polymer"></<%= themeName %>-icon-button>
+              <<%= pluginName %>-icon-button class="dropdown-trigger" icon="polymer" alt="polymer"></<%= pluginName %>-icon-button>
               <iron-image class="dropdown-content" src="../../../../../bower_components/iron-image/demo/polymer.svg"></iron-image>
             </<%= tagName %>>
           </div>

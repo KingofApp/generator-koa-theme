@@ -11,7 +11,7 @@
 
     <link rel="import" href="../../../../../bower_components/paper-styles/color.html">
     <link rel="import" href="../../../../../bower_components/paper-styles/demo-pages.html">
-    <link rel="import" href="../../<%= themeName %>-button/<%= themeName %>-button.html">
+    <link rel="import" href="../../<%= pluginName %>-button/<%= pluginName %>-button.html">
     <link rel="import" href="../<%= tagName %>.html">
 
     <style is="custom-style">
@@ -51,7 +51,7 @@
       <h4>Progress bar</h4>
       <div class="vertical-section">
         <<%= tagName %>></<%= tagName %>>
-        <<%= themeName %>-button raised onclick="startProgress();">Start</<%= themeName %>-button>
+        <<%= pluginName %>-button raised onclick="startProgress();">Start</<%= pluginName %>-button>
       </div>
 
       <h4>Indeterminate</h4>
@@ -72,7 +72,7 @@
 
     <script>
       var progress = document.querySelector('<%= tagName %>');
-      var button = document.querySelector('<%= themeName %>-button');
+      var button = document.querySelector('<%= pluginName %>-button');
       var repeat, maxRepeat = 5, animating = false;
 
       function nextProgress() {
