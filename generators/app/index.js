@@ -25,7 +25,7 @@ module.exports = yeoman.Base.extend({
     this.option('categories',         {type: tools.parseCategories, desc: 'Categories (comma to split)', alias: 'c'});
 
     ['homepage', 'userName', 'spanishDescription', 'englishDescription', 'license', 'price'].forEach(function(id){
-      self[id] = decodeURI(self.options[id]);
+      self[id] = self.options[id] || '';
     });
     this.elements         = [];
     this.generatorVersion = 'v' + packageJson.version;
@@ -75,41 +75,42 @@ module.exports = yeoman.Base.extend({
     });
 
     themeInput.elements = [
-      {item: 'badge', position: 2},
-      {item: 'button', position: 3},
-      {item: 'card', position: 4},
-      {item: 'checkbox', position: 5},
-      {item: 'dialog', position: 6},
+      {item: 'badge',         position: 2},
+      {item: 'button',        position: 3},
+      {item: 'card',          position: 4},
+      {item: 'checkbox',      position: 5},
+      {item: 'dialog',        position: 6},
       {item: 'dropdown-menu', position: 8},
-      {item: 'grid', position: 10},
-      {item: 'icon-button', position: 11},
-      {item: 'item', position: 13},
-      {item: 'menu-button', position: 15},
-      {item: 'progress', position: 17},
-      {item: 'radio-button', position: 18},
-      {item: 'slider', position: 19},
-      {item: 'spinner', position: 20},
-      {item: 'tabs', position: 21},
+      {item: 'grid',          position: 10},
+      {item: 'icon-button',   position: 11},
+      {item: 'item',          position: 13},
+      {item: 'menu-button',   position: 15},
+      {item: 'progress',      position: 17},
+      {item: 'radio-button',  position: 18},
+      {item: 'slider',        position: 19},
+      {item: 'spinner',       position: 20},
+      {item: 'tabs',          position: 21},
       {item: 'toggle-button', position: 22},
-      {item: 'toolbar', position: 23}
+      {item: 'toolbar',       position: 23}
     ];
 
     var originalFiles = [
-      ['_bowerrc', 'bowerrc'],
-      ['_gitignore', '.gitignore'],
-      ['gulp-tasks/distribution.js', 'gulp-tasks/distribution.js'],
-      ['gulp-tasks/lint.js', 'gulp-tasks/lint.js'],
-      ['gulp-tasks/testing.js', 'gulp-tasks/testing.js'],
-      ['tests/protractor.conf.js', 'tests/protractor.conf.js']
+      ['_bowerrc',                    '.bowerrc'],
+      ['_gitignore',                  '.gitignore'],
+      ['Gulpfile.js',                 'Gulpfile.js'],
+      ['gulp-tasks/lint.js',          'gulp-tasks/lint.js'],
+      ['gulp-tasks/testing.js',       'gulp-tasks/testing.js'],
+      ['gulp-tasks/distribution.js',  'gulp-tasks/distribution.js'],
+      ['tests/protractor.conf.js',    'tests/protractor.conf.js']
     ];
 
     var templatedFiles = [
-      ['bower.json', 'bower.json'],
-      ['config.json', 'config.json'],
-      ['package.json', 'package.json'],
+      ['bower.json',                'bower.json'],
+      ['config.json',               'config.json'],
+      ['package.json',              'package.json'],
+      ['tests/e2e/spec.js',         'tests/e2e/spec.js'],
       ['gulp-tasks/integration.js', 'gulp-tasks/integration.js'],
-      ['tests/e2e/spec.js', 'tests/e2e/spec.js'],
-      ['koa-theme.html', this.themeKoaName + '.html']
+      ['koa-theme.html',             this.themeKoaName + '.html']
     ];
 
     originalFiles.forEach(function(originDestinyPair) {
@@ -161,32 +162,3 @@ module.exports = yeoman.Base.extend({
     this.installDependencies({npm: true, bower: false});
   }
 });
-
-/** Function that validate the theme name
-* @returns {String}
-*/
-function fixThemeName(name, ReplaceSymbol) {
-  name = name.toLowerCase().trim();
-  return name.replace(/ /g, ReplaceSymbol);
-}
-
-/** Function that validate the Categories
-* @returns {String}
-*/
-function fixThemeCategories(list) {
-  list = list.replace(/ /g, '').toLowerCase().trim();
-  var arrayCategories = list.split(',');
-  return JSON.stringify(arrayCategories);
-}
-
-/** Function that converts a string into camel case using javascript regex
- * @author Christian C. Salvadó
- * @see http://stackoverflow.com/questions/2970525/converting-any-string-into-camel-case
- * @param {string} user's input
- * @returns {string} camelCase
-*/
-function camelize(str) {
-  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (letter, index) {
-    return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
-  }).replace(/\s+/g, '');
-}
