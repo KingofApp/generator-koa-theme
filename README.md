@@ -10,14 +10,25 @@ First, install [Yeoman](http://yeoman.io) and generator-koapp-theme using [npm](
 
 ```bash
 npm install -g yo
+npm install -g gulp
 npm install -g generator-koapp-theme
 ```
 
 Generate your new theme:
 
 ```bash
-yo koapp-theme
+yo koapp-theme -n themeName
 ```
+
+Optionally, you can include the following flags:
+
+* `-u authorName`
+* `-w authorHomepage`
+* `-s spanishDescription`
+* `-e englishDescription`
+* `-p price`
+* `-l license`
+* `-c categories` separated by comma
 
 Then start your new theme:
 
