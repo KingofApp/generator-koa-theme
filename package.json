@@ -1,6 +1,6 @@
 {
   "name": "generator-koapp-theme",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "description": "Scaffold out a King of App theme",
   "license": "MIT",
   "main": "generators/app/index.js",
