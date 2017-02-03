@@ -15,24 +15,25 @@ module.exports = yeoman.Base.extend({
   init: function () {
     var self = this;
 
+    this.argument('pluginName',       {type: String, desc: 'Module name',         alias: 'n', required: true});
     this.option('homepage',           {type: String, desc: 'Author\'s homepage',  alias: 'w'});
-    this.option('pluginName',         {type: String, desc: 'Module name',         alias: 'n'});
     this.option('userName',           {type: String, desc: 'Author\'s name',      alias: 'u'});
     this.option('spanishDescription', {type: String, desc: 'Spanish description', alias: 's'});
     this.option('englishDescription', {type: String, desc: 'English description', alias: 'e'});
-    this.option('price',              {type: Number, desc: 'Price',               alias: 'p'});
+    this.option('price',              {type: Number, desc: 'Price',               alias: 'p', default: 0});
     this.option('license',            {type: String, desc: 'License',             alias: 'l', default: 'MIT'});
     this.option('categories',         {type: tools.parseCategories, desc: 'Categories (comma to split)', alias: 'c'});
 
     ['homepage', 'userName', 'spanishDescription', 'englishDescription', 'license', 'price'].forEach(function(id){
       self[id] = self.options[id] || '';
     });
+    var pluginName = this.arguments[0].toLowerCase();
     this.elements         = [];
     this.generatorVersion = 'v' + packageJson.version;
-    this.categories       = tools.fixPluginCategories(this.options.categories || '');
-    this.pluginName       = tools.fixPluginName(this.options.pluginName, '-');
-    this.varpluginName    = tools.camelize(this.options.pluginName);
-    this.themeKoaName     = 'koapp-theme-' + this.pluginName;
+    this.categories       = tools.fixPluginCategories(this.options.categories || 'others');
+    this.pluginName       = tools.fixPluginName(pluginName, '-');
+    this.varpluginName    = tools.camelize(pluginName);
+    this.themeKoaName     = 'koapp-theme-' + pluginName;
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
   },
 
