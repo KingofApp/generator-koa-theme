@@ -20,7 +20,7 @@ npm install -g generator-koapp-theme
 Generate your new theme:
 
 ```bash
-yo koapp-theme -n themeName
+yo koapp-theme themeName
 ```
 
 Optionally, you can include the following flags:

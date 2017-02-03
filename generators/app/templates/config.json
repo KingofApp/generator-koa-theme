@@ -5,7 +5,7 @@
     "es-ES": "<%- spanishDescription %>",
     "en-US": "<%- englishDescription %>"
   },
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "<%- userName %>",
   "category": <%- categories %>,
   "price": <%- price %>,
