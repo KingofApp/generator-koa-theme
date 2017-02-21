@@ -27,6 +27,7 @@ module.exports = yeoman.Base.extend({
     ['homepage', 'userName', 'spanishDescription', 'englishDescription', 'license', 'price'].forEach(function(id){
       self[id] = self.options[id] || '';
     });
+    if(!self.price) self.price = 0;
     var pluginName = this.arguments[0].toLowerCase();
     this.elements         = [];
     this.generatorVersion = 'v' + packageJson.version;

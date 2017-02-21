@@ -79,7 +79,7 @@ npm link
 
 - Execute it
 ```bash
-yo
+yo koapp-theme themeName
 ```
 
 - Test your changes ;-)
