@@ -4,7 +4,7 @@
   "description": "Scaffold out a King of App theme",
   "license": "MIT",
   "main": "generators/app/index.js",
-  "author": "Abdón Rodríguez Davila <thepeer@kingofapp.es>",
+  "author": "King of App",
   "homepage": "https://github.com/KingofApp/generator-koapp-theme",
   "contributors": [
     {
@@ -16,6 +16,11 @@
       "name": "Fran Quesada",
       "email": "pacoquesmun@gmail.com",
       "url": "https://github.com/totegsito"
+    },
+    {
+      "name": "Abdón Rodríguez Davila",
+      "email": "",
+      "url": "https://abdonrd.com/"
     }
   ],
   "files": [

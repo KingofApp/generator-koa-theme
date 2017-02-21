@@ -34,5 +34,5 @@
   },
   "author": "<%- userName %>",
   "license": "<%- license %>",
-  "keywords": ["koapp", "koapp module", "king of app"]
+  "keywords": ["koapp", "koapp theme", "king of app"]
 }
