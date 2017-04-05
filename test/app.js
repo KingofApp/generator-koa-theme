@@ -5,9 +5,9 @@ var helpers = require('yeoman-test');
 
 describe('generator-koapp-Theme:app', function () {
   this.timeout(15000);
+  var themeName = '   new theme';
 
   var anwsers = {
-    pluginName: '   new theme',
     userName: 'Yo Mismo',
     spanishDescription: 'Mi nuevo tema',
     englishDescription: 'My new theme',
@@ -26,16 +26,16 @@ describe('generator-koapp-Theme:app', function () {
     englishDescription: 'My new theme',
     license: 'MIT',
     categories: ['themes', 'documentation', 'demo'],
-    price: 0,
-    generatorVersion: 'v0.15.0'
+    price: 0
   };
 
   anwsersExpected.themeKoaName = 'koapp-theme-' + anwsersExpected.pluginName;
 
-  before(function () {
+  before(function (done) {
     return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts(anwsers)
-      .toPromise();
+      .withArguments([themeName])
+      .withOptions(anwsers)
+      .on('end', done);
   });
 
   var filesCreated = [
@@ -97,7 +97,7 @@ describe('generator-koapp-Theme:app', function () {
     'gulp-tasks/testing.js',
     'tests/protractor.conf.js',
     'tests/e2e/spec.js',
-    'koapp-theme-' + anwsersExpected.pluginName + '.html'
+    anwsersExpected.themeKoaName + '.html'
   ];
 
   filesCreated.forEach(function (file) {
