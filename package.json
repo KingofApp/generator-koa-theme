@@ -1,6 +1,6 @@
 {
   "name": "generator-koapp-theme",
-  "version": "0.15.5",
+  "version": "0.15.6",
   "description": "Scaffold out a King of App theme",
   "license": "MIT",
   "main": "generators/app/index.js",
@@ -34,10 +34,8 @@
     "koapp-module"
   ],
   "dependencies": {
-    "chalk": "^1.1.3",
-    "koapp": "0.0.6",
+    "koapp": "^0.2.3",
     "yeoman-generator": "^0.24.1",
-    "yosay": "^1.2.1"
   },
   "devDependencies": {
     "eslint": "3.8.1",
