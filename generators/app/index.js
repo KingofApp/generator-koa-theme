@@ -20,7 +20,7 @@ module.exports = yeoman.Base.extend({
     this.option('englishDescription', {type: String, desc: 'English description', alias: 'e'});
     this.option('price', {type: Number, desc: 'Price', alias: 'p', default: 0});
     this.option('license', {type: String, desc: 'License', alias: 'l', default: 'MIT'});
-    this.option('categories', {type: tools.parseCategories, desc: 'Categories (comma to split)', alias: 'c'});
+    this.option('categories', {type: parseCategories, desc: 'Categories (comma to split)', alias: 'c'});
 
     ['homepage', 'userName', 'spanishDescription', 'englishDescription', 'license', 'price'].forEach(function (id) {
       self[id] = self.options[id] || '';
@@ -36,6 +36,10 @@ module.exports = yeoman.Base.extend({
     this.varpluginName = tools.camelize(pluginName);
     this.themeKoaName = 'koapp-theme-' + this.pluginName;
     this.destinationRoot(this.destinationPath() + '/' + this.themeKoaName);
+
+    function parseCategories(input) {
+      self.options.categories = input.split(',');
+    }
   },
 
   getElementsTree: function () {
